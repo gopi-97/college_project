@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ClientRegi as cr, ClientLogin as cl
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import  login, logout
+from .backends import ClientBackend
 from django.core.mail import send_mail,BadHeaderError
 from django.contrib import messages
 from .models import Client
@@ -10,9 +11,9 @@ import string
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home/home.html')
 
-
+#userid generator
 def generate_userid():
     chars = string.ascii_letters + string.digits
     id = "".join(random.choice(chars) for _ in range(10)) #generator function
@@ -64,24 +65,36 @@ def registrationForm(request):
     else:
         form = cr()
 
-    return render(request, 'registration.html', {'form': form})
+    return render(request, 'manage_account/registration.html', {'form': form})
+
+# modify this function to generate precise error feedback
+def generate_message(request,error):
+    # Iterate through stored messages and discard them
+        for message in messages.get_messages(request):
+           pass
+        messages.error(request,error)
 
 def loginForm(request):
-    if request.method == 'POST':
-        userid = request.POST.get('userid')
-        password = request.POST.get('password')
-        usertype=request.POST.get('usertype')
-        user=Client.objects.filter(userid=userid)
-        userobject = authenticate(userid=userid, password=password)
-        if userobject is not None:
-            if usertype=='Farmer':
-                login(request, userobject)
-                return redirect('home')
+    try:
+       
+        if request.method == 'POST':
+            userid = request.POST['userid']
+            password = request.POST['password']
+            #calling the custom backend function
+            user=ClientBackend().authenticate(username=userid, password=password)
+            if user is not None:
+                # Specify the backend explicitly when calling login() as we are using custom authentication backend 
+                login(request, user,backend='manage_account.backends.ClientBackend')
+                messages.success(request, 'Login successful.')
+                return redirect('home') 
             else:
-                pass
+                generate_message(request,"INVALID CREDENTIALS!!")
         else:
-            messages.error(request, 'Invalid credentials')
-    return render(request, 'login.html', {'form': cl()})
+            pass
+    except Exception as e:
+        generate_message(request,e)
+
+    return render(request, 'manage_account/login.html', {'form': cl()})
 
 def logoutUser(request):
     request.session.flush()

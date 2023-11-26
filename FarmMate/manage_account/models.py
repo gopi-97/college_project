@@ -29,8 +29,10 @@ class ClientManager(BaseUserManager):
 
 # Custom user model inheriting from AbstractUser and PermissionsMixin
 class Client(AbstractUser, PermissionsMixin):
-    # Custom field for User ID with max length 12, acting as the primary key
+    
+    # field User ID with max length 12, acting as the primary key
     userid = models.CharField(max_length=12, primary_key=True)
+
     # Additional fields like username, first_name, last_name, etc.
     username = models.CharField(max_length=12, default='user')
     first_name = models.CharField(max_length=30, blank=True)
@@ -68,7 +70,6 @@ class Client(AbstractUser, PermissionsMixin):
         related_query_name='client',
     )
 
-    # A string representation of the user (in this case, the User ID)
     def __str__(self):
         return self.userid
 
