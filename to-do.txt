@@ -1,0 +1,20 @@
+✅completed     
+❌ not completed
+
+
+
+
+
+
+🔴optional features but important features:
+        forgot password setup ❌
+        custom user ❌
+        authentication system ❌
+        session management ❌
+        password hashing ❌
+
+
+
+🔵 Not important but adds sturcture:
+
+organising view functions inside classes ❌
