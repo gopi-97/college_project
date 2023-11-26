@@ -8,8 +8,8 @@
 
 🔴optional features but important features:
         forgot password setup ❌
-        custom user ❌
-        authentication system ❌
+        custom user ✅
+        authentication system ✅
         session management ❌
         password hashing ❌
 
