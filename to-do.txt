@@ -7,11 +7,14 @@
 
 
 🔴optional features but important features:
+        resizing the templates❌
+        dry principle❌
+        responsive❌
         forgot password setup ❌
         custom user ✅
         authentication system ✅
         session management ❌
-        password hashing ❌
+        password hashing ✅
 
 
 
