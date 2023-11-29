@@ -1,0 +1,411 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.dashboard {
+  width: 100%;
+  height: 2650px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.aside {
+  width: 137px;
+  height: 2650px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 53px;
+  overflow: hidden;
+}
+.navbar {
+  width: 100%;
+  height: 62px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 76px;
+  left: 245px;
+  overflow: hidden;
+}
+.icon-container{
+  top:12px;
+  image-rendering: auto;
+  object-fit: contain;
+  width: 60px;
+  height: 45px;
+
+}
+.notification-icon {
+ 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top:3px;
+  left: 750px;
+  overflow: hidden;
+}
+
+.profile-image {
+  /* border-radius: 100%; */
+  border-top-left-radius: 100px; 
+  border-bottom-left-radius: 100px; 
+  border-top-right-radius: 100px; 
+  border-bottom-right-radius: 100px;
+  top:11px;
+  width: 55px;
+  height: 50px;
+  opacity: 1;
+  position: absolute;
+  left: 876px;
+  overflow: hidden;
+}
+
+.search-container {
+  top:13px;
+  position: relative;
+  width: 50%; /* Adjust as needed */
+  height: 45px;
+
+}
+
+.search-bar {
+  height: 100%;
+  width: calc(100% - 40px); /* Adjust based on the icon size */
+  border-top-left-radius: 25px; 
+  border-bottom-left-radius: 25px; 
+  border-top-right-radius: 25px; 
+  border-bottom-right-radius: 25px; 
+  font-size: 20px;
+  padding-left: 10px; /* Adjust to provide space for the icon */
+}
+
+.search-icon {
+  position: absolute;
+  right: 55px; /* Adjust to position the icon */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Adjust icon size as needed */
+  height: 40px;
+}
+
+.button {
+  width: max-content;
+  height:70%;
+  background-color:#1EDD25;
+  color:#fff;
+  position:absolute;
+  border:none;
+  font-family:Roboto,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  font-size: medium;
+  font-weight:600;
+}
+
+.logout{
+  font-size:large ;
+  top: 13px;
+  left: 981px;
+  
+}
+
+.farm-stats{
+  width: 100%;
+  height: 1264px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 258px;
+  left: 230px;
+  overflow: hidden;
+}
+h1 {
+  width: 364px;
+  color: rgba(0,0,0,1);
+  position: relative;
+  font-family: Roboto,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: SemiBold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: left;
+}
+
+.product-viz {
+  width: 500px;
+  height: 238px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 130px;
+  left: 619px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+
+.revenue-viz{
+  width: 500px;
+  height: 238px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 461px;
+  left: 619px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+
+.coming-soon {
+  image-rendering: auto;
+  object-fit: contain;
+}
+.image{
+  top:50px;
+  width: 100%;
+  height: auto;
+  left:60px;
+  opacity: 1;
+  position: absolute;
+}
+.image2{
+  top:80px;
+  width: 60%;
+  height: auto;
+  left:111px;
+  opacity: 1;
+  position: absolute;
+}
+
+.total-products {
+  width: 214px;
+  height: 180px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 130px;
+  left: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+
+.value{
+font-size: large;
+font-weight: 500;
+}
+
+.add-product{
+  width: 133px;
+  height: 50px;
+  opacity: 1;
+  position: absolute;
+  top: 120px;
+  left: 50px;
+  overflow: hidden;
+ 
+}
+.field-size {
+  width: 180px;
+  height: 180px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 130px;
+  left:300px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.add-new-field{
+  width: 133px;
+  height: 50px;
+  opacity: 1;
+  position: absolute;
+  top: 120px;
+  left: 50px;
+  overflow: hidden;
+ 
+}
+h2 {
+  width:max-content;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  left:calc(25% - 25px);
+  font-family: Outfit;
+  font-weight: SemiBold;
+  font-size: 28px;
+  opacity: 1;
+  text-align: left;
+}
+
+
+
+.to-do-list {
+  width: 581px;
+  height: 287px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 384px;
+  left: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+
+.inventory {
+  width: 704px;
+  height: 450px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 753px;
+  left: 127px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+
+}
+
+.inventory-image-container-1 {
+  width: 193px;
+  height: 174px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 113px;
+  left: 30px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.inventory-values-1{
+  left:30px;
+  top:300px;
+  position:absolute;
+}
+.inventory-image-container-2 {
+  width: 193px;
+  height: 174px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 113px;
+  left: 250px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.inventory-values-2{
+  left:250px;
+  top:300px;
+  position:absolute;
+}
+.inventory-image-container-3 {
+  width: 193px;
+  height: 174px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 113px;
+  left: 470px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.inventory-values-3{
+  left:470px;
+  top:300px;
+  position:absolute;
+}
+.arrow {
+  position: absolute;
+  bottom: 30px; /* Adjust the bottom spacing as needed */
+  left: 50%; /* Center the arrow container horizontally */
+  transform: translateX(-50%); /* Move the container back by half its width */
+  display: flex;
+  justify-content: space-between; /* Ensure the arrows are spaced apart */
+  width: 100px; /* Set the total width based on your arrow icons */
+}
+.arrow-button{
+  border:none;
+}
+
+.arrow img {
+  width: 30px; /* Adjust this to fit your icon size */
+  height: auto; /* Maintain aspect ratio */
+  /* Additional styles for your arrow icons if needed */
+}
+label{
+  font-family: Outfit,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: arge;
+  font-weight: Regular;
+}
+.input{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none;
+  width:90px;
+}
+.activities {
+  width: 950px;
+  height: 588px;
+  background-size: cover;
+  padding: 43px 28px;
+  margin: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 1605px;
+  left: 200px;
+  overflow: hidden;
+}
+
+.activities-container {
+  width: 581px;
+  height: 287px;
+  background: rgba(217,217,217,0.4000000059604645);
+  opacity: 1;
+  position: absolute;
+  top: 160px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
