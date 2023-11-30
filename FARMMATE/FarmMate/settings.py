@@ -45,6 +45,7 @@ EXTERNAL_APPS=[
     'manage_account',
     'home', 
     'django_bootstrap5', 
+    'dashboard',
 ]
 
 INSTALLED_APPS+=EXTERNAL_APPS
