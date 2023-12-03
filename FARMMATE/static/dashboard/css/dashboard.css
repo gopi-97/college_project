@@ -226,6 +226,23 @@ font-weight: 500;
   overflow: hidden;
  
 }
+
+section{
+  width:max-content;
+  height:auto;
+  background-color: bisque;
+  border: black;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+}
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
 .field-size {
   width: 180px;
   height: 180px;

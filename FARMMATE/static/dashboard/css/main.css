@@ -116,6 +116,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  padding-bottom:5%;
 }
 
 .right-section .launch-button button {
