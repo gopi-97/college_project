@@ -33,7 +33,7 @@
               <img  src="{% static 'dashboard/images/notification.icon.svg' %}"  alt="icon" class="notification-icon">
             </div>
 
-            <button class="button logout" type="button">
+            <button class="button logout" type="button" onclick="logout()">
                 logout
             </button>
 
@@ -69,9 +69,23 @@
             <div class="total-products">
                 <h2>Total Products</h2>
                 <div class="add-product">
-                    <button class="button" type="button">Add Product</button>
+                    <button class="button" type="button" onclick="openPopup()">Add Product</button>
                 </div>
+               
             </div>
+            <section id="popupForm" style="display: none;">
+                <!-- Your form goes here -->
+                <span class="overlay">
+                    
+                    <form id="productForm" method="POST" action="{% url 'add-product' %}">
+                        {% csrf_token %}
+                        <!-- Form fields -->
+                        <input type="text" name="product" placeholder="Product Name"><br>
+                        <textarea name="description" placeholder="Description"></textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </span>
+            </section>
 
             <div class="field-size">
                 <h2>Field size</h2>
@@ -119,6 +133,8 @@
 
           
         </div>
+        
+
 
         <div class="activities">
             <h1>Activities</h1>
@@ -132,3 +148,13 @@
 </body>
 
 </html>
+
+<script>
+    function logout(){
+        window.location.href="{% url 'logout' %}";
+    }
+       function openPopup() {
+    var popup = document.getElementById("popupForm");
+    popup.style.display = "block";
+}
+</script>
