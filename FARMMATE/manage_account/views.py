@@ -11,7 +11,7 @@ import string
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    return render(request, 'home/home.html')
+    return render(request, 'dashboard/home.html')
 
 #userid generator
 def generate_userid():
