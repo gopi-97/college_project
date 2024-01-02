@@ -1,74 +1,48 @@
 from django import forms
-from .models import Client
+from .models import Farmer
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm,AuthenticationForm
+from .custom_exceptions import USERNAMEEXISTS
+class FarmerRegistrationForm(UserCreationForm):
 
-class ClientRegi(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''  # Remove password help text
+        self.fields['password2'].help_text = ''  # Remove password help text
+
+    def save(self, commit=True,*args, **kwargs):
+        # Check if the username already exists
+        username = self.cleaned_data['username']
+        if Farmer.objects.filter(username=username).exists():
+            raise USERNAMEEXISTS("Username already exists.")
+
+        return super().save(commit=commit,*args, **kwargs)
+    
 
     class Meta:
-        model = Client  
-        fields = ['first_name', 'last_name', 'password', 'usertype', 'phone_number', 'email', 'company', 'address']
+        model = Farmer
+        fields = ['username','full_name','password1','password2','phone_number', 'email', 'company', 'address']
         attrs = {'class': 'register_form'}
-
+        widgets={'username':forms.TextInput(attrs={'placeholder': 'Username', 'name' :'user_name', 'id': 'id_user_name', 'class': 'name'}),
+                'full_name':forms.TextInput(attrs={'placeholder': 'First name', 'name' :'first_name', 'id': 'id_full_name', 'class': 'name'}),
+                'password1' : forms.PasswordInput( attrs={'placeholder': 'Password', 'name': 'password', 'id': 'password'}),
+                'password2' : forms.PasswordInput( attrs={'placeholder': 'Confirm Password', 'name': 'password', 'id': 'confirm_password'}),
+                'phone_number':forms.TextInput(attrs={'placeholder': 'Password', 'name': 'phone_number', 'value':'+91', 'id' : 'id_phone_number'}),
+                'email':forms.EmailInput(attrs={'placeholder': 'enter email', 'id': 'id_email', 'placeholder': 'Email', 'name': 'email'}),
+                'company':forms.TextInput(attrs={'placeholder': 'Company', 'name': 'company', 'id': 'id_company'}),
+                'address':forms.Textarea(attrs={'placeholder': 'Address', 'name':'address', 'cols': 40, 'rows': 10, 'id': 'id_address'}),
+        }
     message=forms.ValidationError("form cannot be validated,please try again")
-   
-    first_name = forms.CharField(
-        max_length=30,
-        widget=forms.TextInput(attrs={'placeholder': 'First name', 'name' :'first_name', 'id': 'id_first_name', 'class': 'name'})
-    )
 
 
-    last_name = forms.CharField(
-        max_length=30,
-        widget=forms.TextInput(attrs={'placeholder': 'Last name', 'name' :'last_name', 'id': 'id_first_name', 'class': 'name'})
-    )
-
-
-    password = forms.CharField(
-        max_length=128,
-        widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'name': 'password', 'id': 'id_password'})
-    )
-
-    USER_TYPES = [
-        ('farmer', 'Farmer'),
-        ('merchant', 'Merchant'),
-    ]
-    usertype = forms.ChoiceField(
-        choices=USER_TYPES, 
-        widget=forms.Select(attrs={'class': 'choice'})
-    )
-
-
-    phone_number=forms.CharField(
-        max_length=20,
-        widget=forms.TextInput(attrs={'placeholder': 'Password', 'name': 'phone_number', 'value':'+91', 'id' : 'id_phone_number'})
-    )
-
-
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'placeholder': 'enter email', 'id': 'id_email', 'placeholder': 'Email', 'name': 'email'})
-    )
-
-
-    company=forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'placeholder': 'Company', 'name': 'company', 'id': 'id_company'})
-    )
-    address=forms.CharField(
-        max_length=300,
-        widget=forms.Textarea(attrs={'placeholder': 'Address', 'name':'address', 'cols': 40, 'rows': 10, 'id': 'id_address'})
-    )
-
-
-class ClientLogin(forms.ModelForm):
+class FarmerLoginForm(AuthenticationForm):
     class Meta:            
-        model=Client
-        fields=['userid','usertype','password']
+        model=Farmer
+        fields=['username','password']
         attrs={'class': 'login-form'}
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Enter username', 'id': 'username'}),
+            'password': forms.PasswordInput(attrs={'placeholder': 'Enter password', 'id': 'password'}),
+        }
 
-    userid=forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={'placeholder': 'enter userid', 'name': 'userid', 'id': 'userid'})
-    )
-    password=forms.CharField(
-        max_length=100,
-        widget=forms.PasswordInput(attrs={'placeholder': 'enter password', 'name': 'password', 'id': 'password'})
-    )
+        
