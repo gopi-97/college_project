@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lucida+Sans+Unicode&display=swap" rel="stylesheet" />
+        {% load static %}
+        <link href="{% static 'dashboard/css/main.css' %}" rel="stylesheet" />
+        <title>Document</title>
+    </head>
+        
+    <body>
+        <div class="main-container">
+            <div class="left-section">
+                <div class="title">
+                    <span>Farming Futures, Digitally Delivered</span>
+                </div>
+                <div class="image-container">
+                    <div class="inner-left-section"></div>
+                    <div class="inner-right-section"></div>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="logo">
+                    <span>FarmMate</span>
+                    <div class="launch-button">
+                        <div class="button-inner"></div>
+                        <a href='{% url "dashboard" %}'><button>launch</button></a>
+                    </div>
+                </div>
+                <span class="back-to-login">Go back to login?</span>
+                <div class="login-section">
+                    <div class="login-inner">  
+                        <div class="login-button">
+                            <div class="button-inner"></div>
+                            <button onclick="logout()"><a href="{% url 'userlogin' %}">login</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    function logout(){
+        window.location.href="{% url 'logout' %}";
+    }
+</script>

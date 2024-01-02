@@ -1,0 +1,30 @@
+
+{% load static %}
+  <!-- aside bar -->
+
+  <aside class="aside">
+
+  </aside>
+
+  <!-- top navbar -->
+
+  <nav class="navbar">
+
+      <div class="search-container">
+          <input class="search-bar" type="text" placeholder="Search">
+          <img src="{% static 'dashboard/images/search.svg' %}" class="search-icon">
+      </div>
+      <div class="main-container">
+          <div class="icon-container">
+              <img src="{% static 'dashboard/images/notification.icon.svg' %}" alt="icon"
+                  class="notification-icon">
+          </div>
+          <div class="icon-container">
+              <img src="{% static 'dashboard/images/logo.png' %}" alt="image" class="profile-image">
+          </div>
+          <button class="button logout" type="button" onclick="logout()">
+              logout
+          </button>
+      </div>
+
+  </nav>
