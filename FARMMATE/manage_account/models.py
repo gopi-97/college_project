@@ -1,75 +1,62 @@
-# Importing necessary modules from Django
-from django.contrib.auth.models import AbstractUser, PermissionsMixin, BaseUserManager, Group, Permission
+from typing import Any
+from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
+from django.contrib.auth.models import UserManager
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils import timezone
 
-# Creating a custom user manager for the Client model
-class ClientManager(BaseUserManager):
-    # Method to create a regular user
-    def create_user(self, userid, password=None, **extra_fields):
-        if not userid:
-            raise ValueError('The User ID field must be set')
-        # Creating a new user instance
-        user = self.model(userid=userid, **extra_fields)
+class FarmerManager(UserManager):
+
+    def _create_user(self, username: str, password: str | None = ..., **extra_fields: Any) -> Any:
+        if not username:
+            raise ValueError('username not provided')
+        
+        # email = self.normalize_email(email)
+        user = self.model(username=username,**extra_fields)
         user.set_password(password)
         user.save(using=self._db)
+        
         return user
-
-    # Method to create a superuser
-    def create_superuser(self, userid, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-
-        if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
-        if extra_fields.get('is_superuser') is not True:
-            raise ValueError('Superuser must have is_superuser=True.')
-
-        return self.create_user(userid, password, **extra_fields)
-
-# Custom user model inheriting from AbstractUser and PermissionsMixin
-class Client(AbstractUser, PermissionsMixin):
     
-    # field User ID with max length 12, acting as the primary key
-    userid = models.CharField(max_length=12, primary_key=True)
+    def create_user(self,username=None,password=None,**extra_fields):
+        extra_fields.setdefault('is_staff',False)#setting default value of is_staff as False so that regular user doesnt become staff
+        extra_fields.setdefault('is_superuser',False)
+        return self._create_user(username,password,**extra_fields)
 
-    # Additional fields like username, first_name, last_name, etc.
-    username = models.CharField(max_length=12, default='user')
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=30, blank=True)
-    usertype = models.CharField(max_length=30, blank=False)
+    def create_superuser(self,username=None,password=None,**extra_fields):
+        extra_fields.setdefault('is_staff',True)
+        extra_fields.setdefault('is_superuser',True)
+        return self._create_user(username,password,**extra_fields)
+    
+
+class Farmer(AbstractBaseUser,PermissionsMixin):
+    username = models.CharField(primary_key=True,max_length=12,unique=True,blank=False)
+    full_name = models.CharField(max_length=30, blank=False)
     phone_number = models.CharField(max_length=17, blank=True)
     email = models.EmailField(unique=False, blank=False)
     company = models.CharField(max_length=100, blank=True)
     address = models.TextField(max_length=300, blank=True)
-    is_active = models.BooleanField(default=True)
+
+    is_active = models.BooleanField(default=True)#newly created user will be active so that they can login without the procedure
+    is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(default=timezone.now)
+    last_login = models.DateTimeField(blank=True,null=True)
 
-    # Using the custom manager defined above
-    objects = ClientManager()
+    objects = FarmerManager()# whenever we use the Objects. method to access db_data then django overrides default objects with this one
+    USERNAME_FIELD ='username'
+    EMAIL_FIELD ='email'
+    REQUIRED_FIELDS = ['full_name','email']
 
-    # Specifying the field to be used as the username for authentication
-    USERNAME_FIELD = 'userid'
-    # Additional required fields for creating a user
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'usertype']
+    class Meta:
+        verbose_name = 'Farmer'
+        verbose_name_plural = 'Farmers'
 
-    # Many-to-Many relationship with Groups and Permissions
-    groups = models.ManyToManyField(
-        Group,
-        verbose_name=_('groups'),
-        blank=True,
-        related_name='client_set',  # Added related_name
-        related_query_name='client',
-    )
-
-    user_permissions = models.ManyToManyField(
-        Permission,
-        verbose_name=_('user permissions'),
-        blank=True,
-        related_name='client_set',  # Added related_name
-        related_query_name='client',
-    )
-
-    def __str__(self):
-        return self.userid
-
+    def get_full_name(self):
+        return self.full_name
+    
+    def get_short_name(self):
+        return self.full_name or self.email.split('@')[0]
+    
+    def __str__(self) -> str:
+       return self.username
+    
