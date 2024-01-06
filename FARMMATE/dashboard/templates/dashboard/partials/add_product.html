@@ -1,21 +1,23 @@
 
+{% load static %}
 <div>
     <h1>My Farm Stats</h1>
 </div>
 <div class="total-products">
-    <h2>Total Products</h2>
+    <h2>Total Cultivations</h2>
 
     <div class="add-product">
 
         <section class="section1">
-            <button class="show-modal">new</button>
+            <button class="show-modal new-button">new</button>
+           <a href="{% url 'cultivation-list' %}"> <button class="details-button">details</button></a>
             <span class="overlay"></span>
     
             <div class="modal-box">
 
                 <button class="close-btn">
                     <div class="material-symbols-outlined ">
-                        close
+                        X
                     </div>
                 </button>
 
@@ -24,9 +26,6 @@
                         {% csrf_token %}
                         <label for="product">Product:</label>
                         <input type="text" id="product" name="product" required><br><br>
-                
-                        <label for="status">Status:</label>
-                        <input type="text" id="status" name="status" required><br><br>
                 
                         <label for="location">Location:</label>
                         <input type="text" id="location" name="location" required><br><br>

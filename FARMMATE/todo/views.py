@@ -17,6 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin #prevents users who ar
 class TaskList(LoginRequiredMixin,ListView):
     model=Tasks
     context_object_name='tasks'
+    template_name = 'todo/tasks_list.html'
 
     def get_queryset(self):
         # Filter tasks related to the logged-in user

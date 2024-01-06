@@ -1,0 +1,8 @@
+<h1>cultivation Update form</h1>
+<form action="" method="post">
+    {% csrf_token %}
+     {{ form.as_p }} <!-- as_p organises form as paragraph -->
+     <input type="submit" value="save">
+</form>
+<a href="{% url 'cultivation-detail' cultivation.id %}">go back to details</a>
+<a href="{% url 'cultivation-list' %}">go back to list</a>

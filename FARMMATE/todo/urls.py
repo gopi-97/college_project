@@ -3,7 +3,7 @@ from .views import *
 from django.contrib.auth.views import LogoutView
 
 urlpatterns=[
-    path('task/list/',TaskList.as_view(),name='tasks'),#home url
+    path('tasklist/',TaskList.as_view(),name='tasks'),#home url
     path('task/<int:pk>/',TaskDetail.as_view(),name='tasks-detail'),
     path('task-create/',TaskCreate.as_view(),name='task-create'),
     path('task-update/<int:pk>/',TaskUpdate.as_view(),name='task-update'),

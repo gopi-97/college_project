@@ -140,6 +140,19 @@ body {
   top: 125px;
    
 }
+.details-button{
+  position:absolute;
+  top:-20px;
+  left:130px;
+  width:80px;
+  padding-inline:5px;
+}
+.new-button{
+  position:relative;
+  margin-top:4px;
+  margin-left:45px;
+  padding-inline:20px;
+}
 .field-size {
   width: calc(100% - 200px);
   max-width: 200px;
@@ -303,7 +316,7 @@ font-weight: 500;
   padding-inline:30px;
   left:160px;
   width: 581px;
-  height: 287px;
+  height: 500px;
   background: rgba(217,217,217,0.4000000059604645);
   opacity: 1;
   position: absolute;
@@ -480,6 +493,20 @@ label{
   .farm-stats{
     left:2vw;
   }
+
+  .details-button{
+    position:absolute;
+    top:-20px;
+    left:130px;
+    width:80px;
+    padding-inline:5px;
+  }
+  .new-button{
+    position:relative;
+    margin-top:4px;
+    margin-left:45px;
+    padding-inline:20px;
+  }
   
   .product-viz{
     image-rendering:auto;
@@ -493,6 +520,7 @@ label{
   padding-inline:30px;
   position:absolute;
   top:1100px;
+  height:500px;
 }
  
 }
@@ -527,6 +555,19 @@ label{
 .total-products{
   top:150px;
 }
+.details-button{
+  position:absolute;
+  top:-20px;
+  left:60px;
+  width:80px;
+  padding-inline:5px;
+}
+.new-button{
+  position:relative;
+  margin-top:4px;
+  margin-left:40px;
+  padding-inline:20px;
+}
 section{
   width:300px;
   
@@ -548,5 +589,6 @@ section{
   position:absolute;
   top:1200px;
   left:500px;
+  height: 500px;
 }
 }

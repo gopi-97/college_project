@@ -1,0 +1,39 @@
+
+<!-- cultivation_detail.html -->
+
+<h1>Cultivation Details</h1>
+
+<table>
+    <tr>
+        <td>Product: {{ cultivation.product }}</td>
+    </tr>
+    <tr>
+        <td>Status: {{ cultivation.status }}</td>
+    </tr>
+    <tr>
+        <td>Cultivated Area: {{ cultivation.cultivated_area }}</td>
+    </tr>
+    <tr>
+        <td>Start Date: {{ cultivation.start_date }}</td>
+    </tr>
+    {% if cultivation.harvested_date %}
+        <tr>
+            <td>Harvested on: {{ cultivation.harvested_date }}</td>
+        </tr>
+    {% else %}
+        <tr></tr>
+        <tr>
+            <td>Not harvested</td>
+        </tr>
+    {% endif %}
+    <tr>
+        <td>Description: <p>{{ cultivation.description }}</p></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'cultivation-update'  cultivation.id %}">update</a></td>
+    </tr>
+</table>
+
+<br><br>
+
+<a href="{% url 'cultivation-list' %}">go back</a>

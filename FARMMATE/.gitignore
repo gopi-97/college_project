@@ -1,8 +1,8 @@
-myenv/*
+
 .env
 dashboard/__pycache__
 dashboard/migrations/__pycache__
-FarmMate/__pycache__
+Farmmate/__pycache__
 manage_account/__pycache__
 manage_account/migrations/__pycache__
 todo/__pycache__

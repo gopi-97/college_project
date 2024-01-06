@@ -1,35 +1,28 @@
 
-<div class='to-do-list'>
     <h1>To-Do List </h1>
     <!-- searchbar -->
     <form action='' method="get">
         <input type="text" name="searchbar">
     <input type="submit" value="search task">
     </form>
-    <table>   
-    <tr>
-        <th>items</th>
-    </tr>
+   <h3> items </h3>
+   <ol>
     {% for TASK in tasks %}
-        <tr>
-            <td>{{ TASK.id }}. {{TASK.title}}</td>  
-            <td><a href="{% url 'tasks-detail' TASK.id %}">view</a></td>  
-            <td><a href="{% url 'task-create' %}">add</a></td> 
-            <td><a href="{% url 'task-update' TASK.id %}">update</a></td>   
-            <td><a href="{% url 'task-delete' TASK.id %}">delete</a></td>  
-        </tr>
+        <li>
+            
+            task:  {{TASK.title}}<br>
+            <a href="{% url 'tasks-detail' TASK.id %}">view</a>
+            <a href="{% url 'task-create' %}">add</a>
+            <a href="{% url 'task-update' TASK.id %}">update</a>
+            <a href="{% url 'task-delete' TASK.id %}">delete</a> 
+        </li>
+     
     {% empty %}
     <h3> no items in list</h3>
+   </ol>
     <a href="{% url 'task-create' %}">add new item</a>
     {% endfor %}
-    </table>
-</div>
+   
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-           var xhr = new XMLHttpRequest();
-           var url = "{% url 'tasks' %}";
-           xhr.open('GET',url);
-           xhr.send();
-        });
-</script>
+
+

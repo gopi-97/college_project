@@ -18,6 +18,20 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var xhr = new XMLHttpRequest();
+            var url = "{% url 'tasks' %}";
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // On success, update the to-do list content
+                    document.querySelector(".to-do-list").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open('GET', url);
+            xhr.send();
+        });
+    </script>
 
 </head>
 
@@ -37,11 +51,9 @@
     <div class="Inventory-graph">
         {% include 'dashboard/partials/graph.html' %}
     </div>
-    <div >
-        <iframe src="{% url 'tasks' %}" frameborder="0">
-            
-        </iframe>
-        
+    
+    <div class='to-do-list'>
+        {% include 'todo/tasks_list.html'  %}
     </div>
     
     <script>
@@ -78,5 +90,6 @@
 
         
     </script>
+   
 </body>
 </html>
