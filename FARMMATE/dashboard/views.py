@@ -42,7 +42,6 @@ def add_product(request):
             username=request.session.get('username')
             client_instance = Farmer.objects.get(username=username)
             product=request.POST['product']
-            status=request.POST['status']
             location=request.POST['location']
             cultivated_area=request.POST['cultivated_area']
             start_date=request.POST['start_date']
@@ -57,7 +56,6 @@ def add_product(request):
                 user=client_instance,
                 product=product,
                 product_id=productid,
-                status=status,
                 location=location,
                 cultivated_area=cultivated_area,
                 start_date=date_object_aware,
