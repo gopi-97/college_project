@@ -32,6 +32,20 @@
             xhr.send();
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var xhr = new XMLHttpRequest();
+            var url = "{% url 'inventory-list' %}";
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // On success, update the to-do list content
+                    document.querySelector(".inventory-list").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open('GET', url);
+            xhr.send();
+        });
+    </script>
 
 </head>
 
@@ -51,7 +65,10 @@
     <div class="Inventory-graph">
         {% include 'dashboard/partials/graph.html' %}
     </div>
-    
+
+    <div class='inventory-list'>
+    </div>
+
     <div class='to-do-list'>
         {% include 'todo/tasks_list.html'  %}
     </div>

@@ -1,0 +1,22 @@
+<div class='inventory-list'>
+
+    <h1>Full list of Products in your Inventory </h1>
+
+    <table>   
+    <tr>
+        <th>items</th>
+    </tr>
+    {% for items in InventoryList %}
+        <tr>
+            <td> <br><b> <ul>{{ items.product }}</ul></b> <i>quantity: </i>{{ items.quantity }}</td>  
+            <td><a href="{% url 'inventory-detail'  items.id %}">view</a></td>
+            <td><a href="{% url 'inventory-update'  items.id %}">update</a></td>
+
+
+        </tr>
+    {% empty %}
+    <h3> no records found!!</h3>
+    {% endfor %}
+    </table>
+    <a href="{% url 'dashboard' %}">go back</a>
+</div>

@@ -312,7 +312,7 @@ font-weight: 500;
 }
 
 
-.to-do-list {
+.inventory-list {
   padding-inline:30px;
   left:160px;
   width: 581px;
@@ -325,137 +325,19 @@ font-weight: 500;
   overflow: visible;
 }
 
-.inventory {
-  width: 704px;
-  height: 450px;
-  background: rgba(217,217,217,0.4000000059604645);
-  opacity: 1;
-  position: absolute;
-  top: 753px;
-  left: 127px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
 
-}
-
-.inventory-image-container-1 {
-  width: 193px;
-  height: 174px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 113px;
-  left: 30px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
-}
-.inventory-values-1{
-  left:30px;
-  top:300px;
-  position:absolute;
-}
-.inventory-image-container-2 {
-  width: 193px;
-  height: 174px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 113px;
-  left: 250px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
-}
-.inventory-values-2{
-  left:250px;
-  top:300px;
-  position:absolute;
-}
-.inventory-image-container-3 {
-  width: 193px;
-  height: 174px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 113px;
-  left: 470px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
-}
-.inventory-values-3{
-  left:470px;
-  top:300px;
-  position:absolute;
-}
-.arrow {
-  position: absolute;
-  bottom: 30px; /* Adjust the bottom spacing as needed */
-  left: 50%; /* Center the arrow container horizontally */
-  transform: translateX(-50%); /* Move the container back by half its width */
-  display: flex;
-  justify-content: space-between; /* Ensure the arrows are spaced apart */
-  width: 100px; /* Set the total width based on your arrow icons */
-}
-.arrow-button{
-  border:none;
-}
-
-.arrow img {
-  width: 30px; /* Adjust this to fit your icon size */
-  height: auto; /* Maintain aspect ratio */
-  /* Additional styles for your arrow icons if needed */
-}
-label{
-  font-family: Outfit,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: arge;
-  font-weight: Regular;
-}
-.input{
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  border: none;
-  width:90px;
-}
-.activities {
-  width: 950px;
-  height: 588px;
-  background-size: cover;
-  padding: 43px 28px;
-  margin: 10px;
-  opacity: 1;
-  position: absolute;
-  top: 1605px;
-  left: 200px;
-  overflow: hidden;
-}
-
-.activities-container {
+.to-do-list {
+  padding-inline:30px;
+  left:160px;
   width: 581px;
-  height: 287px;
+  height: 500px;
   background: rgba(217,217,217,0.4000000059604645);
   opacity: 1;
   position: absolute;
-  top: 160px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
-} 
-
+  top: 1700px;
+  border-radius:5%;
+  overflow: visible;
+}
 
 
 
@@ -514,7 +396,7 @@ label{
     max-width: 700px;
     left:1vw;
   }
-.to-do-list{
+.inventory-list{
   width:auto;
   max-width:500px;
   padding-inline:30px;
@@ -522,7 +404,14 @@ label{
   top:1100px;
   height:500px;
 }
- 
+.to-do-list{
+  width:auto;
+  max-width:500px;
+  padding-inline:30px;
+  position:absolute;
+  top:1700px;
+  height:500px;
+}
 }
 @media screen  and (min-width:1000px ) and (max-width:2000px){
   .aside{
@@ -584,10 +473,17 @@ section{
 .product-viz h1{
   padding-left:160px;
 }
-.to-do-list{
+.inventory-list{
   padding-inline:30px;
   position:absolute;
   top:1200px;
+  left:500px;
+  height: 500px;
+}
+.to-do-list{
+  padding-inline:30px;
+  position:absolute;
+  top:1800px;
   left:500px;
   height: 500px;
 }

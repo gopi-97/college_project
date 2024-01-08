@@ -1,3 +1,5 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.http import JsonResponse
 from manage_account.models import Farmer
@@ -205,12 +207,64 @@ class CultivationUpdate(LoginRequiredMixin,UpdateView):
 
 
 
+class InventoryList(LoginRequiredMixin,ListView):
+    model = Inventory
+    context_object_name = 'InventoryList'
+    template_name = 'dashboard/partials/inventory_list.html'
+
+    def get_queryset(self) -> QuerySet[Any]:
+        username = self.request.session.get('username')
+        dataset = Inventory.objects.filter(user_id = username)[:4]
+        return dataset
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        return super().get_context_data(**kwargs)
+
+
+class FullInventoryList(LoginRequiredMixin,ListView):
+    model = Inventory
+    context_object_name = 'InventoryList'
+    template_name = 'dashboard/partials/fullinventory_list.html'
+
+    def get_queryset(self) -> QuerySet[Any]:
+        username = self.request.session.get('username')
+        dataset = Inventory.objects.filter(user_id = username)
+        return dataset
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        return super().get_context_data(**kwargs)
 
 
 
 
+class InventoryDetail(LoginRequiredMixin, DetailView):
+    model = Inventory
+    template_name = 'dashboard/partials/inventory_detail.html'
+    context_object_name = 'inventory'
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Inventory, pk=pk)
 
 
 
+
+class InventoryUpdate(LoginRequiredMixin,UpdateView):
+    model = Inventory
+    context_object_name = 'inventory'
+    template_name = 'dashboard/partials/inventory_update.html'
+    fields = ['product','quantity']
+
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get('pk')
+        return get_object_or_404(Inventory, pk=pk)
+    
+
+    def get_success_url(self):
+        pk = self.kwargs.get('pk')
+        return reverse('inventory-detail', kwargs={'pk': pk})
 
 

@@ -1,0 +1,20 @@
+
+<!-- inventory_detail.html -->
+
+<h1>Inventory Details</h1>
+
+<table>
+    <tr>
+        <td>Product: {{ inventory.product }}</td>
+    </tr>
+    <tr>
+        <td>Quantity: {{ inventory.quantity }}</td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'inventory-update'  inventory.id %}">update</a></td>
+    </tr>
+</table>
+
+<br><br>
+
+<a href="{% url 'inventory-list-full' %}">go back</a>

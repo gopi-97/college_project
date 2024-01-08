@@ -10,4 +10,8 @@ urlpatterns=[
     path('cultivationlist/',CultivationList.as_view(),name='cultivation-list'),
     path('cultivationDetails/<int:pk>/',CultivationDetail.as_view(),name='cultivation-detail'),
     path('cultivationUpdate/<int:pk>/',CultivationUpdate.as_view(),name='cultivation-update'),
+    path('inventorylist/',InventoryList.as_view(),name='inventory-list'),
+    path('fullInventorylist/',FullInventoryList.as_view(),name='inventory-list-full'),
+    path('inventoryDetails/<int:pk>/',InventoryDetail.as_view(),name='inventory-detail'),
+    path('inventoryUpdate/<int:pk>/',InventoryUpdate.as_view(),name='inventory-update'),
 ]
