@@ -14,4 +14,5 @@ urlpatterns=[
     path('fullInventorylist/',FullInventoryList.as_view(),name='inventory-list-full'),
     path('inventoryDetails/<int:pk>/',InventoryDetail.as_view(),name='inventory-detail'),
     path('inventoryUpdate/<int:pk>/',InventoryUpdate.as_view(),name='inventory-update'),
+    path('inventoryitemDelete/<int:pk>/',InventoryItemDelete.as_view(),name='inventory-item-delete'),
 ]

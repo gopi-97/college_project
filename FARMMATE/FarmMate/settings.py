@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import django_bootstrap5
 import os
 from dotenv import load_dotenv
 
@@ -51,12 +50,9 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS=[
     'manage_account',
-    'django_bootstrap5', 
     'dashboard',
     'todo',
-    'django_extensions',
-    'django_htmx',
-    "template_partials",
+    
 ]
 
 INSTALLED_APPS+=EXTERNAL_APPS

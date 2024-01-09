@@ -1,15 +1,17 @@
 
     <h1>Products in your Inventory </h1>
 
-    <table>   
+    <table class="center">   
     <tr>
-        <th>items</th>
+        <th>Items</th>
+        <th> <i>Quantity </i></th>
+        <th>Action</th>
     </tr>
     {% for items in InventoryList %}
         <tr>
-            <td> <br><b> <ul>{{ items.product }}</ul></b> <i>quantity: </i>{{ items.quantity }}</td>  
-            <td><a href="{% url 'inventory-detail'  items.id %}">view</a></td>
-            <td><a href="{% url 'inventory-update'  items.id %}">update</a></td>
+            <td align="center"> <br><b> <ul>{{ items.product }}</ul></b></td>  
+            <td align="center">{{ items.quantity }}</td>  
+            <td align="center"><pre><a href="{% url 'inventory-update'  items.id %}"><button class="btn" > update</button> </a>    <a href="{% url 'inventory-item-delete'  items.id %}"><button class="btn">delete</button></a></pre></td>
 
 
         </tr>
@@ -17,4 +19,4 @@
     <h3> no records found!!</h3>
     {% endfor %}
     </table>
-    <a href="{% url 'inventory-list-full'   %}">show more</a>
+    <a class='show-more'href="{% url 'inventory-list-full'   %}"><button>show more</button></a>

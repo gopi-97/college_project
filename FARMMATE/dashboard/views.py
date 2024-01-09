@@ -268,3 +268,9 @@ class InventoryUpdate(LoginRequiredMixin,UpdateView):
         return reverse('inventory-detail', kwargs={'pk': pk})
 
 
+class InventoryItemDelete(LoginRequiredMixin,DeleteView):
+    model=Inventory
+    success_url=reverse_lazy('inventory-list-full')
+    template_name = 'dashboard/partials/inventory_confirm_delete.html'
+    context_object_name='cultivation'
+
