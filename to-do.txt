@@ -19,7 +19,7 @@ password hashing ✅
 
 
 🔵 Not important
-        marketplace❌
-        notifications for todo list❌
-        user management window (manage_account,change password,change_username)❌
-        organising view functions inside classes ✅
+marketplace❌
+notifications for todo list❌
+user management window (manage_account,change password,change_username)❌
+organising view functions inside classes ✅
