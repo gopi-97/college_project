@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lucida+Sans+Unicode&display=swap" rel="stylesheet" />
-        {% load static %}
+        <!-- {% load static %} -->
         <link href="{% static 'dashboard/css/main.css' %}" rel="stylesheet" />
         <title>Document</title>
     </head>
@@ -19,26 +19,23 @@
                     <span>Farming Futures, Digitally Delivered</span>
                 </div>
                 <div class="image-container">
-                    <div class="inner-left-section"></div>
+                    <div class="inner-left-section">
+                    </div>
                     <div class="inner-right-section"></div>
                 </div>
             </div>
             <div class="right-section">
-                <div class="logo">
-                    <span>FarmMate</span>
+                
+                    <h1>FarmMate</h1>
                     <div class="launch-button">
                         <div class="button-inner"></div>
                         <a href='{% url "dashboard" %}'><button>launch</button></a>
                     </div>
-                </div>
-                <span class="back-to-login">Go back to login?</span>
                 <div class="login-section">
-                    <div class="login-inner">  
+                    <pre class="back-to-login">Go back to login? </pre>
                         <div class="login-button">
-                            <div class="button-inner"></div>
-                            <button onclick="logout()"><a href="{% url 'userlogin' %}">login</a></button>
-                        </div>
-                    </div>
+                            <a href="{% url 'userlogin' %}"><button onclick="logout()">login</button></a>
+                        </div>  
                 </div>
             </div>
         </div>

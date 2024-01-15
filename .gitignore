@@ -1,2 +1,4 @@
 data/*
 test.py
+FARMMATE/db.sqlite3
+FARMMATE/FarmMate/__pycache__/settings.cpython-311.pyc
