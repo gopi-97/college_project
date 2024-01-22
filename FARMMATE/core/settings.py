@@ -68,7 +68,7 @@ MIDDLEWARE = [
     'django_htmx.middleware.HtmxMiddleware',#adds request.htmx attribute to request object
 ]
 
-ROOT_URLCONF = 'FarmMate.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FarmMate.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database

@@ -1,5 +1,5 @@
 from django.db import models
-from FarmMate import settings
+from core import settings
 # from manage_account.models import Farmer
 
 # Create your models here.

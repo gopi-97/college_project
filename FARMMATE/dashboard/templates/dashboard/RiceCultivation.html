@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <img src="D:\bca 21.24\ejp\college_project\FARMMATE\navbaar\image" alt="" class="src">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/RiceCultivation.css' %}">
+    
 </head>
 <body>
    
 
 <nav>
-	<a href="#">Dashboard</a>
+	<a href="{% url 'dashboard' %}">Dashboard</a>
 	<a href="#">About</a>
 	<a href="#">Blog</a>
 	<a href="#">Portefolio</a>
@@ -24,7 +25,7 @@
     <ul class="cards">
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src="D:\bca24\ejp\college_project\FARMMATE\navbaar\image\fresh-basmati-rice.jpeg"></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/fresh-basmati-rice.jpeg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">BASMATI RICE</h2>
             <p class="card_text"></p>
@@ -65,7 +66,7 @@ In conclusion, basmati rice represents a unique and cherished rice variety known
       </li>
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src="D:\bca24\ejp\college_project\FARMMATE\navbaar\image\organic-brown-rice.jpeg"></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/organic-brown-rice.jpeg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">BROWN RICE</h2>
             <p class="card_text"></p>
@@ -108,7 +109,7 @@ In summary, brown rice offers a wholesome and nutrient-rich alternative to refin
       </li>
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src="D:\bca24\ejp\college_project\FARMMATE\navbaar\image\parboiled-rice-.jpg"></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/parboiled-rice-.jpg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">PARBOILED RICE</h2>
             <p class="card_text"></p>
@@ -149,7 +150,7 @@ In conclusion, parboiled rice stands as a distinctive and nutrient-enriched vari
       </li>
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src=D:\bca24\ejp\college_project\FARMMATE\navbaar\image\thai-jasmine-rice.jpeg></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/thai-jasmine-rice.jpeg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">JASMIN RICE</h2>
             <p class="card_text"></p>
@@ -190,7 +191,7 @@ In summary, Jasmine rice captivates the senses with its enticing fragrance and c
       </li>
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src=D:\bca24\ejp\college_project\FARMMATE\navbaar\image\organic-red-rice-500x5001-1-1200x900.jpg></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/organic-red-rice-500x5001-1-1200x900.jpg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">RED RICE</h2>
             <p class="card_text"></p>
@@ -231,7 +232,7 @@ Red rice's growing popularity extends to international markets, where it is now 
       </li>
       <li class="cards_item">
         <div class="card">
-          <div class="card_image"><img src="D:\bca24\ejp\college_project\FARMMATE\navbaar\image\rose-matta.jpeg"></div>
+          <div class="card_image"><img src="{% static 'dashboard/images/rose-matta.jpeg' %}"></div>
           <div class="card_content">
             <h2 class="card_title">ROSEMATTA RICE</h2>
             <p class="card_text"></p>

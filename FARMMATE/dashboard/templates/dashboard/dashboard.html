@@ -29,7 +29,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     // On success, update the to-do list content
-                    document.querySelector(".to-do-list").innerHTML = xhr.responseText;
+                    document.querySelector(".medium-box").innerHTML = xhr.responseText;
                 }
             };
             xhr.open('GET', url);
@@ -60,7 +60,7 @@
             <a href="#contact">Contact</a>
             <div class="topnav-right">
               <a href="#search">Search</a>
-              <a href="#about">About</a>
+              <a href="{% url 'logout' %}">logout</a>
             </div>
           </div>
     </header>
@@ -71,10 +71,10 @@
             <hr />
 
           <div class="items-body">
-            <div class="items-body-content">
-                Research Rice Products <span class="material-symbols-outlined">double_arrow</span>
+            <div class="items-body-content" onclick="redirectToRiceCultivation()">
+              Research Rice Products <span class="material-symbols-outlined">double_arrow</span>
               <i class="fa fa-angle-right"></i>
-            </div>
+          </div>
             <div class="items-body-content">
                 Know about cultivation practices <span class="material-symbols-outlined">double_arrow</span>
               <i class="fa fa-angle-right"></i>
@@ -118,12 +118,33 @@
 
 
 
-
+    
     <script>
+         function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
 
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+            }
+        }
+        }
       function logout(){
           window.location.href="{% url 'logout' %}";
       }
+
+      function redirectToRiceCultivation() {
+        window.location.href = "{% url 'rice-details' %}";
+      }
+
       const 
       section1 = document.querySelector(".section1"),
       section2 = document.querySelector(".section2"),

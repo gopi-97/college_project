@@ -119,22 +119,20 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: auto auto;
-  gap: 50px;
+  gap: 2%;
   padding: 20px;
   grid-template-areas:
     "small1 small2 medium"
     "large large medium2";
 }
 .small-containers{
-  width:auto;
-  max-width:800px;
-  height:170px;
+  padding:5%;
+  height:fit-content;
   display:flex;
   flex-wrap:wrap;
-  flex-wrap:unset;
+  gap:50px;
   align-items:center;
-  justify-content:space-between;
-  padding-inline:10%;
+  padding-inline:25%;
   border:2px solid #a0a0a0 ;
   border-radius:10px;
 }
@@ -143,7 +141,7 @@ h1 {
   height:130px;
   grid-area: small1;
   background-color: #e0e0e0;
-  padding: 10px;
+  padding-left: 10%;
 }
 
 .small-box2 {
@@ -151,6 +149,10 @@ h1 {
   height: 130px;
   grid-area: small2;
   background-color: #e0e0e0;
+  padding:10px;
+}
+.small-box2 h2{
+  margin-left:35%;
 }
 
 .medium-box {
@@ -167,22 +169,34 @@ h1 {
 }
 .medium-box2 {
   margin-left:20px;
-  width: 400px;
-  height: 500px;
+  width: fit-content;
+  height: max-content;
   grid-area: medium2;
-  background-color: #c0c0c0;
-  padding: 0px;
+  border: 2px solid #a0a0a0;
+  display:flex;
+  flex-direction:column;
 }
 
 .large-box {
-  width:60vw;
-  max-width:800px;
-  margin-top:500px;
-  align-self:center;
-  position:absolute;
+    image-rendering:auto;
+    object-fit:scale-down;
+  grid-area:large;
+  position:relative;
   margin-left:10px;
-  height: 700px;
+  height: 600px;
   border: 2px solid #a0a0a0;
+  overflow:hidden;
+    
+}
+.product-viz{
+  scale:0.9;
+}
+.product-viz :hover{
+  scale:1.021;
+}
+
+.large-box h1{
+  margin-left:25%;
 }
 .content-box {
   border-radius: 20px;
@@ -199,9 +213,13 @@ button {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transition:all 1s;
 }
 button:hover {
   background-color: darkgreen;
+   padding:7%;
+  font-size:1.2rem;
+
 }
 
 button.show-modal,
@@ -225,10 +243,12 @@ section.active .overlay {
   pointer-events: auto;
 }
 .modal-box {
+  position:absolute;
+  left:20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-   width: 120%;
+   width: 30%;
   padding: 30px 20px;
   border-radius: 24px;
   background-color: #fff;
@@ -236,6 +256,7 @@ section.active .overlay {
   pointer-events: none;
   transition: all 0.3s ease;
   transform: translate(-50%, -50%) scale(1.3);
+  border:2px solid darkgreen;
 }
 
 .material-symbols-outlined {
@@ -250,7 +271,7 @@ section.active .overlay {
 
 .submit-btn{
     justify-self: right;
-    font-size: 14px;
+    font-size: 1rem;
     padding: 6px 12px;
     font-weight: 400;
     color: #fff;
@@ -258,6 +279,12 @@ section.active .overlay {
     background: #1EDD25;;
     border-radius: 6px;
     cursor: pointer;
+  transition:all 1s;
+}
+.submit-btn:hover{
+  background-color: darkgreen;
+   padding:2%;
+  font-size:1.1rem;
 }
 section.active .modal-box {
   opacity: 1;
@@ -281,7 +308,7 @@ font-weight: 500;
 
   .total-products {
     width:auto;
-    margin-left:50px;
+    margin-left:10%;
     display:grid;
     width:100%; 
     max-width: 200px;
@@ -293,36 +320,54 @@ font-weight: 500;
   margin-left:20px;
 }
 .field-size {
-  width:auto;
-    margin-left:50px;
+    margin-left:5%;
     width:100%; 
     max-width: 200px;
     opacity: 1;
     border-radius: 10%;
     overflow: visible;
-  
+}
+.field-size button{
+  margin-left:30%;
+}
 .overlay{
   position:absolute;
   width:100%;
   height:100%;
 }
 
-.product-viz{
-    image-rendering:auto;
-    object-fit:fill;
-    max-width: 800px;
-  } 
+
   
 
 
 /* Add responsive styles for smaller screens */
 @media (max-width: 768px) {
+  
   .grid-container {
+    padding:0px;
     grid-template-columns: 1fr;
     grid-template-areas:
       "small1"
       "small2"
+      "large"
       "medium"
-      "large";
+    "medium2"
+      ;
   }
+  
+}
+
+@media (min-width:768px) and ( max-width:1150px){
+  .small-containers,
+  .medium-box,
+  .medium-box2,
+  .small-box1,
+  .small-box1
+  {
+    padding:9%;
+  }
+  button{
+    scale:0.9;
+  }
+ 
 }

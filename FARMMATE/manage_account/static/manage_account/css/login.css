@@ -21,9 +21,15 @@ body {
   border-radius: 10%;
   max-width: 100%;
   height: auto;
-  max-height: 80%; /* Adjust the height as needed */
+  max-height: 80%;
+  transition: all 2s;
 }
 
+.left-panel img:hover{
+  scale:1.1;
+  border-radius:0px;
+  
+}
 .right-panel {
   flex: 1;
   display: flex;
@@ -31,18 +37,45 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  border: 2px ridge black;
   background-color: #fff; /* Replace with your desired background color */
 }
 
 .right-panel h2 {
-  margin-bottom: 20px;
+  font-size:25px;
+  margin-bottom: 25px;
 }
+@keyframes bounce {
+  0% {
+   
+    transform: scale(1);
+  }
+
+  50% {
+    
+    transform: scale(1.5);
+  }
+  100% {
+    
+    transform: scale(1);
+  }
+}
+
+
+h2 {
+  
+  font-size: 3rem;
+  animation: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
 .right-panel .messages{
   text-align:center;
   width:30%;
-  border-style:ridge;
-  color: #fff;
-  background-color: #ff3300;
+  color: #111;
+  font-size:large;
+  margin-top:10px;
 }
 .right-panel input {
   width: 100%;
@@ -50,6 +83,13 @@ body {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  transition:all 0.2s;
+}
+.right-panel input:hover{
+  background-color:#f5f5f5;
+  border:2px solid black;
+  scale:1.10;
+  margin:5px;
 }
 
 .right-panel input[type="submit"] {
@@ -57,10 +97,16 @@ body {
   color: #fff;
   cursor: pointer;
   margin-left: 10px;
+  transition:all 0.3s;
+
 }
 
 .right-panel input[type="submit"]:hover {
-  background-color: #00b31e; /* Replace with your desired button hover color */
+  background-color: #00b31e;
+  font-size:20px;
+  width:80%;
+  margin-left:15%;
+  border:none;
 }
 
 .right-panel p {
@@ -70,9 +116,11 @@ body {
 
 .right-panel p a {
   text-decoration: none;
-  color: #007bff; /* Replace with your desired link color */
+  color: #007bff;
+    transition:all 0.3s;
 }
 
 .right-panel p a:hover {
   text-decoration: underline;
+  font-size:20px;
 }
