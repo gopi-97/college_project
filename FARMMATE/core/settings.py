@@ -28,7 +28,7 @@ load_dotenv(dotenv_path)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY ="ilya@i0xfcpbyyo^9^%q%0_&-gy8*(d%5r2@t&740nf+hq)oel"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -68,7 +68,7 @@ MIDDLEWARE = [
     'django_htmx.middleware.HtmxMiddleware',#adds request.htmx attribute to request object
 ]
 
-ROOT_URLCONF = 'FarmMate.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FarmMate.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database

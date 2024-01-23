@@ -22,6 +22,7 @@ body {
   border-radius: 20px;
 }
 
+
 .title {
   width: 50%;
   color: rgba(0, 0, 0, 1);
@@ -29,7 +30,7 @@ body {
   top: 620px;
   font-family: Outfit;
   font-weight: Bold;
-  font-size: 30px;
+  font-size: 2em;
   text-align: center;
   left:0px;
 
@@ -74,11 +75,11 @@ h1 {
   color: rgba(0, 0, 0, 1);
   font-family: Outfit;
   font-weight: SemiBold;
-  font-size: 50px;
+  font-size: 4em;
 }
 
 .right-section .launch-button{
-  margin-top:40px;
+  margin-top:70px;
   padding-inline: 10px;
   background-color: rgba(9, 76, 36, 0.9);
   color: rgba(255, 255, 255, 1);
@@ -94,10 +95,12 @@ h1 {
   border: none;
   background: transparent;
   cursor: pointer;
+  transition: all 2s;
 }
 
 .launch-button:hover{
   background-color:rgba(16, 250, 11, 1);
+  scale:1.2;
 }
 
 
@@ -116,7 +119,6 @@ h1 {
 }
 .login-button a{
   text-decoration: none;
-  padding-inline: 10px;
   background-color: rgba(16, 250, 11, 1); /* Dark green background */
   border-radius: 100px;
   display: flex;
@@ -125,11 +127,21 @@ h1 {
   cursor: pointer;
 }
 .login-button button{
+  cursor:pointer;
   color: rgba(255, 255, 255, 1);
   font-weight: ExtraBold;
   font-size: 20px;
   background: transparent;
   border:none;
+}  
+.login-button a:hover
+{
+  background-color:white;
+ border:2px solid black;
+  scale:1.2;
+}
+.login-button :hover{
+  color:black;
 }
 
 @media screen and (max-width: 600px){

@@ -30,6 +30,7 @@ class FarmerManager(UserManager):
 
 class Farmer(AbstractBaseUser,PermissionsMixin):
     username = models.CharField(primary_key=True,max_length=12,unique=True,blank=False)
+    profile_pic = models.ImageField(upload_to='manage_account/images/profile_pic')
     full_name = models.CharField(max_length=30, blank=False)
     phone_number = models.CharField(max_length=17, blank=True)
     email = models.EmailField(unique=False, blank=False)

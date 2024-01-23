@@ -274,3 +274,7 @@ class InventoryItemDelete(LoginRequiredMixin,DeleteView):
     template_name = 'dashboard/partials/inventory_confirm_delete.html'
     context_object_name='cultivation'
 
+
+
+def riceCultivation(request):
+    return render(request,'dashboard/RiceCultivation.html')

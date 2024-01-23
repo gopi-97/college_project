@@ -17,7 +17,7 @@
             <td align="center"> <br><b> <ul>{{ items.product }}</ul></b></td>  
             <td align="center">{{ items.quantity }}</td>
             <td align="center">
-                <pre><a href="{% url 'inventory-detail'  items.id %}"><button class="btn" >view</button> </a>     <a href="{% url 'inventory-update'  items.id %}"><button class="btn" > update</button> </a>    <a href="{% url 'inventory-item-delete'  items.id %}"><button class="btn">delete</button></a></pre>
+                <pre><a href="{% url 'inventory-detail'  items.id %}"><button class="btn" >view</button> </a>     <a href="{% url 'inventory-item-update'  items.id %}"><button class="btn" > update</button> </a>    <a href="{% url 'inventory-item-delete'  items.id %}"><button class="btn">delete</button></a></pre>
             </td>
 
 
