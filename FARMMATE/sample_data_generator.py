@@ -4,10 +4,10 @@ from faker import Faker
 import os
 import django
 import random
-
+from django.core.files import File
 
 fake = Faker('en_IN')  
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "FarmMate.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 # Initialize Django
 django.setup()
 
@@ -163,3 +163,36 @@ for any new instances created but not affecting existing instances.
  would mean you're changing the default value for the harvested_date attribute 
  in the Cultivation class definition, not the value of a specific instance's attribute.
  '''
+
+
+
+def set_random_profile_photos():
+    # Path to the folder containing profile photos
+    profile_photos_folder = 'profilepics/'
+
+    # Get a list of all files in the profile photos folder
+    profile_photos = os.listdir(profile_photos_folder)
+
+    # Retrieve all Farmer objects
+    farmers = Farmer.objects.all()
+
+    for farmer in farmers:
+        # Choose a random profile photo from the folder
+        random_photo = random.choice(profile_photos)
+
+        # Construct the full path to the selected profile photo
+        photo_path = os.path.join(profile_photos_folder, random_photo)
+
+        # Open the file and create a Django File object
+        with open(photo_path, 'rb') as file:
+            django_file = File(file)
+
+            # Save the file to the media folder using the default storage
+            farmer.profile_pic.save(random_photo, django_file)
+
+
+def inventory_images():
+    image_folder = 'inventoryproducts/'
+    images = os.listdir(image_folder)
+    inventory = Inventory.objects.all()
+    

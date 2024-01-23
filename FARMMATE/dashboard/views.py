@@ -23,8 +23,9 @@ from django.urls import reverse
 @login_required
 def load_dash(request):
     username=request.session.get('username')
-    return render(request,'dashboard/dashboard.html',{'user_id':username})
-
+    user = Farmer.objects.get(username =username)
+    profile_pic = user.profile_pic.url
+    return render(request,'dashboard/dashboard.html',{'user_id':username,'profile_pic':profile_pic})
 
 
 def generate_product_id(start_date,product):

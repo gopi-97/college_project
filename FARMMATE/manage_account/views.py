@@ -30,6 +30,7 @@ def generate_message(request,error):
 class register(FormView):
     model=Farmer
     form_class=FarmerRegistrationForm
+    enctype = 'multipart/form-data'
     template_name='manage_account/registration.html'
     redirect_authenticated_user=True
     success_url=reverse_lazy('userlogin')
@@ -70,6 +71,7 @@ def userLogin(request):
                 # Specify the backend explicitly when calling login() as we are using custom authentication backend 
                 login(request, user)
                 request.session['username'] =username
+
                 messages.success(request, 'Login successful.')
                 return redirect('home') 
             else:

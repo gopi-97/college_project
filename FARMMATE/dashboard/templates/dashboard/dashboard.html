@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" />
-    <link href="{% static 'dashboard/css/inventory_list.css' %}" rel="stylesheet">
+    <link
+      href="{% static 'dashboard/css/inventory_list.css' %}"
+      rel="stylesheet"
+    />
 
     <title>Dashboard</title>
 
@@ -15,86 +18,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,500;0,700;1,400&display=swap"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
-      
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var xhr = new XMLHttpRequest();
-            var url = "{% url 'tasks' %}";
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // On success, update the to-do list content
-                    document.querySelector(".medium-box").innerHTML = xhr.responseText;
-                }
-            };
-            xhr.open('GET', url);
-            xhr.send();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
+        var url = "{% url 'tasks' %}";
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // On success, update the to-do list content
+            document.querySelector(".medium-box").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var xhr = new XMLHttpRequest();
-            var url = "{% url 'inventory-list' %}";
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // On success, update the to-do list content
-                    document.querySelector(".medium-box2").innerHTML = xhr.responseText;
-                }
-            };
-            xhr.open('GET', url);
-            xhr.send();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
+        var url = "{% url 'inventory-list' %}";
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // On success, update the to-do list content
+            document.querySelector(".medium-box2").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      });
     </script>
-
   </head>
   <body>
     <header>
-        <div class="topnav">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <div class="topnav-right">
-              <a href="#search">Search</a>
-              <a href="{% url 'logout' %}">logout</a>
-            </div>
-          </div>
+      <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <div class="topnav-right">
+          <a href="{% url 'logout' %}">logout</a>
+        </div>
+        <div class="prof-img">
+          {% if profile_pic %}
+          <img src="{{ profile_pic }}" class="profile_pic" />
+          {% endif %}
+        </div>
+      </div>
     </header>
+    <div class="user">
+      {% if user.is_authenticated %}
+      <p>Welcome, {{ user.username }}!</p>
+      {% endif %}
+    </div>
     <div class="activities">
       <div class="activites-container">
-            <h1>Activities</h1>
-            
-            <hr />
+        <h1>Activities</h1>
 
-          <div class="items-body">
-            <div class="items-body-content" onclick="redirectToRiceCultivation()">
-              Research Rice Products <span class="material-symbols-outlined">double_arrow</span>
-              <i class="fa fa-angle-right"></i>
+        <hr />
+
+        <div class="items-body">
+          <div class="items-body-content" onclick="redirectToRiceCultivation()">
+            Research Rice Products
+            <span class="material-symbols-outlined">double_arrow</span>
+            <i class="fa fa-angle-right"></i>
           </div>
-            <div class="items-body-content">
-                Know about cultivation practices <span class="material-symbols-outlined">double_arrow</span>
-              <i class="fa fa-angle-right"></i>
-            </div>
-            <div class="items-body-content">
-                Contact Crop Consultant <span class="material-symbols-outlined">double_arrow</span>
-              <i class="fa fa-angle-right"></i>
-            </div>
-            <div class="items-body-content External-links">
-                External Links <span class="material-symbols-outlined">double_arrow</span>
-              <i class="fa fa-angle-right"></i>
-            </div>
+          <div class="items-body-content">
+            Know about cultivation practices
+            <span class="material-symbols-outlined">double_arrow</span>
+            <i class="fa fa-angle-right"></i>
+          </div>
+          <div class="items-body-content">
+            Contact Crop Consultant
+            <span class="material-symbols-outlined">double_arrow</span>
+            <i class="fa fa-angle-right"></i>
+          </div>
+          <div class="items-body-content External-links">
+            External Links
+            <span class="material-symbols-outlined">double_arrow</span>
+            <i class="fa fa-angle-right"></i>
           </div>
         </div>
       </div>
-      <hr />
+    </div>
+    <hr />
     <div class="Farm-Stats">
       <h1>Farm Stats</h1>
       <div class="grid-container">
-        
         <div class="small-containers">
           <div class="content-box small-box1 farm-stats">
             {% include 'dashboard/partials/add_product.html' %}
@@ -103,79 +119,67 @@
             {% include 'dashboard/partials/field.html' %}
           </div>
         </div>
-        
-        <div class="content-box medium-box">
-          {% include 'todo/tasks_list.html'  %}
-        </div>
-        <div class="content-box medium-box2">
 
+        <div class="content-box medium-box">
+          {% include 'todo/tasks_list.html' %}
         </div>
+        <div class="content-box medium-box2"></div>
         <div class="content-box large-box">
           {% include 'dashboard/partials/graph.html' %}
         </div>
       </div>
     </div>
 
-
-
-    
     <script>
-         function myFunction() {
+      function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
-        }
+      }
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
             }
-            }
+          }
         }
-        }
-      function logout(){
-          window.location.href="{% url 'logout' %}";
+      };
+      function logout() {
+        window.location.href = "{% url 'logout' %}";
       }
 
       function redirectToRiceCultivation() {
         window.location.href = "{% url 'rice-details' %}";
       }
 
-      const 
-      section1 = document.querySelector(".section1"),
-      section2 = document.querySelector(".section2"),
-
-      overlay = document.querySelector(".overlay"),
-
-      showBtn = document.querySelector(".show-modal"),
-      showBtn2 = document.querySelector(".add-field"),
-
-      closeBtn = document.querySelector(".close-btn");
+      const section1 = document.querySelector(".section1"),
+        section2 = document.querySelector(".section2"),
+        overlay = document.querySelector(".overlay"),
+        showBtn = document.querySelector(".show-modal"),
+        showBtn2 = document.querySelector(".add-field"),
+        closeBtn = document.querySelector(".close-btn");
       closeBtn2 = document.querySelector(".close-btn-2");
 
       showBtn.addEventListener("click", () => section1.classList.add("active"));
-      showBtn2.addEventListener("click", () => section2.classList.add("active"));
+      showBtn2.addEventListener("click", () =>
+        section2.classList.add("active")
+      );
 
       overlay.addEventListener("click", () =>
-          section.classList.remove("active")
+        section.classList.remove("active")
       );
 
       closeBtn.addEventListener("click", () =>
-          section1.classList.remove("active")
+        section1.classList.remove("active")
       );
 
       closeBtn2.addEventListener("click", () =>
-          section2.classList.remove("active")
+        section2.classList.remove("active")
       );
-
-      
-  </script>
-
-
-
+    </script>
   </body>
 </html>

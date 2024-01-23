@@ -21,7 +21,7 @@ class FarmerRegistrationForm(UserCreationForm):
 
     class Meta:
         model = Farmer
-        fields = ['username','full_name','password1','password2','phone_number', 'email', 'company', 'address']
+        fields = ['username','profile_pic','full_name','password1','password2','phone_number', 'email', 'company', 'address']
         attrs = {'class': 'register_form'}
         widgets={'username':forms.TextInput(attrs={'placeholder': 'Username', 'name' :'user_name', 'id': 'id_user_name', 'class': 'name'}),
                 'full_name':forms.TextInput(attrs={'placeholder': 'First name', 'name' :'first_name', 'id': 'id_full_name', 'class': 'name'}),

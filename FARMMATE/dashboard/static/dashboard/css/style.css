@@ -82,7 +82,13 @@ nav {
     }
   }
 }
-
+.prof-img img {
+  width: 35px;
+  float: right;
+  margin: 5px 0;
+  border-radius: 50%;
+  object-fit: contain;
+}
 a {
   text-decoration: none;
 
@@ -105,7 +111,10 @@ body {
   margin: 0;
   font-family: "Roboto Condensed";
 }
-
+.user p {
+  font-size: 3rem;
+  margin: 70px 0;
+}
 .topnav {
   overflow: hidden;
   background-color: #333;

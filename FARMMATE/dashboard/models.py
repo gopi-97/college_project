@@ -37,7 +37,7 @@ class Inventory(models.Model):
     user = models.ForeignKey(Farmer, on_delete=models.CASCADE)
     product = models.CharField(max_length=50)
     quantity = models.CharField(max_length=20)
-    images = models.ImageField(upload_to='images')
+    images = models.ImageField(upload_to='dashboard/inventory/Productimages')
 
     def __str__(self):
         return f"{self.product} - {self.quantity}"
