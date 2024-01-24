@@ -268,15 +268,38 @@ h1 {
 
 .medium-box {
   margin-left: 20px;
-  width: 400px;
-  display: inline-table;
-  height: 300px;
+  width: fit-content;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
   grid-area: medium;
-  background-color: #c0c0c0;
-  padding: 0px;
+  border: 2px solid #a0a0a0;
+  transition: all 2s;
+  overflow: hidden;
 }
-.medium-box table {
-  margin-left: 10px;
+.medium-box li:hover {
+  background: #0f9416;
+
+  color: #fff;
+  scale: 1.1;
+}
+.medium-box h1 {
+  margin: 10px;
+  margin-left: 25%;
+}
+.medium-box a {
+  margin: 10px;
+  color: blue;
+  padding: 1px;
+
+  border-radius: 10%;
+  transition: all 2s;
+}
+.medium-box a:hover {
+  margin: 10px 10px;
+  color: white;
+  font-weight: 3px;
+  scale: 1.1;
 }
 .medium-box2 {
   margin-left: 20px;
