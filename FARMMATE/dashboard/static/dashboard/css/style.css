@@ -237,41 +237,17 @@ h1 {
     "large large medium2";
 }
 .small-containers {
-  padding: 5%;
+  padding: 10%;
+  width: 100%;
   height: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  align-items: center;
-  padding-inline: 25%;
   border: 2px solid #a0a0a0;
   border-radius: 10px;
-}
-.small-box1 {
-  width: 300px;
-  height: 130px;
-  grid-area: small1;
-  background-color: #e0e0e0;
-  padding-left: 10%;
-}
-
-.small-box2 {
-    width:max-content;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  grid-area: small2;
-  background-color: #e0e0e0;
-  padding: 10px;
-}
-.small-box2 h1{
-  text-align:center;
 }
 
 .medium-box {
   margin-left: 20px;
   width: fit-content;
-  min-width:350px;
+  min-width: 350px;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
@@ -307,8 +283,8 @@ h1 {
 .medium-box2 {
   margin-left: 20px;
   width: fit-content;
-  min-width :350px;
-  padding:10px 5px;
+  min-width: 350px;
+  padding: 10px 5px;
   height: max-content;
   grid-area: medium2;
   border: 2px solid #a0a0a0;

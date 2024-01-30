@@ -8,6 +8,7 @@ urlpatterns=[
     path("add-field/",add_field,name='add-field'),
     path('graph/', graph_view,name='graph'),
     path('cultivationlist/',CultivationList.as_view(),name='cultivation-list'),
+    path('cultivationShortList/',CultivationShortList.as_view(),name='cultivation-short-list'),
     path('cultivationDetails/<int:pk>/',CultivationDetail.as_view(),name='cultivation-detail'),
     path('cultivationUpdate/<int:pk>/',CultivationUpdate.as_view(),name='cultivation-update'),
     path('inventorylist/',InventoryList.as_view(),name='inventory-list'),

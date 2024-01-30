@@ -158,6 +158,19 @@ class CultivationList(LoginRequiredMixin,ListView):
         context = super().get_context_data(**kwargs)
     
         return context
+class CultivationShortList(LoginRequiredMixin,ListView):
+    model = Cultivation
+    context_object_name = 'cultivationData'
+    template_name = 'dashboard/partials/currentCultivation.html'
+    def get_queryset(self):
+        username = self.request.session.get('username')
+        dataset = Cultivation.objects.filter(user_id= username)[:3]
+        return dataset
+    
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+    
+        return context
     
     '''
 It looks like you might be mixing up the purpose of the get_context_data() method and the get_context_object_name() method. 

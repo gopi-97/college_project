@@ -1,0 +1,61 @@
+.currentCultivation,
+.cultivationHistory {
+  border: none;
+
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 3%;
+  border-radius: 10px;
+  transition: all 1s;
+}
+.currentCultivation:hover,
+.cultivationHistory:hover {
+  border: 2px solid black;
+  background: white;
+  color: black;
+  scale: 1.1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Add margin at the top of the tables */
+}
+@keyframes emphasis {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+tr:hover {
+  color: rgb(16, 16, 129);
+  scale: 1.1;
+  margin: 0px 30px;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+}
+h3 {
+  transition: all;
+  text-align: center;
+}
+h3:hover {
+  color: blue;
+  animation: emphasis;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
