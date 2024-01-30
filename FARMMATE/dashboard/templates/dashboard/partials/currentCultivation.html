@@ -1,0 +1,12 @@
+<h1> Current Cultivation </h1>
+{% if currentCultivation %}
+    {% for val in currentCultivation %}
+        <p>product:  {{  val.product  }}</p>
+        <p>start date:  {{  val.start_date  }}</p>
+        <p>status:  {{  val.status  }}</p>
+        <a href="{% url 'cultivation-detail'  val.id %}"><button class="btn" > view</button> </a>
+        <a href="{% url 'cultivation-update'  val.id %}"><button class="btn">update</button></a>
+    {% endfor %}
+{% else %}
+    <p> no data </p>
+{% endif %}

@@ -276,6 +276,29 @@ class InventoryItemDelete(LoginRequiredMixin,DeleteView):
     context_object_name='cultivation'
 
 
+class currentCultivation(LoginRequiredMixin,ListView):
+    model = Cultivation
+    template_name = 'dashboard/partials/currentCultivation.html'
+    context_object_name = 'currentCultivation'
 
+    def get_queryset(self):
+        username = self.request.session.get('username')
+        currentCul = Cultivation.objects.filter(user_id=username).order_by('-start_date')[:1]
+        print(currentCul)
+        return currentCul
+    
+    def get_context_data(self, **kwargs: Any):
+        return super().get_context_data()
+
+
+
+    
+
+@login_required
 def riceCultivation(request):
     return render(request,'dashboard/RiceCultivation.html')
+
+
+@login_required
+def cultivationPractice(request):
+    return render(request,'dashboard/cultivationpractice.html')

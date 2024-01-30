@@ -16,4 +16,6 @@ urlpatterns=[
     path('inventoryUpdate/<int:pk>/',InventoryUpdate.as_view(),name='inventory-item-update'),
     path('inventoryitemDelete/<int:pk>/',InventoryItemDelete.as_view(),name='inventory-item-delete'),
     path('Rice/',riceCultivation,name ='rice-details'),
+    path('Rice-cultivation/',cultivationPractice,name ='cultivation-practice'),
+    path('current-cultivation/',currentCultivation.as_view(),name='current-cultivation'),
 ]

@@ -48,7 +48,21 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             // On success, update the to-do list content
-            document.querySelector(".medium-box2").innerHTML = xhr.responseText;
+            document.querySelector(".medium-box2 ").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      });
+    </script>
+     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
+        var url = "{% url 'current-cultivation' %}";
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // On success, update the to-do list content
+            document.querySelector(".small-box2").innerHTML = xhr.responseText;
           }
         };
         xhr.open("GET", url);
@@ -89,7 +103,7 @@
             <span class="material-symbols-outlined">double_arrow</span>
             <i class="fa fa-angle-right"></i>
           </div>
-          <div class="items-body-content">
+          <div class="items-body-content"onclick="redirectToRiceCultivationpractice()">
             Know about cultivation practices
             <span class="material-symbols-outlined">double_arrow</span>
             <i class="fa fa-angle-right"></i>
@@ -116,7 +130,7 @@
             {% include 'dashboard/partials/add_product.html' %}
           </div>
           <div class="content-box small-box2 field-size">
-            {% include 'dashboard/partials/field.html' %}
+            {% include 'dashboard/partials/currentCultivation.html' %}
           </div>
         </div>
 
@@ -155,6 +169,10 @@
       function redirectToRiceCultivation() {
         window.location.href = "{% url 'rice-details' %}";
       }
+      function redirectToRiceCultivationpractice() {
+        window.location.href = "{% url 'cultivation-practice' %}";
+      }
+
 
       const section1 = document.querySelector(".section1"),
         section2 = document.querySelector(".section2"),
