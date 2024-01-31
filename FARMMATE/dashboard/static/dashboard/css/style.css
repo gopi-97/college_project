@@ -233,14 +233,14 @@ h1 {
   gap: 2%;
   padding: 20px;
   grid-template-areas:
-    "small1 small2 medium"
-    "large large medium2";
+  "small1 small2 medium"
+  "large large medium2";
 }
 .small-containers {
   padding: 10%;
   width: 100%;
   height: fit-content;
-  border: 2px solid #a0a0a0;
+ display:flex;
   border-radius: 10px;
 }
 
@@ -328,11 +328,7 @@ button {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   transition: all 1s;
 }
-button:hover {
-  background-color: darkgreen;
-  padding: 7%;
-  font-size: 1.2rem;
-}
+
 
 button.show-modal,
 .modal-box {

@@ -161,7 +161,7 @@ class CultivationList(LoginRequiredMixin,ListView):
 class CultivationShortList(LoginRequiredMixin,ListView):
     model = Cultivation
     context_object_name = 'cultivationData'
-    template_name = 'dashboard/partials/currentCultivation.html'
+    template_name = 'dashboard/partials/cultivationHistory.html'
     def get_queryset(self):
         username = self.request.session.get('username')
         dataset = Cultivation.objects.filter(user_id= username)[:3]
