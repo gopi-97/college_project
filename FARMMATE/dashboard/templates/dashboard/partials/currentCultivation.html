@@ -5,62 +5,26 @@
   class="css"
 />
 
-<div class="cultivationDetails">
-  <h1>Cultivation Details</h1>
-  <div class="currentCultivation">
-    <h3>current cultivation</h3>
-    {% if currentCultivation %} 
-      {% for val in currentCultivation %}
-        <table>
-          <thead>
-            <tr>
-              <th>product</th>
-              <th>start date</th>
-              <th>status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{ val.product }}</td>
-              <td>{{ val.start_date }}</td>
-              <td>{{ val.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-      {% endfor %}
-    {% else %}
-      <p>no data</p>
+    {% if currentCultivation %} {% for val in currentCultivation %}
+    <table>
+      <thead>
+        <tr>
+          <th>product</th>
+          <th>start date</th>
+          <th>status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ val.product }}</td>
+          <td>{{ val.start_date }}</td>
+          <td>{{ val.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endfor %} {% else %}
+    <p>no data</p>
+
     {% endif %}
   </div>
-  
-  <div class="cultivationHistory">
-    <h3>cultivation history</h3>
-    {% if cultivationData %}
-        <table class="center">
-          <thead>
-            <tr>
-              <th>items</th>
-              <th>cultivation day</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for items in cultivationData %}
-            <tr>
-              <td align="center">
-                <br /><b>
-                  <ul>
-                    {{ items.product }}
-                  </ul></b
-                >
-              </td>
-              <td align="center">{{ items.start_date }}</td>
 
-              {% endfor %}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    {% else %}
-      <h3>no records found!!</h3>
-    {% endif %}
-</div>

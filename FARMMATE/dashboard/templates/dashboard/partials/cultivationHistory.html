@@ -1,0 +1,38 @@
+{% load static %}
+<link
+  rel="stylesheet"
+  href="{% static 'dashboard/css/currentCultivation.css' %}"
+  class="css"
+/>
+
+{% if cultivationData %}
+  <div class="cultivationHistory">
+    <h3>cultivation history</h3>
+    <table class="center">
+      <thead>
+        <tr>
+          <th>items</th>
+          <th>cultivation day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for items in cultivationData %}
+        <tr>
+          <td align="center">
+            <br /><b>
+              <ul>
+                {{ items.product }}
+              </ul></b
+            >
+          </td>
+          <td align="center">{{ items.start_date }}</td>
+
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <h3>no records found!!</h3>
+  {% endif %}
+</div>

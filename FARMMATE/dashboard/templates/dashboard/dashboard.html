@@ -63,7 +63,7 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             // On success, update the to-do list content
-            document.querySelector(".small-containers").innerHTML =
+            document.querySelector(".small-box").innerHTML =
               xhr.responseText;
           }
         };
@@ -78,7 +78,7 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             // On success, update the to-do list content
-            document.querySelector(".small-containers").innerHTML =
+            document.querySelector(".small-box2").innerHTML =
               xhr.responseText;
           }
         };
@@ -145,10 +145,18 @@
     <div class="Farm-Stats">
       <h1>Farm Stats</h1>
       <div class="grid-container">
-        <div class="small-containers">
-         
-        </div>
-
+       <div class="small-containers">
+  
+            <div class="currentCultivation">
+              <h3> current cultivation</h3>
+              <div class="small-box">
+                {% include 'dashboard/partials/currentCultivation.html' %}
+              </div>
+              <div class="small-box2">
+                {% include 'dashboard/partials/cultivationHistory.html' %}
+              </div>
+            </div>
+          </div>
         <div class="content-box medium-box">
           {% include 'todo/tasks_list.html' %}
         </div>
