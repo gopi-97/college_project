@@ -78,7 +78,7 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             // On success, update the to-do list content
-            document.querySelector(".grid-containers").innerHTML =
+            document.querySelector(".small-containers").innerHTML =
               xhr.responseText;
           }
         };
@@ -128,12 +128,12 @@
             <span class="material-symbols-outlined">double_arrow</span>
             <i class="fa fa-angle-right"></i>
           </div>
-          <div class="items-body-content">
+          <div class="items-body-content"onclick="redirectToCropConsultants()">
             Contact Crop Consultant
             <span class="material-symbols-outlined">double_arrow</span>
             <i class="fa fa-angle-right"></i>
           </div>
-          <div class="items-body-content External-links">
+          <div class="items-body-content External-links"onclick="redirectToExternalLinks()">
             External Links
             <span class="material-symbols-outlined">double_arrow</span>
             <i class="fa fa-angle-right"></i>
@@ -146,13 +146,15 @@
       <h1>Farm Stats</h1>
       <div class="grid-container">
         <div class="small-containers">
-          {% include 'dashboard/partials/currentCultivation.html' %}
+         
         </div>
 
         <div class="content-box medium-box">
           {% include 'todo/tasks_list.html' %}
         </div>
-        <div class="content-box medium-box2"></div>
+        <div class="content-box medium-box2">
+          {% include 'dashboard/partials/inventory_list.html' %}
+        </div>
         <div class="content-box large-box">
           {% include 'dashboard/partials/graph.html' %}
         </div>
@@ -186,6 +188,12 @@
       }
       function redirectToRiceCultivationpractice() {
         window.location.href = "{% url 'cultivation-practice' %}";
+      }
+      function redirectToCropConsultants() {
+        window.location.href = "{% url 'crop-consultants' %}";
+      }
+      function redirectToExternalLinks() {
+        window.location.href = "{% url 'external-links' %}";
       }
 
       const section1 = document.querySelector(".section1"),

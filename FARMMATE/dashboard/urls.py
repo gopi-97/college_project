@@ -18,5 +18,7 @@ urlpatterns=[
     path('inventoryitemDelete/<int:pk>/',InventoryItemDelete.as_view(),name='inventory-item-delete'),
     path('Rice/',riceCultivation,name ='rice-details'),
     path('Rice-cultivation/',cultivationPractice,name ='cultivation-practice'),
+    path('cropconsultants/',cropConsultants,name ='crop-consultants'),
+    path('externallinks/',externalLinks,name ='external-links'),
     path('current-cultivation/',currentCultivation.as_view(),name='current-cultivation'),
 ]
