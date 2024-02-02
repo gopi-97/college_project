@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class FarmerManager(UserManager):
 
-    def _create_user(self, username: str, password: str | None = ..., **extra_fields: Any) -> Any:
+    def _create_user(self, username: str, password, **extra_fields: Any) -> Any:
         if not username:
             raise ValueError('username not provided')
         
