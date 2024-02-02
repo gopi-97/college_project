@@ -315,3 +315,12 @@ def riceCultivation(request):
 @login_required
 def cultivationPractice(request):
     return render(request,'dashboard/cultivationpractice.html')
+
+
+@login_required
+def cropConsultants(request):
+    return render(request,'dashboard/cropconsultant.html')
+
+@login_required
+def externalLinks(request):
+    return render(request,'dashboard/externallink.html')

@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/cultivationpractice.css' %}">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-up-r.css' rel='stylesheet'>
 </head>
-<body>
+<body>  
+   
+    <div class="btn">
+        <a href="#bt">
+    <i class="gg-arrow-up-r"></i>
+        </a>
+       </div>
     <div class="container">
     
     <div class="main">
@@ -23,7 +31,55 @@
               </div>
               
         </header>
-        <div class="aside">
+        
+       
+        <div class="nav">
+            <div class="nav-header">
+              <div class="nav-title">
+                <center>Index</center>
+              </div>
+            </div>
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            <div class="nav-links">
+             
+
+              <a href="#Importance">Importance</a>
+              <a href="#Growing condition">Growing condition
+              <a href="#Climate">Climate</a>
+              <a href="#Soil">Soil</a>
+              <a href="#How to plant">How to plant</a>
+              <a href="#Why Plant">Why Plant</a>
+              <a href="#Irrigation">Irrigation</a>
+              <a href="#Fertilization">Fertilization</a>
+              <a href="#Pest Control">Pest Control</a>
+            <a href="#Time needed">Time needed</a>
+              <a href="#Harvest process">Harvest process</a>
+              <a href="#post Harvest">post Harvest</a>
+              <a href="#environmental Impacts">impacts</a>
+              <a href="#References">References</a></li>
+             
+
+
+            </div>
+          </div>
+        <!-- <header>
+            <div class="topnav">
+                
+                
+                <div class="topnav-right">
+                  
+                  <a href="{% url 'dashboard' %}">Dashboard</a>
+                </div>
+              </div>
+              
+        </header> <div class="aside">
             <nav>
                 <ul>
                   <li><a href="#Importance">Importance</a></li>
@@ -44,17 +100,20 @@
                 </ul>
               </nav>
             </div>
+         -->
         
         
           
         <div class="body">
-            
+          
        
         <div class="responsive">
             
-            <img src="{% static 'dashboard/images/rice-field-1.jpg' %}" alt="image" >
+            <img src="{% static 'dashboard/images/rice-field-1.jpg' %}" alt="image"  id="bt">
             
         </div>
+     
+            
         <div class="content1">
             <ul>
            <h1 class="hh"><u><center>Growing Rice: Sowing, Cultivating, And Harvesting</center></u> </h1>
@@ -62,6 +121,7 @@
            <li><p>From the perspective of global food security, rice is a crucial crop. Yet, rice growing practices are still frequently reliant on outdated manual methods that are inefficient in terms of both industrial agriculture and environmental impact. Some of the environmental costs of today’s rice paddy growing include the flooding of land to make it into cultivation fields, the massive emissions of greenhouse gases, and the overuse of agrochemicals. Fortunately, there are numerous methods (such as the use of current agricultural technologies) of how to grow rice more wisely, profitably, and sustainably.</p></li>
 </ul>
         </div>
+       
         <div class="content2" id="Importance">
            <h1> Importance Of Rice And Its Growing To Global Nutrition</h1>
            <ul><li>
@@ -162,23 +222,23 @@ The most widely consumed rice varieties are as follows:
     <div class="content6">
         <h1>Streamlining Field Work On The Paddies Using EOSDA Crop Monitoring Solutions</h1>
         <ul><li>Global warming is a major cause of drought, saltwater getting into the fields, and air and soil temperature changes that are bad for growing rice. Considering this, farmers must make the most of all their farming techniques to keep up with the growing demand for grain around the world. EOSDA Crop Monitoring and other technologies for precision agriculture make it easy to plan all field activities at once, find problem areas quickly, and make data-driven decisions to address issues on the field.</li></ul>
-        <h1 id="irrigation">Irrigation</h1>
+        <h1 id="Irrigation">Irrigation</h1>
         <ul><li>Rice growers have the responsibility of ensuring that their crop doesn’t dry out at any point during the growing season. By adopting efficient irrigation methods, you may greatly cut down on water waste</li>
             <li>EOSDA Crop Monitoring makes keeping track of crop water requirements really simple. The NDMI index is a measure of how well-hydrated a growing plant is right now. Soil moisture issues or a plant’s inability to take in enough water could be to blame for out-of-the-ordinary index values. However, keep in mind that this feature is appropriate only for non-flooded dry-field crop productio</li>
             <li>At the same time, EOSDA Crop Monitoring can do much more than only track plant moisture levels. It gives crop producers and field managers the possibility to assess root zone and surface soil moisture dynamics and evaluate soil moisture’s effect on vegetation indices, such as NDVI, NDMI, NDRE, and MSAVI.</li>
         </ul>
         <p>
-            <h1>Fertilization</h1><br>
+            <h1 id="Fertilization">Fertilization</h1><br>
             To ensure crop health and increase in crop yields, you need to perform rice growing fertilization at just the right times and just the right rates. With the help of EOSDA Crop Monitoring, you can now use fertilizers and other agrochemicals on your growing crops with pinpoint accuracy. After analyzing the vegetation in your field and making a zoning map, you can tailor your fertilizing program to the needs of each specific rice growing area. This means less money spent on fertilizers and less chemical runoff polluting the soil and water supply.
 
         </p>
-        <h1>Weed And Pest Control</h1>
+        <h1 id="Pest Control">Weed And Pest Control</h1>
         <ul>
             <li>Employ pesticides to kill off weeds growing in your rice field that might otherwise steal water and nutrients from your crop. Weed and pest detection and eradication should always be part of your crop monitoring plan.</li>
             <li>Rice producers can spot potential problems in their fields with minimal effort by using the scouting app provided by the EOSDA Crop Monitoring platform. Examining vegetation maps before setting a scouting task is a good practice because it allows you to locate low-vegetation areas that might be harboring pests. Inspecting only high-risk regions rather than the whole rice growing field will speed up and reduce the overall cost of treating against weeds, pests, and crop diseases.</li>
             <li>The scouts can use EOSDA’s mobile app on their smartphones to provide rice growers and agronomy managers with real-time reports and photos from the paddies. The new capabilities of EOSDA’s scouting app make it impossible for scouts to fake their presence at the site. Now, they can only provide feedback and report findings at the manager-designated checkpoint.</li>
         </ul>
-        <h1>
+        <h1 id="Time needed">
             How Long Does Rice Take To Grow?
         </h1>
         <ul><li>Rice varieties, growing conditions, and agronomic practices can all affect how long it takes for plants to mature. Most cultivars require between 105 and 150 days from sowing to harvest. However, some types can take up to 180 days to grow. In general, transplanted crops mature more quickly than directly seeded ones.</li></ul>
@@ -197,7 +257,7 @@ The most widely consumed rice varieties are as follows:
         <center><h2>When is the rice growing season?</h2>Rice is best planted in the spring/summer and harvested in the fall/winter. For instance, in the southern states of the US, rice is often planted in April–May and harvested in September–October. While, in many Asian countries, the rice growing season typically shifts by one month; it starts in May–June and ends in October–November.
         </center>
 
-        <h1>Rice Harvesting And Post-Harvest Techniques</h1>
+        <h1 >Rice Harvesting And Post-Harvest Techniques</h1>
         <p>The act of harvesting rice, which entails removing the grains from the plant, is an essential stage of the growing process. Harvest timing has a significant impact on both the quantity and quality of the crop. It is typically harvested when the grains have reached their full size and maturity.</p>
         <h1>When To Harvest Rice</h1>
         <p>For directly sown plants, the best time to harvest is between 110 and 120 days after sowing (DAS), while for transplanted plants, it is between 100 and 110 days after transplanting (DAT).</p>
@@ -222,13 +282,13 @@ The most widely consumed rice varieties are as follows:
 
     </div>
     <div class="content7">
-        <h1>Harvesting Process And Methods</h1>
+        <h1 id="Harvest process">Harvesting Process And Methods</h1>
         <ul><li>There are several steps involved in harvesting rice, and these can be completed one at a time by hand or all at once with the use of a combine harvester. While harvesting manually with a sharp knife or sickle, it’s critical to cut the stalk no more than 1–2 inches (4–5 cm) above the ground. In this way, farmworkers remove stem borer larvae that would otherwise be left in the stubble and might cause severe crop loss in the next rice growing season, even up to 100% in the case of the most destructive pest in Asia, strip stem borer 
 </li>
         <li></li><p>A combine harvester typically cuts the crop, delivers it to the threshing system, threshes, cleans, and then deposits it into a wagon. While harvesting, the combine leaves a windrow of straw in its wake.</p></ul>
 
 
-        <h1>Post-Harvest Procedures</h1>
+        <h1 id="post Harvest">Post-Harvest Procedures</h1>
         <p>After the crop has been harvested, there are a few more steps to be taken. While using a combine harvester, all of these operations occur simultaneously. But, if you opt for manual collection, you’ll have to do the following steps in order:
             <br>
             <ul><b><li>threshing —</b> paddy grain separation from the remainder of the harvested crop. It should be done as soon as possible after harvesting to prevent grain rewetting and minimize its breakage;</li>
@@ -248,7 +308,7 @@ The most widely consumed rice varieties are as follows:
         <img src="{% static 'dashboard/images/img5.jpg' %}"alt="image" >
     </div>
     <div class="content8">
-        <h1>Environmental Impacts Of Growing Rice And Sustainable Solutions To Them</h1>
+        <h1 id="environmental Impacts">Environmental Impacts Of Growing Rice And Sustainable Solutions To Them</h1>
         <p>Now that we know how rice is grown and harvested, there is one more major concern. Is growing rice bad for the environment? To put it briefly, yes. Farmers have resorted to more agrochemical use and more intensive irrigation methods to keep up with the surging demand for grain. Let’s look at the root reasons why there is such a negative eco-impact of growing rice:</p>
 
         <ul><b><li>Water consumption —</b>To grow normally, rice needs a lot of water because it is an exceptionally thirsty plant. In areas where water supplies are already low, this might cause a severe shortage. </li>
@@ -269,8 +329,8 @@ The most widely consumed rice varieties are as follows:
     </div>
 
 
-    <div class="references">
-        <h1>
+    <div class="reference">
+        <h1 id="References">
             References
         </h1>
         <ol> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0308521X03000878"> <li>A Dobermann. (2004). A critical assessment of the system of rice intensification (SRI). Agricultural Systems, 79(30)

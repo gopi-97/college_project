@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+    margin-bottom:50px;
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #04aa6d;
+    color: white;
+  }
+
+  #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  .card {
+    --main-color: #000;
+    --submain-color: #78858f;
+    --bg-color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    position: relative;
+    width: 300px;
+    height: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--bg-color);
+  }
+
+  .card__img {
+    height: 192px;
+    width: 100%;
+  }
+
+  .card__img svg {
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .card__avatar {
+    position: absolute;
+    width: 114px;
+    height: 114px;
+    background: var(--bg-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: calc(50% - 57px);
+  }
+
+  .card__avatar svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card__title {
+    margin-top: 80px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--main-color);
+  }
+
+  .card__subtitle {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--submain-color);
+  }
+
+  .card__btn {
+    margin-top: 15px;
+    width: 76px;
+    height: 31px;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--main-color);
+    background: var(--bg-color);
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .card__btn-solid {
+    background: var(--main-color);
+    color: var(--bg-color);
+  }
+
+  .card__btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+  }
+
+  .card__btn-solid:hover {
+    background: var(--bg-color);
+    color: var(--main-color);
+  }
