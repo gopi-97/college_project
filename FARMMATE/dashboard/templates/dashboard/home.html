@@ -27,14 +27,13 @@
             <div class="right-section">
                 
                     <h1>FarmMate</h1>
-                    <div class="launch-button">
+                    
                         <div class="button-inner"></div>
-                        <a href='{% url "dashboard" %}'><button>launch</button></a>
-                    </div>
+                    <button onclick='launch()' id="launch-button">launch</button>
                 <div class="login-section">
                     <pre class="back-to-login">Go back to login? </pre>
                         <div class="login-button">
-                            <a href="{% url 'userlogin' %}"><button onclick="logout()">login</button></a>
+                            <button onclick="logout()">login</button>
                         </div>  
                 </div>
             </div>
@@ -44,5 +43,8 @@
 <script>
     function logout(){
         window.location.href="{% url 'logout' %}";
+    }
+    function launch(){
+        window.loaction.href='{% url "dashboard" %}';
     }
 </script>
