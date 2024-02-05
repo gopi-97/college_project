@@ -1,4 +1,6 @@
 .card{
+  left:45%;
+  
     width:60vw;
   }
   .title {
@@ -45,7 +47,7 @@
       text-decoration: none;
       z-index: 0;
       overflow: hidden;
-      background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+
       font-family: Arial, Helvetica, sans-serif;
     }
   

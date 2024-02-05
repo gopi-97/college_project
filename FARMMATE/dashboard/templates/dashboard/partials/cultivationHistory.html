@@ -1,12 +1,9 @@
 {% load static %}
-<link
-  rel="stylesheet"
-  href="{% static 'dashboard/css/currentCultivation.css' %}"
-  class="css"
-/>
+<link rel="stylesheet" href="{% static 'dashboard/css/currentCultivation.css' %}" class="css" />
 
-{% if cultivationData %}
-  <div class="cultivationHistory">
+
+<div class="cultivationHistory">
+  {% if cultivationData %}
     <h3>cultivation history</h3>
     <table class="center">
       <thead>
@@ -22,8 +19,8 @@
             <br /><b>
               <ul>
                 {{ items.product }}
-              </ul></b
-            >
+              </ul>
+            </b>
           </td>
           <td align="center">{{ items.start_date }}</td>
 
@@ -31,7 +28,11 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  {% else %}
-  <h3>no records found!!</h3>
   {% endif %}
+  <button class="show-more" onclick="fullCultivationHistory()">show more</button>
+</div>
+<script>
+  function fullCultivationHistory(){
+    window.location.href = "{% url 'cultivation-list' %}";
+  }
+</script>

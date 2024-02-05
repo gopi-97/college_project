@@ -15,7 +15,7 @@ border: 3px solid transparent;
   border: 2px solid black;
   background: white;
   color: black;
-  scale: 1.1;
+  scale: 1.05;
 }
 
 table {
@@ -36,7 +36,6 @@ table {
 }
 tr:hover {
   color: rgb(16, 16, 129);
-  scale: 1.1;
   margin: 0px 30px;
 }
 
@@ -60,4 +59,58 @@ h3:hover {
   animation: emphasis;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+}
+
+
+.popup .overlay{
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  background: rgba(0,0,0,0.7);
+  z-index:1;
+  display:none;
+}
+
+.popup .popup-content{
+  position:relative;
+  transform:translate(-50%,-50%) scale(0);
+  background: #fff;
+  width:max-content;
+  padding:10px;
+  z-index:2;
+  border-radius: 10px;
+}
+
+.popup .close-btn{
+  cursor: pointer;
+  position:relative;
+  float: right;
+
+}
+
+.popup.active .overlay{
+  display:block;
+}
+
+.popup.active .content{
+  transition:all 300ms ease-in-out;
+  transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+.show-more  {
+  position: relative;
+  margin: 10px;
+  font-size: 1rem;
+  transition: all 1s;
+}
+
+.cultivationHistory > .show-more:hover, 
+ #new-button:hover{
+  background-color:green;
+  border-radius:20px;
+  
 }

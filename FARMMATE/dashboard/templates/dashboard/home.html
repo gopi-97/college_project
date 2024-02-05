@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Lucida+Sans+Unicode&display=swap" rel="stylesheet" />
-        <!-- {% load static %} -->
-        <link href="{% static 'dashboard/css/main.css' %}" rel="stylesheet" />
-        <title>Document</title>
-    </head>
-        
-    <body>
-        <div class="main-container">
-            <div class="left-section">
-                <div class="title">
-                    <span>Farming Futures, Digitally Delivered</span>
-                </div>
-                <div class="image-container">
-                    <div class="inner-left-section">
-                    </div>
-                    <div class="inner-right-section"></div>
-                </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Outfit&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lucida+Sans+Unicode&display=swap" rel="stylesheet" />
+    {% load static %}
+    <link href="{% static 'dashboard/css/main.css' %}" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-section">
+            <div class="title">
+                <span>Farming Futures, Digitally Delivered</span>
             </div>
-            <div class="right-section">
-                
-                    <h1>FarmMate</h1>
-                    
-                        <div class="button-inner"></div>
-                    <button onclick='launch()' id="launch-button">launch</button>
-                <div class="login-section">
-                    <pre class="back-to-login">Go back to login? </pre>
-                        <div class="login-button">
-                            <button onclick="logout()">login</button>
-                        </div>  
+            <div class="image-container">
+                <div class="inner-left-section">
+                </div>
+                <div class="inner-right-section"></div>
+            </div>
+        </div>
+        <div class="right-section">
+
+            <h1>FarmMate</h1>
+
+            <div class="button-inner">
+                <button onclick="launch()" id="launch-button">launch</button>
+            </div>
+            <div class="login-section">
+                <pre class="back-to-login">Go back to login? </pre>
+                <div class="login-button">
+                    <button onclick="logout()">login</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
 <script>
-    function logout(){
-        window.location.href="{% url 'logout' %}";
+    function logout() {
+        window.location.href = "{% url 'logout' %}";
     }
-    function launch(){
-        window.loaction.href='{% url "dashboard" %}';
+    function launch() {
+        window.location.href = "{% url 'dashboard' %}";
     }
 </script>

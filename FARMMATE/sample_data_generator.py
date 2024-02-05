@@ -189,10 +189,81 @@ def set_random_profile_photos():
 
             # Save the file to the media folder using the default storage
             farmer.profile_pic.save(random_photo, django_file)
-set_random_profile_photos()
 
-# def inventory_images():
-#     image_folder = 'inventoryproducts/'
-#     images = os.listdir(image_folder)
-#     inventory = Inventory.objects.all()
+
+rice_types = ["Basmati Rice", "Jasmine Rice", "Parboiled Rice", "Red Rice", "Brown Rice"]
+def inventory_images():
+    image_folder = 'inventoryproducts/'
+    images = os.listdir(image_folder)
+    inventory = Inventory.objects.all()
     
+    for produces in inventory:
+        if produces.product == 'Basmati Rice':
+            image = 'fresh-basmati-rice.jpeg'
+            image_path = os.path.join(image_folder,image)
+            with open(image_path ,'rb+') as file:
+                inventory_image_file = File(file)
+                Inventory.images.save(image,inventory_image_file)
+
+        elif produces.product == 'Jasmine Rice':
+            image = 'thai-jasmine-rice.jpeg'
+            image_path = os.path.join(image_folder,image)
+            with open(image_path ,'rb+') as file:
+                inventory_image_file = File(file)
+                Inventory.images.save(image,inventory_image_file)
+
+        elif produces.product == 'Parboiled Rice':
+            image = 'parboild.jpg'
+            image_path = os.path.join(image_folder,image)
+            with open(image_path ,'rb+') as file:
+                inventory_image_file = File(file)
+                Inventory.images.save(image,inventory_image_file)
+
+        elif produces.product == 'Red Rice':
+            image = 'organic-red-rice-500x5001-1-1200x900.jpg'
+            image_path = os.path.join(image_folder,image)
+            with open(image_path ,'rb+') as file:
+                inventory_image_file = File(file)
+                Inventory.images.save(image,inventory_image_file)
+
+        elif produces.product == 'Brown Rice':
+            image = 'organic-brown-rice.jpeg'
+            image_path = os.path.join(image_folder,image)
+            with open(image_path ,'rb+') as file:
+                inventory_image_file = File(file)
+                Inventory.images.save(image,inventory_image_file)
+        
+        else:
+            continue
+        
+
+
+
+    # optimised code from chatgpt
+        
+def inventory_images2():
+    image_folder = 'inventoryproducts/'
+    inventory = Inventory.objects.all()
+    product_images = {
+        "Basmati Rice": "fresh-basmati-rice.jpeg",
+        "Jasmine Rice": "thai-jasmine-rice.jpeg",
+        "Parboiled Rice": "parboild.jpg",
+        "Red Rice": "organic-red-rice-500x5001-1-1200x900.jpg",
+        "Brown Rice": "organic-brown-rice.jpeg"
+    }
+    
+    for product in inventory:
+        image_name = product_images.get(product.product)
+        if image_name:
+            image_path = os.path.join(image_folder, image_name)
+            try:
+                with open(image_path, 'rb') as file:
+                    inventory_image_file = File(file)
+                    product.images.save(image_name, inventory_image_file)
+            except FileNotFoundError:
+                print(f"Image file not found for product: {product.product}")
+            except Exception as e:
+                print(f"Error processing image for product {product.product}: {e}")
+
+    
+inventory_images2()

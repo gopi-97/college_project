@@ -12,26 +12,96 @@
   <table>
     <tr>
       <th>Items</th>
+      <th>Images</th>
       <th><i>Quantity </i></th>
       <th>Action</th>
     </tr>
     {% for items in InventoryList %}
     <tr>
       <td align="center">
-        <br /><b>
-          <ul>
-            {{ items.product }}
-          </ul></b
-        >
+          <br><b>
+              <ul>{{ items.product }}</ul>
+          </b></br>
       </td>
-      <td align="center"><a href="{{ items.images.url }}"></a></td>
+      <td align="center">
+          <a href="{{ items.images.url }}">
+              <img src="{{ items.images.url }}" alt="{{ items.product }}" width="100">
+          </a>
+      </td>
       <td align="center">{{ items.quantity }}</td>
       <td align="center">
-        <pre><a href="{% url 'inventory-detail'  items.id %}"><button class="btn" >view</button> </a>     <a href="{% url 'inventory-item-update'  items.id %}"><button class="btn" > update</button> </a>    <a href="{% url 'inventory-item-delete'  items.id %}"><button class="btn">delete</button></a></pre>
+          <pre>              
+            <button class="inventory-list-btn inventory-list-item-view" data-url="{% url 'inventory-detail' items.id %}">view</button>
+            <button class="inventory-list-btn inventory-list-item-update" data-url="{% url 'inventory-item-update'  items.id %}">update</button>
+            <button class="inventory-list-btn inventory-list-item-delete" data-url="{% url 'inventory-item-delete'  items.id %}">delete</button>
+
+          </pre>
       </td>
-    </tr>
+  </tr>
     {% empty %}
     <h3>no records found!!</h3>
     {% endfor %}
-  </table>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="popup-content"></div>
+      </div>
 </div>
+
+<script>
+  // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+  // Function to open the modal
+  function openModal(url) {
+    modal.style.display = "block";
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            // Set the HTML content inside the popup
+            document.querySelector("#popup-content").innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error fetching content:', error);
+        });
+}
+
+  // Function to handle button clicks
+  function handleButtonClick(event) {
+      // Get the URL from the data-url attribute of the clicked button
+      var url = event.target.dataset.url;
+      console.log(url);
+
+      // Open the popup window with the specified URL
+      openModal(url);
+  }
+  // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  // Add event listener to each button with the class 'inventory-list-view'
+  var viewButtons = document.querySelectorAll('.inventory-list-item-view');
+  var updateButtons = document.querySelectorAll('.inventory-list-item-update');
+  var deleteButtons = document.querySelectorAll('.inventory-list-item-delete');
+
+  viewButtons.forEach(function(button) {
+      button.addEventListener('click', handleButtonClick);
+  });
+  updateButtons.forEach(function(button) {
+      button.addEventListener('click', handleButtonClick);
+  });
+  deleteButtons.forEach(function(button) {
+      button.addEventListener('click', handleButtonClick);
+  });
+</script>

@@ -1,6 +1,8 @@
 {% load static %}
 {% block style %} 
 <link href="{% static 'dashboard/css/cultivation_list.css' %}" rel="stylesheet">
+<link href="{% static 'dashboard/css/dashboardDetails.css' %}" rel="stylesheet">
+
 {% endblock %}
 
 <div class='cultivation-list'>
@@ -21,7 +23,10 @@
             <td align="center"> <br><b> <ul>{{ items.product }}</ul></b></td>  
             <td align="center">{{ items.start_date }}</td>
 
-            <td align="center"> <pre><a href="{% url 'cultivation-detail'  items.id %}"><button class="btn" > view</button> </a>         <a href="{% url 'cultivation-update'  items.id %}"><button class="btn">update</button></a>
+            <td align="center">
+                <pre>              
+                    <button class="cultivation-list-btn cultivation-list-item-view" data-url="{% url 'cultivation-detail' items.id %}">view</button>
+                    <button class="cultivation-list-btn cultivation-list-item-update" data-url="{% url 'cultivation-update'  items.id %}">update</button>
             </pre></td>
 
 
@@ -30,7 +35,68 @@
     <h3> no records found!!</h3>
     {% endfor %}
     </table>
-</div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="popup-content"></div>
+        </div>
+    </div>
+  </div>
+  
+  <script>
+    // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+    // Function to open the modal
+    function openModal(url) {
+      modal.style.display = "block";
+      fetch(url)
+          .then(response => response.text())
+          .then(html => {
+              // Set the HTML content inside the popup
+              document.querySelector("#popup-content").innerHTML = html;
+          })
+          .catch(error => {
+              console.error('Error fetching content:', error);
+          });
+  }
+  
+    // Function to handle button clicks
+    function handleButtonClick(event) {
+        // Get the URL from the data-url attribute of the clicked button
+        var url = event.target.dataset.url;
+        console.log(url);
+  
+        // Open the popup window with the specified URL
+        openModal(url);
+    }
+    // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    // Add event listener to each button with the class 'inventory-list-view'
+    var viewButtons = document.querySelectorAll('.cultivation-list-item-view');
+    var updateButtons = document.querySelectorAll('.cultivation-list-item-update');
+  
+    viewButtons.forEach(function(button) {
+        button.addEventListener('click', handleButtonClick);
+    });
+    updateButtons.forEach(function(button) {
+        button.addEventListener('click', handleButtonClick);
+    });
+
+  </script>
+  
 
 
 

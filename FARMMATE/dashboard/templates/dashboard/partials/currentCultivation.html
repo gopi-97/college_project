@@ -1,30 +1,33 @@
 {% load static %}
-<link
-  rel="stylesheet"
-  href="{% static 'dashboard/css/currentCultivation.css' %}"
-  class="css"
-/>
+<link rel="stylesheet" href="{% static 'dashboard/css/currentCultivation.css' %}" class="css" />
 
-    {% if currentCultivation %} {% for val in currentCultivation %}
-    <table>
-      <thead>
-        <tr>
-          <th>product</th>
-          <th>start date</th>
-          <th>status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ val.product }}</td>
-          <td>{{ val.start_date }}</td>
-          <td>{{ val.status }}</td>
-        </tr>
-      </tbody>
-    </table>
-    {% endfor %} {% else %}
-    <p>no data</p>
+{% if currentCultivation %} {% for val in currentCultivation %}
+<table>
+  <thead>
+    <tr>
+      <th>product</th>
+      <th>start date</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ val.product }}</td>
+      <td>{{ val.start_date }}</td>
+      <td>{{ val.status }}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %} {% else %}
+<p>no data</p>
 
-    {% endif %}
+{% endif %}
 
 
+  <button id="new-button" onclick="togglepopup()">new</button>
+
+  <script>
+    function togglepopup() {
+      document.getElementById("add-cul-popup").classList.toggle("active")
+    }
+  </script>
