@@ -324,3 +324,8 @@ def cropConsultants(request):
 @login_required
 def externalLinks(request):
     return render(request,'dashboard/externallink.html')
+
+
+@login_required
+def diseaseAndPests(request):
+    return render(request,'dashboard/diseaseandpests.html')

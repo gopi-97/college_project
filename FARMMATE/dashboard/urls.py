@@ -20,5 +20,6 @@ urlpatterns=[
     path('Rice-cultivation/',cultivationPractice,name ='cultivation-practice'),
     path('cropconsultants/',cropConsultants,name ='crop-consultants'),
     path('externallinks/',externalLinks,name ='external-links'),
+    path('diseaseandpests/',diseaseAndPests,name ='disease-pests'),
     path('current-cultivation/',currentCultivation.as_view(),name='current-cultivation'),
 ]
