@@ -65,11 +65,11 @@ def add_product(request):
                 description=description
             )
             cultivation.save()  
-            return render(request,'dashboard/dashboard.html')
+            return render(request,'dashboard/partials/add_product.html')
 
         except Exception as e:
             print(e)
-    return render(request,'dashboard/dashboard.html')
+    return render(request,'dashboard/partials/add_product.html')
 
 
 
