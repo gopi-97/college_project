@@ -1,46 +1,41 @@
-
 {% load static %}
 
-<div class="total-products">
-    <h2>Total Cultivations</h2>
 
-    <div class="add-product">
+  <div class="cultivation-form">
+    <form method="POST" action="{% url 'add-product' %}">
+      {% csrf_token %}
+      <label for="product">Product:</label>
+      <input type="text" id="product" name="product" required /><br /><br />
 
-        <section class="section1">
-            <button class="show-modal new-button">new</button>
-           <a href="{% url 'cultivation-list' %}"> <button class="details-button">details</button></a>
-            <span class="overlay"></span>
-    
-            <div class="modal-box">
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required /><br /><br />
 
-                <button class="close-btn">
-                    <div class="material-symbols-outlined ">
-                        X
-                    </div>
-                </button>
+      <label for="cultivated_area">Cultivated Area:</label>
+      <input
+        type="text"
+        id="cultivated_area"
+        name="cultivated_area"
+        required
+      /><br /><br />
 
-                <div class="cultivation-form">
-                    <form method="POST" action="{% url 'add-product' %}" >
-                        {% csrf_token %}
-                        <label for="product">Product:</label>
-                        <input type="text" id="product" name="product" required><br><br>
-                
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" name="location" required><br><br>
-                
-                        <label for="cultivated_area">Cultivated Area:</label>
-                        <input type="text" id="cultivated_area" name="cultivated_area" required><br><br>
-                
-                        <label for="start_date">Start Date:</label>
-                        <input type="datetime-local" id="start_date" name="start_date" required><br><br>
-                                            
-                        <label for="description">Description:</label><br>
-                        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-                        <input class='submit-btn' type="submit" value="Submit">
-                    </form>
-                </div>
-            </div>
-        </section>
-    </div>
+      <label for="start_date">Start Date:</label>
+      <input
+        type="datetime-local"
+        id="start_date"
+        name="start_date"
+        required
+      /><br /><br />
+
+      <label for="description">Description:</label><br />
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+      <input class="submit-btn" type="submit" value="Submit" />
+    </form>
+  </div>
 </div>
-

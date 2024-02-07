@@ -1,5 +1,9 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'dashboard/css/currentCultivation.css' %}" class="css" />
+<link
+  rel="stylesheet"
+  href="{% static 'dashboard/css/currentCultivation.css' %}"
+  class="css"
+/>
 
 {% if currentCultivation %} {% for val in currentCultivation %}
 <table>
@@ -22,12 +26,3 @@
 <p>no data</p>
 
 {% endif %}
-
-
-  <button id="new-button" onclick="togglepopup()">new</button>
-
-  <script>
-    function togglepopup() {
-      document.getElementById("add-cul-popup").classList.toggle("active")
-    }
-  </script>

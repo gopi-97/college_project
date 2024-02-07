@@ -6,6 +6,10 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" />
     <link
+      rel="stylesheet"
+      href="{% static 'dashboard/css/add-product.css' %}"
+    />
+    <link
       href="{% static 'dashboard/css/inventory_list.css' %}"
       rel="stylesheet"
     />
@@ -153,13 +157,22 @@
     </div>
     <hr />
     <h1>Farm Stats</h1>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close close-btn">&times;</span>
+        <div id="popup-content"></div>
+      </div>
+    </div>
     <div class="Farm-Stats">
       <div class="currentCultivation">
         <h3>current cultivation</h3>
         <div class="small-box">
           {% include 'dashboard/partials/currentCultivation.html' %}
         </div>
+
+        <button id="new-button" data-url="{% url 'add-product' %}">new</button>
       </div>
+
       <div class="small-box2">
         {% include 'dashboard/partials/cultivationHistory.html' %}
       </div>
@@ -173,6 +186,52 @@
         {% include 'dashboard/partials/graph.html' %}
       </div>
     </div>
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // Function to open the modal
+      function openModal(url) {
+        modal.style.display = "block";
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => {
+            // Set the HTML content inside the popup
+            document.querySelector("#popup-content").innerHTML = html;
+          })
+          .catch((error) => {
+            console.error("Error fetching content:", error);
+          });
+      }
+
+      // Function to handle button clicks
+      function handleButtonClick(event) {
+        // Get the URL from the data-url attribute of the clicked button
+        console.log(url);
+        var url = event.target.dataset.url;
+        console.log(url);
+
+        // Open the popup window with the specified URL
+        openModal(url);
+      }
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+      var newButton = document.getElementById("new-button");
+
+      newButton.addEventListener("click", handleButtonClick);
+    </script>
 
     <script>
       function myFunction() {
