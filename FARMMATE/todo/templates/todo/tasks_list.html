@@ -1,3 +1,9 @@
+{% load static %}
+<link
+  rel="stylesheet"
+  href="{% static 'dashboard/css/tasks_list.css' %}"
+  class="css"
+/>
 <h1>To-Do List</h1>
 
 <h3>items</h3>
@@ -38,3 +44,6 @@
     <a href="{% url 'task-create' %}">add new task</a>
   </td>
 </table>
+<a class="show-more" href="{% url 'full-tasks' %}"
+  ><button>show more</button></a
+>

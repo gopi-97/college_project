@@ -33,3 +33,13 @@
   text-decoration: none;
   cursor: pointer;
 }
+.todo-buttons {
+  scale: 0.6;
+}
+.medium-box {
+  width: fit-content;
+}
+
+.medium-box > table td {
+  display: flex;
+}

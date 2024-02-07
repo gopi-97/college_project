@@ -22,7 +22,7 @@ class TaskList(LoginRequiredMixin,ListView):
     def get_queryset(self):
         # Filter tasks related to the logged-in user
         username = self.request.session.get('username')
-        return Tasks.objects.filter(user_id=username)
+        return Tasks.objects.filter(user_id=username)[:3]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -36,6 +36,27 @@ class TaskList(LoginRequiredMixin,ListView):
             context['search_input']=search_input
         return context
 
+class FullTaskList(LoginRequiredMixin,ListView):
+    model=Tasks
+    context_object_name='tasks'
+    template_name = 'todo/full_task_list.html'
+
+    def get_queryset(self):
+        # Filter tasks related to the logged-in user
+        username = self.request.session.get('username')
+        return Tasks.objects.filter(user_id=username)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Count incomplete tasks for the logged-in user
+        context['count'] = self.get_queryset().filter(complete=False).count()
+
+        search_input=self.request.GET.get('searchbar') or ''
+        if search_input:
+            # returns tasks whose title contains the search word , we can change icontains to startswith and more
+            context['tasks']=context['tasks'].filter(title__icontains=search_input)
+            context['search_input']=search_input
+        return context
 
 
 class TaskDetail(LoginRequiredMixin,DetailView):
