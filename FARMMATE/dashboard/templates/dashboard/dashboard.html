@@ -230,7 +230,24 @@
       };
       var newButton = document.getElementById("new-button");
 
+      var todoviewButtons = document.querySelectorAll("task-list-item-view");
+      var todoupdateButtons = document.querySelectorAll(
+        "task-list-item-update"
+      );
+      var tododeleteButtons = document.querySelectorAll(
+        "task-list-item-delete"
+      );
+
       newButton.addEventListener("click", handleButtonClick);
+      todoviewButtons.forEach(function (button) {
+        button.addEventListener("click", handleButtonClick);
+      });
+      todoupdateButtons.forEach(function (button) {
+        button.addEventListener("click", handleButtonClick);
+      });
+      tododeleteButtons.forEach(function (button) {
+        button.addEventListener("click", handleButtonClick);
+      });
     </script>
 
     <script>
