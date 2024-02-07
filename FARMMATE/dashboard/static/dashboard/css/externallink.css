@@ -75,7 +75,7 @@ table {
     position: fixed; /* Fixed position to keep it visible */
     height: 100%; /* Make the menu full height */
     overflow-y: auto; /* Enable scrolling for the menu if needed */
-    margin-top: 50px;
+    margin-top: 28px;
   }
   
   .nav > .nav-header {
@@ -159,3 +159,19 @@ table {
   h1{
     text-align: center;
   }
+  body{
+    background-color: #d9d9d9;
+  }
+  .b {
+    position: fixed;
+    left: 95%;
+    bottom: 10%;
+    transform: translate(-50%, -50%);
+    scale: 1.5;
+}
+@media (max-width:600px) {
+  .content {
+    padding-left: 11px;
+   
+  }
+}
