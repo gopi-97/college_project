@@ -1,0 +1,86 @@
+{% load static %}
+<link href="{% static 'dashboard/css/details_popupbox.css' %}" rel="stylesheet">
+
+{% if currentcultivation %}
+    <div class="card">
+        <p class="title">Current Cultivation</p>
+        <p class="small-desc">
+
+            <!-- cultivation_detail.html -->
+
+        <table>
+            <tr>
+                <td>Product: {{ currentcultivation.product }}</td>
+            </tr>
+           
+            <tr>
+                <td>Cultivated Area: {{ currentcultivation.cultivated_area }}</td>
+            </tr>
+            <tr>
+                <td>Start Date: {{ currentcultivation.start_date }}</td>
+            </tr>
+            <tr>
+                <td>Description: <p>{{ currentcultivation.description }}</p>
+                </td>
+            </tr>
+        </table>
+            <div class="submitbtn"><button type="button" onclick="addToInventory()">add to inventory</button></div>
+        <br><br>
+
+        <script>
+            function addToInventory(){
+                window.alert("redirecting to current cultivation details updation")
+                window.location.href="{% url 'add-to-inventory'  currentcultivation.id %}";
+            }
+        </script>
+        
+        <div class="corner">
+            <div class="go-back"><a href="{% url 'cultivation-list' %}">go back</a></div>
+        </div>
+    </div>
+{% endif %}
+
+{% if cultivation %}
+        
+    <div class="card">
+        <p class="title">Cultivation Details</p>
+        <p class="small-desc">
+
+            <!-- cultivation_detail.html -->
+        <table>
+            <tr>
+                <td>Product: {{ cultivation.product }}</td>
+            </tr>
+            <tr>
+                <td>Status: {{ cultivation.status }}</td>
+            </tr>
+            <tr>
+                <td>Cultivated Area: {{ cultivation.cultivated_area }}</td>
+            </tr>
+            <tr>
+                <td>Start Date: {{ cultivation.start_date }}</td>
+            </tr>
+            {% if cultivation.harvested_date %}
+            <tr>
+                <td>Harvested on: {{ cultivation.harvested_date }}</td>
+            </tr>
+            {% else %}
+            <tr></tr>
+            <tr>
+                <td>Not harvested</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>Description: <p>{{ cultivation.description }}</p>
+                </td>
+            </tr>
+        </table>
+
+        <br><br>
+        <button class="submit-btn"onclick="addToInventory()">add to inventory</button>
+
+        <div class="corner">
+            <div class="go-back"><a href="{% url 'cultivation-list' %}">go back</a></div>
+        </div>
+    </div>
+{% endif %}

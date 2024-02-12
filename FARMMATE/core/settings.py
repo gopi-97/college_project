@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-
+import random
+import string
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +29,9 @@ load_dotenv(dotenv_path)
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY ="ilya@i0xfcpbyyo^9^%q%0_&-gy8*(d%5r2@t&740nf+hq)oel"
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    SECRET_KEY = ''.join(random.choice( string.ascii_lowercase  ) for i in range( 32 ))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,9 +53,10 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS=[
     'manage_account',
+    'cultivation',
     'dashboard',
     'todo',
-    
+    'inventory',
 ]
 
 INSTALLED_APPS+=EXTERNAL_APPS
@@ -95,13 +99,31 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+DB_ENGINE   = os.getenv('DB_ENGINE'   , None)
+DB_USERNAME = os.getenv('DB_USERNAME' , None)
+DB_PASS     = os.getenv('DB_PASS'     , None)
+DB_HOST     = os.getenv('DB_HOST'     , None)
+DB_PORT     = os.getenv('DB_PORT'     , None)
+DB_NAME     = os.getenv('DB_NAME'     , None)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DB_ENGINE and DB_NAME and DB_USERNAME:
+    DATABASES = { 
+      'default': {
+        'ENGINE'  : 'django.db.backends.' + DB_ENGINE, 
+        'NAME'    : DB_NAME,
+        'USER'    : DB_USERNAME,
+        'PASSWORD': DB_PASS,
+        'HOST'    : DB_HOST,
+        'PORT'    : DB_PORT,
+        }, 
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -140,7 +162,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS =[ 
-    os.path.join(BASE_DIR) #static folder inside the project for every app
+    os.path.join(BASE_DIR,'staticfiles') #static folder inside the project for every app
     ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -26,15 +26,7 @@ class TaskList(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Count incomplete tasks for the logged-in user
-        context['count'] = self.get_queryset().filter(complete=False).count()
-
-        search_input=self.request.GET.get('searchbar') or ''
-        if search_input:
-            # returns tasks whose title contains the search word , we can change icontains to startswith and more
-            context['tasks']=context['tasks'].filter(title__icontains=search_input)
-            context['search_input']=search_input
-        return context
+        return super().get_context_data(**kwargs)
 
 class FullTaskList(LoginRequiredMixin,ListView):
     model=Tasks

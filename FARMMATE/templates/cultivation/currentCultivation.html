@@ -1,0 +1,28 @@
+{% load static %}
+<link
+  rel="stylesheet"
+  href="{% static 'cultivation/css/currentCultivation.css' %}"
+  class="css"
+/>
+
+{% if currentCultivation %} {% for val in currentCultivation %}
+<table>
+  <thead>
+    <tr>
+      <th>product</th>
+      <th>start date</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ val.product }}</td>
+      <td>{{ val.start_date }}</td>
+      <td><a id="edit-button" href="{% url 'current-cultivation-details' val.id %}">edit</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %} {% else %}
+<p>no data</p>
+
+{% endif %}
