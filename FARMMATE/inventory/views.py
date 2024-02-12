@@ -32,7 +32,7 @@ def generate_bar_chart(request):
 
     # If you want to convert quantity strings to integers
     for product, quantities in product_quantities.items():
-        product_quantities[product] = [int(qty.replace(' kg', '')) for qty in quantities]
+        product_quantities[product] = [int(qty.replace('kg', '')) for qty in quantities]
 
     products=[]
     highest_harvests = []
