@@ -1,5 +1,3 @@
-
-
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -31,11 +29,10 @@
 .topnav-right {
   float: left;
 }
-.content1{
-  padding-top:50px;
+.content1 {
+  padding-top: 50px;
 }
-img{
-
+img {
 }
 
 table {
@@ -43,31 +40,28 @@ table {
   border-collapse: collapse;
   margin-top: 20px;
   border-radius: 2px;
-  border-color: #04aa6d;    
+  border-color: #04aa6d;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  
 }
 
-
 th {
-  background-color: #96D4D4;
-
+  background-color: #96d4d4;
 }
 
 * {
   box-sizing: border-box;
-  
 }
 
 body {
   margin: 0px;
-  font-family: 'segoe ui';
-  background-color:#d9d9d9;
+  font-family: "segoe ui";
+  background-color: #d9d9d9;
 }
 
 .nav {
@@ -81,7 +75,6 @@ body {
 
 .nav > .nav-header {
   padding: 10px;
-
 }
 
 .nav > .nav-header > .nav-title {
@@ -108,8 +101,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width:600px) {
-
+@media (max-width: 600px) {
   .nav {
     width: 100%; /* Make it full width for small screens */
     position: fixed;
@@ -153,30 +145,26 @@ body {
   .nav > #nav-check:checked ~ .nav-links {
     display: block; /* Show the links when the checkbox is checked */
   }
-  
 }
 
-
-
-
-.content{
+.content {
   padding-left: 250px;
 }
-h1{
+h1 {
   text-align: center;
 }
-.responsive{
+.responsive {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
-.responsive img{
+.responsive img {
   border-radius: 10px;
-  border: 2px solid #555;
- 
-  
+
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
 }
 .b {
   position: fixed;
@@ -185,27 +173,24 @@ h1{
   scale: 1.5;
   transform: translate(-50%, -50%);
 }
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .content {
     padding-left: 11px;
-    
-    
-    
-   
   }
-  .disease1 h1{
+  .disease1 h1 {
     padding-top: 20px;
   }
-  .content{
-    padding-top:30px}
+  .content {
+    padding-top: 30px;
+  }
 }
-.label{
+.label {
   padding-top: 30px;
 }
-.disease{
+.disease {
   padding-top: 45px;
 }
-p{
-  font-family:math;
+p {
+  font-family: math;
   font-size: 20px;
 }
