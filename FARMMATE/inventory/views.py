@@ -131,5 +131,4 @@ class InventoryUpdate(LoginRequiredMixin,UpdateView):
 class InventoryItemDelete(LoginRequiredMixin,DeleteView):
     model=FarmerInventory
     success_url=reverse_lazy('inventory-list-full')
-    template_name = 'inventory/inventory_confirm_delete.html'
     context_object_name='cultivation'
