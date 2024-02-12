@@ -1,7 +1,7 @@
 {% load static %}
 <link
   rel="stylesheet"
-  href="{% static 'dashboard/css/tasks_list.css' %}"
+  href="{% static 'todo/css/tasks_list.css' %}"
   class="css"
 />
 <h1>To-Do List</h1>
@@ -9,41 +9,29 @@
 <h3>items</h3>
 <table>
   {% for TASK in tasks %}
-  <td>
-    task: {{TASK.title}}<br />
-
-    <button
-      class="todo-buttons"
-      class="task-list-btn task-list-item-view"
-      data-url="{% url 'task-detail' TASK.id %}"
-    >
-      view
-    </button>
-    <button
-      class="todo-buttons"
-      class="task-list-btn task-list-item-update"
-      data-url="{% url 'task-update'  TASK.id %}"
-    >
-      update
-    </button>
-    <button
-      class="todo-buttons"
-      class="task-list-btn task-list-item-delete"
-      data-url="{% url 'task-delete'  TASK.id %}"
-    >
-      delete
-    </button>
-  </td>
-  <td>
-    {% empty %}
+  <tr>
+    <td>
+      task: {{TASK.title}}<br />
+    </td>
+    <td>
+      <div class="task-list-dropdown">
+        <button onclick="todoDropDownFunction()" class="todo-dropbtn">Actions</button>
+            <div id="todo-Dropdown" class="todo-dropdown-content">
+                <a href="{% url 'task-update'  TASK.id %}">update</a>
+                <a href="{% url 'task-delete'  TASK.id %}">delete</a> 
+            </div>
+      </div>
+    </td>
+  </tr>
+  {% empty %}
     <h3>no items in list</h3>
-
-    <a href="{% url 'task-create' %}">add new task</a>
-    {% endfor %}
-    <br /><br />
-    <a href="{% url 'task-create' %}">add new task</a>
-  </td>
+  {% endfor %}
 </table>
+<br /><br />
+<div>
+  <a href="{% url 'task-create' %}">add new task</a>
+
+</div>
 <a class="show-more" href="{% url 'full-tasks' %}"
   ><button>show more</button></a
 >

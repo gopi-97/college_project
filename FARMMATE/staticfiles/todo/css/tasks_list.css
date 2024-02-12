@@ -1,0 +1,103 @@
+
+/* Dropdown Button */
+.todo-dropbtn {
+  width: 50%;
+  min-width:fit-content;
+  color: black;
+  background-color: white;
+  font-size: 14px;
+  border: 1px solid green;
+  cursor: pointer;
+  padding: 2px;
+}
+
+
+
+/* The container <div> - needed to position the dropdown content */
+.task-list-dropdown {
+  display: block;
+  
+}
+
+/* Dropdown Content (Hidden by Default) */
+.task-list-dropdown > .todo-dropdown-content {
+  display: none;
+  position:absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+/* Links inside the dropdown */
+.task-list-dropdown > .todo-dropdown-content a {
+  color: black;
+  background-color: #efefef;
+  border: 2px solid #dedede;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  /* Dropdown Button */
+  .todo-dropbtn {
+    width: 50%;
+    min-width:fit-content;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    border: 1px solid green;
+    cursor: pointer;
+    padding: 2px;
+  }
+  
+  
+  
+  /* The container <div> - needed to position the dropdown content */
+  .task-list-dropdown {
+    position: relative;
+    display: block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .task-list-dropdown > .todo-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  
+  /* Links inside the dropdown */
+  .task-list-dropdown > .todo-dropdown-content a {
+    color: black;
+    background-color: #efefef;
+    border: 2px solid #dedede;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+  }
+  .task-list-dropdown > .todo-dropdown-content a:hover {
+    background-color: white;
+    border-radius: 30px;
+    color: blue;
+    font-size: 20px;
+  }
+  .task-list-dropdown > .todo-show {
+    display: block;
+  }
+  transition: all 0.3s;
+}
+.task-list-dropdown > .todo-dropdown-content a:hover {
+  background-color: white;
+  border-radius: 30px;
+  color: blue;
+  font-size: 20px;
+}
+.task-list-dropdown > .todo-show {
+  display: block;
+}

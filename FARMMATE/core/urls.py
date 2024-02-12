@@ -24,5 +24,7 @@ urlpatterns = [
     path("",include("manage_account.urls")),
     path("",include("dashboard.urls")),
     path("",include("todo.urls")),
+    path("",include("inventory.urls")),
+    path("",include("cultivation.urls")),
 
 ] + static(settings.MEDIA_URL,document_root =settings.MEDIA_ROOT) # automatically creates url for the files uploaded and stores it in the directory specified

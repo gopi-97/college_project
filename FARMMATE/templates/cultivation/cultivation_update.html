@@ -1,0 +1,20 @@
+
+{% load static %}
+<link href="{% static 'dashboard/css/forms_popupbox.css' %}" rel="stylesheet">
+
+<div class="form-container">
+    
+    <h1>cultivation Update form</h1>
+
+
+<form action="" method="post" class='form'>
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }} <!-- as_p organises form as paragraph -->
+    </div>
+     <input type="submit" value="save"class="form-submit-btn">
+</form>
+<a href="{% url 'cultivation-detail' cultivation.id %}">go back to details</a>
+<a href="{% url 'cultivation-list' %}">go back to list</a>
+</div>
+

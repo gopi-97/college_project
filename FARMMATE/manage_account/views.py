@@ -16,7 +16,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.views import LoginView ,LogoutView
 
 class home(LoginRequiredMixin,TemplateView):
-    template_name='dashboard/home.html'
+    template_name='dashboard/launch.html'
+    
+
 
 
 def generate_message(request,error):

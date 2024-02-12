@@ -13,6 +13,7 @@
         <div class="left-panel">
             <img src="{% static 'manage_account/images/logo.png' %}" alt="Image">
         </div>
+        
         <div class="right-panel">
             <span>
                 <h2>Login</h2>
@@ -22,7 +23,7 @@
                 {{ form.as_p }}
                 <input type="submit" value="Login"> 
             </form>
-            <p>Forgot password? <a href="#">Click here</a></p>
+            <p>are you an admin? <a href="{% url 'admin:login' %}" class="admin-link">ClickHere</a></p>
             <p>Not registered yet? <a href="{% url 'signup' %}">Register</a></p>
 
             {% if messages %}

@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% load static %}
-    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'dashboard/css/dashboard.css' %}" />
     <link
       rel="stylesheet"
-      href="{% static 'dashboard/css/add-product.css' %}"
+      href="{% static 'cultivation/css/add-product.css' %}"
     />
     <link
-      href="{% static 'dashboard/css/inventory_list.css' %}"
+      href="{% static 'inventory/css/inventory_list.css' %}"
       rel="stylesheet"
     />
+    
 
     <title>Dashboard</title>
 
@@ -31,6 +32,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var xhr = new XMLHttpRequest();
@@ -167,23 +170,24 @@
       <div class="currentCultivation">
         <h3>current cultivation</h3>
         <div class="small-box">
-          {% include 'dashboard/partials/currentCultivation.html' %}
+          {% include 'cultivation/currentCultivation.html' %}
         </div>
 
         <button id="new-button" data-url="{% url 'add-product' %}">new</button>
+        
       </div>
 
       <div class="small-box2">
-        {% include 'dashboard/partials/cultivationHistory.html' %}
+        {% include 'cultivation/cultivationHistory.html' %}
       </div>
       <div class="content-box medium-box">
         {% include 'todo/tasks_list.html' %}
       </div>
       <div class="content-box medium-box2">
-        {% include 'dashboard/partials/inventory_list.html' %}
+        {% include 'inventory/inventory_list.html' %}
       </div>
       <div class="content-box large-box">
-        {% include 'dashboard/partials/graph.html' %}
+        {% include 'inventory/graph.html' %}
       </div>
     </div>
     <script>
@@ -229,8 +233,9 @@
         }
       };
       var newButton = document.getElementById("new-button");
+      var editButton = document.getElementById("edit-button");
 
-      var todoviewButtons = document.querySelectorAll("task-list-item-view");
+      var todoviewButtons = document.getElementsByClassName("task-list-item-view");
       var todoupdateButtons = document.querySelectorAll(
         "task-list-item-update"
       );
@@ -239,6 +244,8 @@
       );
 
       newButton.addEventListener("click", handleButtonClick);
+      editButton.addEventListener("click", handleButtonClick);
+
       todoviewButtons.forEach(function (button) {
         button.addEventListener("click", handleButtonClick);
       });
@@ -268,6 +275,23 @@
           }
         }
       };
+      function todoDropDownFunction() {
+        document.getElementById("todo-Dropdown").classList.toggle("todo-show");
+      }
+
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".todo-dropbtn")) {
+          var dropdowns = document.getElementsByClassName("todo-dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("todo-show")) {
+              openDropdown.classList.remove("todo-show");
+            }
+          }
+        }
+      };
       function logout() {
         window.location.href = "{% url 'logout' %}";
       }
@@ -287,31 +311,6 @@
       function redirectToDiseaseandPests() {
         window.location.href = "{% url 'disease-pests' %}";
       }
-
-      const section1 = document.querySelector(".section1"),
-        section2 = document.querySelector(".section2"),
-        overlay = document.querySelector(".overlay"),
-        showBtn = document.querySelector(".show-modal"),
-        showBtn2 = document.querySelector(".add-field"),
-        closeBtn = document.querySelector(".close-btn");
-      closeBtn2 = document.querySelector(".close-btn-2");
-
-      showBtn.addEventListener("click", () => section1.classList.add("active"));
-      showBtn2.addEventListener("click", () =>
-        section2.classList.add("active")
-      );
-
-      overlay.addEventListener("click", () =>
-        section.classList.remove("active")
-      );
-
-      closeBtn.addEventListener("click", () =>
-        section1.classList.remove("active")
-      );
-
-      closeBtn2.addEventListener("click", () =>
-        section2.classList.remove("active")
-      );
     </script>
   </body>
 </html>

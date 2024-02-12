@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/cultivation_practice.css' %}">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-up-r.css' rel='stylesheet'>
+</head>
+<body>  
+   
+    <div class="btn">
+        <a href="#bt">
+    <i class="gg-arrow-up-r"></i>
+        </a>
+       </div>
+    <div class="container">
+    
+    <div class="main">
+        
+        <header>
+            <div class="topnav">
+                
+                
+                <div class="topnav-right">
+                  
+                  <a href="{% url 'dashboard' %}">Dashboard</a>
+                </div>
+              </div>
+              
+        </header>
+        
+       
+        <div class="nav">
+            <div class="nav-header">
+              <div class="nav-title">
+                <center>Index</center>
+              </div>
+            </div>
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            <div class="nav-links">
+             
+
+              <a href="#Importance">Importance</a>
+              <a href="#Growing condition">Growing condition
+              <a href="#Climate">Climate</a>
+              <a href="#Soil">Soil</a>
+              <a href="#How to plant">How to plant</a>
+              <a href="#Why Plant">Why Plant</a>
+              <a href="#Irrigation">Irrigation</a>
+              <a href="#Fertilization">Fertilization</a>
+              <a href="#Pest Control">Pest Control</a>
+            <a href="#Time needed">Time needed</a>
+              <a href="#Harvest process">Harvest process</a>
+              <a href="#post Harvest">post Harvest</a>
+              <a href="#environmental Impacts">impacts</a>
+              <a href="#References">References</a></li>
+             
+
+
+            </div>
+          </div>
+        <!-- <header>
+            <div class="topnav">
+                
+                
+                <div class="topnav-right">
+                  
+                  <a href="{% url 'dashboard' %}">Dashboard</a>
+                </div>
+              </div>
+              
+        </header> <div class="aside">
+            <nav>
+                <ul>
+                  <li><a href="#Importance">Importance</a></li>
+                  <li><a href="#Growing condition">Growing condition</a></li>
+                  <li><a href="#Climate">Climate</a></li>
+                  <li><a href="#Soil">Soil</a></li>
+                  <li><a href="#How to plant">How to plant</a></li>
+                  <li><a href="#Why Plant">Why Plant</a></li>
+                  <li><a href="#Irrigation">Irrigation</a></li>
+                  <li><a href="#Fertilization">Fertilization</a></li>
+                  <li><a href="#Pest Control">Pest Control</a></li>
+                  <li><a href="#Time needed">Time needed</a></li>
+                  <li><a href="#Harvest process">Harvest process</a></li>
+                  <li><a href="#post Harvest">post Harvest</a></li>
+                  <li><a href="#environmental Impacts">environmental Impacts</a></li>
+                  <li><a href="#References">References</a></li>
+                  <li><a href="#Contact">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+         -->
+        
+        
+          
+        <div class="body">
+          
+       
+        <div class="responsive">
+            
+            <img src="{% static 'dashboard/images/rice-field-1.jpg' %}" alt="image"  id="bt">
+            
+        </div>
+     
+            
+        <div class="content1">
+            <ul>
+           <h1 class="hh"><u><center>Growing Rice: Sowing, Cultivating, And Harvesting</center></u> </h1>
+         
+           <li><p>From the perspective of global food security, rice is a crucial crop. Yet, rice growing practices are still frequently reliant on outdated manual methods that are inefficient in terms of both industrial agriculture and environmental impact. Some of the environmental costs of today’s rice paddy growing include the flooding of land to make it into cultivation fields, the massive emissions of greenhouse gases, and the overuse of agrochemicals. Fortunately, there are numerous methods (such as the use of current agricultural technologies) of how to grow rice more wisely, profitably, and sustainably.</p></li>
+</ul>
+        </div>
+       
+        <div class="content2" id="Importance">
+           <h1> Importance Of Rice And Its Growing To Global Nutrition</h1>
+           <ul><li>
+           <p><p>Rice, a grain high in starch, is a mainstay of the diets of about half of the world’s population. No other crop cultivation is as crucial to human feed, the agricultural economy, and the planet’s ecosystem as rice growing. While these crops, especially newly planted ones, need a wet environment, paddies (flooded lowlands and waterlogged fields around rivers) are common places to grow them.</p>
+</li>
+
+<li>
+    <p>Oryza sativa, also known as Asian rice, is the most frequently cultivated and consumed type of rice in the world. There are two main kinds of rice: indica, with longer grains, and japonica, with shorter grains. Some species, such as brown rice, come in both long- and short-grain varieties. The long-grain crop is lower in starch and higher in dry matter than its short-grain relative. Growing long-grain rice has the highest economic return of all rice cultivars.</p></li>
+
+The most widely consumed rice varieties are as follows:
+
+<li><p><b>long-grain:</b> Basmati, Jasmine, Mogra, Carolina Gold, Wild, Red, and Black Rice;</p></li>
+<li><p><b>medium-to-short-grain:</b> Arborio, Koshihikari, Valencia, Carnaroli, Calasparra, Baldo, and Bomba</p></li>
+<p>With a growing global population, rice remains an essential staple food. Hence, it is crucial to grow it as efficiently as possible by considering the best conditions for rice growth while also minimizing negative impacts on the surrounding environment</p>
+</p></li></ul>
+        </div>
+
+
+
+    
+    <div class="content3">
+        <h1 id="Growing condition">Optimal Growing Conditions For Rice
+
+        </h1>
+        <ul><li>  <p>Growing rice, like any other crop, needs certain conditions to thrive. The most crucial rice growth requirements are related to climate and soil. Now, we’ll consider what growing conditions lead to a bumper crop and which regions should expect the finest harvests</p></li>
+          </ul>
+    </div>
+    <div class="content4">
+        <h1 id="Climate">Ideal Climate For Growing Rice</h1>
+        <ul><li><p>Originally from tropical regions, rice is a warm-season crop that requires constant heat and humidity to grow. It can be cultivated as an annual in warm climates, though, even if you don’t reside in the tropics</p></li></ul>
+        <h2>Where is rice grown?</h2>
+        <p>Most of the world’s rice grows in Asia, specifically in China, India, Bangladesh, Indonesia, and Vietnam. At the same time, Africa, Europe, the Americas, and Oceania all have some warm areas with suitable rice growing climates.
+
+        </p>
+        <p><ul><li>
+            <p>During the growing season, the best temperature for rice is between 70°F and 99°F (21°C and 37°C). Soil temperatures above 99 degrees Fahrenheit (37 degrees Celsius) have a harmful effect on crop. It is possible to grow it only where nighttime lows stay at 60°F (15°C) or higher for a minimum of three months annually. How come it’s so important? Germination is temperature-dependent, so the lows for the growing crop must always be above that mark.</p></li></ul></p>
+        <p><ul><li><p>The water needs of growing rice far exceed those of any other crop. Thus, only in locations with a minimum annual rainfall of 45 inches (115 cm) does rice growing take place. The best growing conditions can be found in areas where yearly rainfall is between 69 and 118 inches (175 and 300 cm) on average. Paddies must be inundated for at least 10 weeks during the growing season, with water depths ranging from 1 inch (25 mm) at the transplanting stage to as much as 6 inches (150 mm) throughout the crop lifecycle.</p></li></ul></p>
+
+
+    </div>
+    <div class="content4">
+        <h1 id="Soil"> Ideal Soil For Growing Rice </h1>
+        <ul><li>
+            <p>
+                What type of soil does rice grow in? While it’s true that it can grow in just about any type of soil, it’s most successful in rich, well-drained soils that can hold onto moisture. All soil types, from sand to clay, will be suitable provided that they have an optimal rice growing pH of between 5 and 7.5. Soils high in clay and silt, which are often unsuitable for growing other crops, are ideal for growing rice plants because of how effectively they hold water. As the crop needs a great deal of water, it’s best to plant it in soils that are easy to flood.
+            </p>
+        </li></ul>
+        <div class="responsive">
+            <img src="{% static 'dashboard/images/rice-field-2.jpg' %}" alt="image" >
+        </div>
+    </div>
+    <div class="content5">
+        <h1 id="How to plant">
+            How To Plant Rice
+        </h1>
+        <p>Large-scale planting demands thorough planning, accurate execution, and constant monitoring. To guarantee a prosperous crop, major agricultural companies must take the following actions:</p>
+        <ul>
+            <li>  
+                <p>choose a location with flat terrain and enough water resources. The soil needs to be both nutrient-rich and well-drained;</p></li>
+            <li><p> prepare the land by getting rid of any rocks, trash, and weeds in the rice growing field. Plowing and leveling will provide a uniformly smooth and flat land surface. Amend the soil with organic matter and fertilizers as you see fit</p></li>
+            <li> <p>choose premium rice seeds for planting, with localized breeding for high yield and disease resistance;</p> </li>
+            <li><p></p>guard the seeds against diseases and pests by using fungicides and pesticides;  </li>
+            <li><p></p>plant seeds with a mechanical planter to ensure uniform spacing. The ideal depth for sowing seeds is about an inch (2–3 cm), and the recommended planting distance between rows of rice is 8–10 inches (20–25 cm).  </li>
+
+        </ul>
+
+        <h1>Different Ways Of Growing Rice  </h1>
+        <p>Methods of growing rice range from manual to highly automated, from traditional to cutting-edge. But most countries still rely on tried-and-true growing methods that have been around for generations. Let’s have a look at the most typical approaches: </p>
+        <ul><p>Wet growing. Rice traditionally grows in flooded areas, or paddies. First, water (several inches deep) is poured into the paddies until the plants are submerged, and then, before harvesting, it is drained from the rice growing plantation.</p>
+            <li>Dry growing. Here, the crop grows in fields that are not flooded. This method is good for growing paddy crops in regions with reduced rainfall or a lack of water supplies. </li>
+            <li>Upland growing is well-suited for areas, such as hills or mountains, where the topography does not permit flooding. Terrace farming allows for growing crops on slopes causing minimal soil erosion. </li>
+            <li>Aerobic (aeroponic) growing is employed in places where water is scarce or flooding is not an option. The crop grows in soil that drains effectively and is only watered sparingly when needed. </li>
+            <li> System of Rice Intensification (SRI). This type of rice growing prioritizes plant density, soil condition, and irrigation to boost yields. It calls for planting seedlings at a younger age, with more space between them, and with less water than conventional approaches imply 
+.</li>
+            <li> Aquaponics, or rice-fish growing, is a technique for cultivation that combines wet growing with fish farming. In flooded areas, fish are farmed alongside crops, and their feces serve as fertilizer.</li>
+
+        </ul>
+        <p>Environmental conditions and available resources typically dictate the way to grow crops. Farmers must select the approach that best suits their unique needs based on the benefits and drawbacks of each option.</p>
+
+        <h1 id="Why Plant">Why Is Rice Better Grown In Water?  </h1>
+        <p>Growing rice needs much water to thrive. For this reason, growing rice over water rather than land is preferred. This approach to growing has many advantages:</p>
+        <ul>
+            <li>the growing crops can easily get to the water they need, with less water being wasted due to evaporation;</li>
+            <li>paddy fields keep the water level constant, which is crucial for rice plant growth and development;</li>
+            <li>most weeds and pests perish in the water;</li>
+            <li>at the same time, water serves to offer a habitat for numerous aquatic species helpful to the environment. Certain fish and bird varieties prosper in the wetland where rice is grown and even act as natural pest controllers.</li>
+        </ul>
+        <br><br>
+        <center>Rice growing in water has the best conditions for producing high yields. <br> Growing the crop in flooded fields is a time-tested and efficient practice. <br> As a result, it has become a cultivation standard.</center>
+        <br><br>
+
+
+    </div>
+    <div class="responsive">
+        <img src="{% static 'dashboard/images/rice-with-green-3.jpg' %}" alt="image" >
+    </div>
+
+    <div class="content6">
+        <h1>Streamlining Field Work On The Paddies Using EOSDA Crop Monitoring Solutions</h1>
+        <ul><li>Global warming is a major cause of drought, saltwater getting into the fields, and air and soil temperature changes that are bad for growing rice. Considering this, farmers must make the most of all their farming techniques to keep up with the growing demand for grain around the world. EOSDA Crop Monitoring and other technologies for precision agriculture make it easy to plan all field activities at once, find problem areas quickly, and make data-driven decisions to address issues on the field.</li></ul>
+        <h1 id="Irrigation">Irrigation</h1>
+        <ul><li>Rice growers have the responsibility of ensuring that their crop doesn’t dry out at any point during the growing season. By adopting efficient irrigation methods, you may greatly cut down on water waste</li>
+            <li>EOSDA Crop Monitoring makes keeping track of crop water requirements really simple. The NDMI index is a measure of how well-hydrated a growing plant is right now. Soil moisture issues or a plant’s inability to take in enough water could be to blame for out-of-the-ordinary index values. However, keep in mind that this feature is appropriate only for non-flooded dry-field crop productio</li>
+            <li>At the same time, EOSDA Crop Monitoring can do much more than only track plant moisture levels. It gives crop producers and field managers the possibility to assess root zone and surface soil moisture dynamics and evaluate soil moisture’s effect on vegetation indices, such as NDVI, NDMI, NDRE, and MSAVI.</li>
+        </ul>
+        <p>
+            <h1 id="Fertilization">Fertilization</h1><br>
+            To ensure crop health and increase in crop yields, you need to perform rice growing fertilization at just the right times and just the right rates. With the help of EOSDA Crop Monitoring, you can now use fertilizers and other agrochemicals on your growing crops with pinpoint accuracy. After analyzing the vegetation in your field and making a zoning map, you can tailor your fertilizing program to the needs of each specific rice growing area. This means less money spent on fertilizers and less chemical runoff polluting the soil and water supply.
+
+        </p>
+        <h1 id="Pest Control">Weed And Pest Control</h1>
+        <ul>
+            <li>Employ pesticides to kill off weeds growing in your rice field that might otherwise steal water and nutrients from your crop. Weed and pest detection and eradication should always be part of your crop monitoring plan.</li>
+            <li>Rice producers can spot potential problems in their fields with minimal effort by using the scouting app provided by the EOSDA Crop Monitoring platform. Examining vegetation maps before setting a scouting task is a good practice because it allows you to locate low-vegetation areas that might be harboring pests. Inspecting only high-risk regions rather than the whole rice growing field will speed up and reduce the overall cost of treating against weeds, pests, and crop diseases.</li>
+            <li>The scouts can use EOSDA’s mobile app on their smartphones to provide rice growers and agronomy managers with real-time reports and photos from the paddies. The new capabilities of EOSDA’s scouting app make it impossible for scouts to fake their presence at the site. Now, they can only provide feedback and report findings at the manager-designated checkpoint.</li>
+        </ul>
+        <h1 id="Time needed">
+            How Long Does Rice Take To Grow?
+        </h1>
+        <ul><li>Rice varieties, growing conditions, and agronomic practices can all affect how long it takes for plants to mature. Most cultivars require between 105 and 150 days from sowing to harvest. However, some types can take up to 180 days to grow. In general, transplanted crops mature more quickly than directly seeded ones.</li></ul>
+        
+
+
+    </div>
+    <div class="responsive">
+        <img src="{% static 'dashboard/images/duration-of-rice-5.jpg' %}"alt="image" >
+    </div>
+
+
+
+    <div class="content6">
+        <ul><li>Rice can be farmed year-round and harvested several times a year in tropical places with consistent warmth and plenty of precipitation. In contrast, in areas with four distinct seasons, the rice growing period often coincides with the wet (monsoon) season, providing sufficient rainfall and temperatures favorable for crop cultivation.</li></ul>
+        <center><h2>When is the rice growing season?</h2>Rice is best planted in the spring/summer and harvested in the fall/winter. For instance, in the southern states of the US, rice is often planted in April–May and harvested in September–October. While, in many Asian countries, the rice growing season typically shifts by one month; it starts in May–June and ends in October–November.
+        </center>
+
+        <h1 >Rice Harvesting And Post-Harvest Techniques</h1>
+        <p>The act of harvesting rice, which entails removing the grains from the plant, is an essential stage of the growing process. Harvest timing has a significant impact on both the quantity and quality of the crop. It is typically harvested when the grains have reached their full size and maturity.</p>
+        <h1>When To Harvest Rice</h1>
+        <p>For directly sown plants, the best time to harvest is between 110 and 120 days after sowing (DAS), while for transplanted plants, it is between 100 and 110 days after transplanting (DAT).</p>
+
+        <h2>Look for the following signs to see if a full-grown rice plant is ready to be picked:</h2>
+        <p>
+            <b>Proportion of mature grain per panicle.</b> When 80%–85% of the grains have turned yellow, it is time to harvest <br>
+.
+            <b>Days since sowing.</b> For late-maturing types, the best period to harvest is between 130 and 136 DAS; for medium-duration varieties, it’s between 113 and 125 days; and for early-maturing cultivars, it’s about 110 days. <br>
+            <b>Days since heading</b>. Harvesting in the dry season is best done between 28 and 35 days after heading, while during the rainy season, it is best done between 32 and 38 days after heading. <br>
+            <b>Water content.</b>  The optimal water level (wet basis) for grains is 20–25% just before harvest. As a rule of thumb, grains should feel solid yet not brittle when pressed between the teeth. Moreover, the crop must be harvested while the soil is fairly dry, because then it is much easier to pick the crop close to the ground.
+ <br>
+
+        </p>
+        <p>Through EOSDA Crop Monitoring, you can get accurate agrometeorological data about precipitation, air temperature, wind speed, and other growing conditions that can help you plan your harvest activities. If severe rainfall has occurred or is expected in the rice growing field, historical weather data and a 14-day weather forecast will let you adjust the upcoming harvesting work. Even if you have to manage a lot of fields all around the world, this is not an issue. Should there be a risk of bad weather at any of them, EOSDA Crop Monitoring will send you an email alert.</p>
+       
+
+
+
+
+
+
+    </div>
+    <div class="content7">
+        <h1 id="Harvest process">Harvesting Process And Methods</h1>
+        <ul><li>There are several steps involved in harvesting rice, and these can be completed one at a time by hand or all at once with the use of a combine harvester. While harvesting manually with a sharp knife or sickle, it’s critical to cut the stalk no more than 1–2 inches (4–5 cm) above the ground. In this way, farmworkers remove stem borer larvae that would otherwise be left in the stubble and might cause severe crop loss in the next rice growing season, even up to 100% in the case of the most destructive pest in Asia, strip stem borer 
+</li>
+        <li></li><p>A combine harvester typically cuts the crop, delivers it to the threshing system, threshes, cleans, and then deposits it into a wagon. While harvesting, the combine leaves a windrow of straw in its wake.</p></ul>
+
+
+        <h1 id="post Harvest">Post-Harvest Procedures</h1>
+        <p>After the crop has been harvested, there are a few more steps to be taken. While using a combine harvester, all of these operations occur simultaneously. But, if you opt for manual collection, you’ll have to do the following steps in order:
+            <br>
+            <ul><b><li>threshing —</b> paddy grain separation from the remainder of the harvested crop. It should be done as soon as possible after harvesting to prevent grain rewetting and minimize its breakage;</li>
+                <b><li>cleaning —</b>getting rid of immature, empty, and non-grain matter. Before cleaning, dry the grains (if needed) and then clean them carefully to avoid damage;</li>
+                <b><li>hauling —</b>transporting the harvest to the threshing floor;
+</li>
+                <b><li>field drying —</b> having the harvested crop air-dry in the paddy;
+</li>
+                <b><li>stacking (or piling) —</b> short-term storage of crops in stacks; </li>
+                <b><li>bagging —</b>filling bags with threshed grain for storage and shipment</li>
+            </ul>
+            
+        </p>
+
+    </div>
+    <div class="responsive">
+        <img src="{% static 'dashboard/images/img5.jpg' %}"alt="image" >
+    </div>
+    <div class="content8">
+        <h1 id="environmental Impacts">Environmental Impacts Of Growing Rice And Sustainable Solutions To Them</h1>
+        <p>Now that we know how rice is grown and harvested, there is one more major concern. Is growing rice bad for the environment? To put it briefly, yes. Farmers have resorted to more agrochemical use and more intensive irrigation methods to keep up with the surging demand for grain. Let’s look at the root reasons why there is such a negative eco-impact of growing rice:</p>
+
+        <ul><b><li>Water consumption —</b>To grow normally, rice needs a lot of water because it is an exceptionally thirsty plant. In areas where water supplies are already low, this might cause a severe shortage. </li>
+
+            <b><li>Emissions of greenhouse gases (GHGs)  —</b>. Due to the lack of oxygen, methane-producing microbes flourish in the paddies. Given that, growing rice is responsible for 12% of world methane emissions and 1.5% of total GHG emissions 
+. This is why rice farming is one of the major contributors to climate change, along with GHG emissions due to deforestation. </li>
+            <b><li> Applying agrochemicals—</b> Pesticides are frequently used in crop growing to keep pests and diseases at bay. The excess of these chemicals may accumulate in the ground, endangering human health and wildlife not intended to be exposed to them. </li>
+            <b><li>Loss of soil quality—</b> Soil degradation is a potential long-term effect of growing rice. When water sits on the ground for a long time, the soil compacts, its fertility decreases, and even soil salinization may occur. </li>
+            <b><li>Change in land use —</b> .Turning forested and wetland regions into paddies is linked to ecosystem decline, forest fragmentation, and loss of biodiversity. These land use changes threaten water control and carbon sequestration, two crucial ecological services.</li>
+            <b><li>Generation and disposal of waste —</b> The leftovers of rice processing, such as straw, hulls, and bran, can quickly amass. Mishandling this byproduct can increase pollution and greenhouse gas production.</li>
+        
+        </ul>
+        <p>These environmental challenges call for innovative, sustainable rice-growing approaches, both eco-responsible and economically viable for farmers. To help feed the world’s expanding population, China, a major rice producer and consumer, is investigating new eco-friendly methods of growing the crop 
+. International Rice Research Institute and Sustainable Rice Platform are just two of many international non-profit organizations working to make crop production more resilient in service to the United Nations’ Sustainable Development Goals. This strengthens our confidence in the long-term viability of rice growing and the pivotal role it will play in ensuring the world’s food security.</p>
+
+
+
+    </div>
+
+
+    <div class="reference">
+        <h1 id="References">
+            References
+        </h1>
+        <ol> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0308521X03000878"> <li>A Dobermann. (2004). A critical assessment of the system of rice intensification (SRI). Agricultural Systems, 79(30)
+
+            </li></a>
+           
+            <a href="https://www.agriculture.go.ug/wp-content/uploads/2020/10/Rice-Cultivation-Handbook.pdf"><li>Rice Cultivation Handbook. (2015, October). Promotion of Rice Development (PRiDe) Project, National Agricultural Research Organization, Uganda.↑</li></a>
+            
+            <a href="http://www.knowledgebank.irri.org/training/fact-sheets/pest-management/insects/item/stem-borer"><li>Catindig, J., Heong, K. L. Stem Borer. Rice Knowledge Bank.</li></a>
+            
+            <a href="https://www.worldwildlife.org/blogs/sustainability-works/posts/innovation-in-reducing-methane-emissions-from-the-food-sector-side-of-rice-hold-the-methane"><li>Kurnik, J., Devine, K. (2022, April 12). Innovation in Reducing Methane Emissions from the Food Sector: Side of rice, hold the methane. World Wildlife Fund.↑
+         </li></a>
+            
+         <a href="https://www.bloomberg.com/news/articles/2022-02-19/chinese-scientists-discover-how-to-grow-seawater-rice"><li>China Plans to Feed 80 Million People With ‘Seawater Rice’. (2022, February 19). Bloomberg News.↑   </li></a>
+            <a href=""><li>https://eos.com/blog/how-to-grow-rice/</li></a>
+            
+        </ol>
+    </div>
+</div>
+
+    
+    
+
+
+</div>
+
+</div>
+
+    
+</body>
+</html>
