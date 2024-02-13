@@ -108,10 +108,16 @@
       </div>
     </header>
     <div class="user">
+      <div class="pic">
+     
+        <img src="{% static 'dashboard/images/Welcome.jpg' %}" alt="">
+      </div>
       {% if user.is_authenticated %}
-      <p>Welcome, {{ user.username }}!</p>
-      {% endif %}
+      <p class="welcome-text" style="font-size: 5vw;">Welcome, {{ user.username }}!</p>
+    {% endif %}
     </div>
+    
+    
     <div class="activities">
       <div class="activites-container">
         <h1>Activities</h1>
@@ -157,7 +163,10 @@
       </div>
     </div>
     <hr />
+
     <h1>Farm Stats</h1>
+
+
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close close-btn">&times;</span>
@@ -165,6 +174,8 @@
       </div>
     </div>
     <div class="Farm-Stats">
+
+
       <div class="currentCultivation">
         <h3>current cultivation</h3>
         <div class="small-box">

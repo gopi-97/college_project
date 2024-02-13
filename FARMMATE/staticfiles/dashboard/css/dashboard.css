@@ -346,3 +346,50 @@ button {
   font-size: 1.1rem;
 }
 
+.user {
+  display: flex;
+  align-items: center;
+}
+.user {
+  position: relative;
+}
+
+.user img {
+  max-width: 100%;
+  height: auto; /* Maintain the image's aspect ratio */
+  display: block; /* Ensure the image is a block element */
+}
+
+.welcome-text {
+  position: absolute;
+
+  left: 5%; /* Adjust the left position as a percentage */
+  bottom: 10%; /* Adjust the bottom position as a percentage */
+  color: white;
+  padding: 1%; /* Adjust padding as a percentage */
+  margin: 0;
+  -webkit-text-stroke-width: 1px; /* Adjust text stroke width */
+  -webkit-text-stroke-color: black;
+  top:45%;
+}
+.Farm-Stats{
+  background-image: url("/static/dashboard/images/nature.avif");
+}
+
+/* Responsive styles using media queries */
+@media screen and (max-width: 768px) {
+  .welcome-text {
+    top:30%;
+    left: 2%; /* Adjust for smaller screens */
+    bottom: 5%; /* Adjust for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .welcome-text {
+    top:-10%;
+    left: 2%; /* Adjust for even smaller screens */
+    bottom: 30%; /* Adjust for even smaller screens */
+  }
+}
+
