@@ -49,6 +49,20 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var xhr = new XMLHttpRequest();
+        var url = "{% url 'inventory-gallery' %}";
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // On success, update the to-do list content
+            document.querySelector(".large-box2").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
         var url = "{% url 'inventory-list' %}";
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
@@ -108,10 +122,16 @@
       </div>
     </header>
     <div class="user">
+      <div class="pic">
+     
+        <img src="{% static 'dashboard/images/Welcome.jpg' %}" alt="">
+      </div>
       {% if user.is_authenticated %}
-      <p>Welcome, {{ user.username }}!</p>
-      {% endif %}
+      <p class="welcome-text" style="font-size: 5vw;">Welcome, {{ user.username }}!</p>
+    {% endif %}
     </div>
+    
+    
     <div class="activities">
       <div class="activites-container">
         <h1>Activities</h1>
@@ -157,7 +177,10 @@
       </div>
     </div>
     <hr />
+
     <h1>Farm Stats</h1>
+
+
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close close-btn">&times;</span>
@@ -165,6 +188,8 @@
       </div>
     </div>
     <div class="Farm-Stats">
+
+
       <div class="currentCultivation">
         <h3>current cultivation</h3>
         <div class="small-box">
@@ -187,7 +212,16 @@
       <div class="content-box large-box">
         {% include 'inventory/graph.html' %}
       </div>
+      <div class="content-box large-box2">
+        {% include 'inventory/inventory_gallery.html' %}
+      </div>
     </div>
+
+    <footer>
+          <h3>FarmMate</h3>
+          <p><a href="mailto:farmers.assistance.system@gmail.com">mail us</a></p>
+    </footer>
+
     <script>
       // Get the modal
       var modal = document.getElementById("myModal");

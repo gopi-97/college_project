@@ -15,13 +15,29 @@ body {
 
 .left-section {
   display:flex;
-  padding-top:100px;
-  padding-inline-start:7%;
+  padding:20px;
   width: 50%;
   background: rgba(217, 217, 217, 1);
   border-radius: 20px;
+  object-position:center;
+}
+@keyframes fade {
+  0% {
+    opacity: 1; /* Start with full opacity */
+  }
+  100% {
+    opacity: 0; /* Fade out to completely transparent */
+  }
 }
 
+img {
+  margin-left: 9%;
+  position: relative;
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  animation: fade 5s; 
+}
 
 .title {
   width: 50%;
@@ -34,28 +50,6 @@ body {
   text-align: center;
   left:0px;
 
-}
-
-
-.inner-left-section {
-  width:35%;
-  height:40vw;
-  max-height:500px;
-  background: rgba(71, 67, 67, 1);
-  position: absolute;
-  border-radius: 25px;
-  overflow: hidden;
-}
-
-.inner-right-section {
-  width:35vw;
-  height:40vw;
-  max-height:500px;
-  max-width:500px;
-  background: url("../images/v26_15.png") center/cover no-repeat;
-  position: absolute;
-  overflow: hidden;
-  
 }
 
 
@@ -79,7 +73,7 @@ h1 {
 }
 
 .right-section .launch-button{
-  margin-top:70px;
+  margin-top:0px;
   
 
   cursor: pointer;
@@ -95,28 +89,32 @@ h1 {
   font-size: 40px;
   border: none;
   cursor: pointer;
-  transition: all 2s;
+  transition: all 1s;
 }
 
 @keyframes change{
+
+  
  
-  50%{
-  background-color:transparent;
-  color:black;
+  0%{
+  
     border:2px solid black;
+    border-radius:10px;
   }
   100%{
-  background-color:transparent;
-  color:black;
-    border:2px solid black;
+     border:2px solid black;
+    border-radius:30px;
   }
 }
 
 #launch-button:hover{
-
   animation:change;
-  animation-duration:2s;
+  animation-duration:1s;
   animation-fill-mode:forwards;
+  background-color:transparent;
+  color:black;
+  font-size:42px;
+  scale:1.1;
  
 }
 
@@ -151,9 +149,12 @@ h1 {
   font-size: 20px;
   background: transparent;
   border:none;
+  transition:all 1s;
 }  
 .login-button :hover
 {
+  color:black;
+  border-radius:20px;
   background-color:white;
  border:2px solid black;
   scale:1.2;

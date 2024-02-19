@@ -29,13 +29,10 @@
 }
 
 .topnav-right {
-    float: left;
+    float: right;
 }
 .content1{
     padding-top:50px;
-}
-img{
-
 }
 
 table {

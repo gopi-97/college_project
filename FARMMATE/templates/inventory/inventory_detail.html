@@ -17,4 +17,28 @@
 
 <br><br>
 
+<style>
+    div.scroll-container {
+      background-color: #333;
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
+      object-fit:contain;
+    }
+    
+    div.scroll-container img {
+      padding: 10px;
+    }
+    </style>
+    
+    <h1>Inventory Gallery</h1>
+    <div class="scroll-container">
+    {% for images in inventoryImages %}
+      <img src="{{ images.jpg }}" alt="image" >
+    {% endfor %}
+    </div>
+    
+    
+    
+
 <a href="{% url 'inventory-list-full' %}">go back</a>

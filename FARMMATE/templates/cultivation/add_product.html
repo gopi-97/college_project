@@ -5,7 +5,14 @@
     <form method="POST" action="{% url 'add-product' %}">
       {% csrf_token %}
       <label for="product">Product:</label>
-      <input type="text" id="product" name="product" required /><br /><br />
+
+      <select name="product" id="product">
+        <option value="Basmati Rice">Basmati Rice</option>
+        <option value="Red Rice">Red Rice</option>
+        <option value="Brown Rice">Brown Rice</option>
+        <option value="Jasmin Rice">Jasmin Rice</option>
+        <option value="Parboiled Rice">Parboiled Rice</option>
+      </select><br /><br />
 
       <label for="location">Location:</label>
       <input type="text" id="location" name="location" required /><br /><br />
