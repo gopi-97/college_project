@@ -49,6 +49,20 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var xhr = new XMLHttpRequest();
+        var url = "{% url 'inventory-gallery' %}";
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // On success, update the to-do list content
+            document.querySelector(".large-box2").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var xhr = new XMLHttpRequest();
         var url = "{% url 'inventory-list' %}";
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
@@ -198,7 +212,16 @@
       <div class="content-box large-box">
         {% include 'inventory/graph.html' %}
       </div>
+      <div class="content-box large-box2">
+        {% include 'inventory/inventory_gallery.html' %}
+      </div>
     </div>
+
+    <footer>
+          <h3>FarmMate</h3>
+          <p><a href="mailto:farmers.assistance.system@gmail.com">mail us</a></p>
+    </footer>
+
     <script>
       // Get the modal
       var modal = document.getElementById("myModal");

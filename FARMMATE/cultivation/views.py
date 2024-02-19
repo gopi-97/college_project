@@ -105,6 +105,7 @@ class addToInventory(LoginRequiredMixin,UpdateView):
         inventory = FarmerInventory.objects.create(
             user=request.user,
             product=current_cultivation.product,
+            product_id = current_cultivation.product_id,
             quantity=request.POST.get('quantity'),
             images=request.FILES.get('images')
         )
