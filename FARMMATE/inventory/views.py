@@ -15,6 +15,7 @@ from django.views.generic.detail import DetailView
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 import base64
+# from .forms import CustomInventoryUpdateForm
 # Create your views here.
 
 
@@ -131,8 +132,11 @@ def inventoryGallery(request):
 class InventoryUpdate(LoginRequiredMixin,UpdateView):
     model = FarmerInventory
     context_object_name = 'inventory'
+    # form_class = CustomInventoryUpdateForm
+    fields = ['product', 'quantity', 'image']
+
     template_name = 'inventory/inventory_update.html'
-    fields = ['product','quantity']
+   
 
 
     def get_object(self, queryset=None):
@@ -143,6 +147,19 @@ class InventoryUpdate(LoginRequiredMixin,UpdateView):
     def get_success_url(self):
         pk = self.kwargs.get('pk')
         return reverse('inventory-detail', kwargs={'pk': pk})
+    
+    def post(self,request,*args,**kwargs):
+        inventory = FarmerInventory.objects.create(
+            user=request.user,
+            product=request.product,
+            product_id = request.product_id,
+            quantity=request.POST.get('quantity'),
+            image=request.FILES.get('image'),
+            gallery=request.FILES.get('gallery'),
+
+        )
+
+        inventory.save()
 
 
 class InventoryItemDelete(LoginRequiredMixin,DeleteView):

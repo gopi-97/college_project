@@ -4,7 +4,7 @@ html {
   height: 150vh;
   background-color: #e7e3ee;
 }
-.todo-update-form {
+.inventory-update {
   position: relative;
   top: 200px;
 
@@ -20,7 +20,7 @@ html {
 }
 
 /* Style form headings */
-.todo-update-form h1 {
+.inventory-update h1 {
   font-size: 1.5em;
   color: green;
   margin-bottom: 20px;
@@ -28,20 +28,20 @@ html {
 }
 
 /* Style form labels and input fields */
-.todo-update-form label {
+.inventory-update label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
 }
 
-.todo-update-form input {
+.inventory-update input {
   width: 100%;
   padding: 8px;
   margin-bottom: 16px;
   box-sizing: border-box;
 }
 
-.todo-update-form p a {
+.inventory-update p a {
   padding: 10px;
   margin: 5px;
   display: block;
@@ -50,12 +50,12 @@ html {
   color: grey;
 }
 /* Style the file input */
-.todo-update-form input[type="file"] {
+.inventory-update input[type="file"] {
   margin-top: 10px;
 }
 
 /* Style the submit button */
-.todo-update-form input[type="submit"] {
+.inventory-update input[type="submit"] {
   background-color: #4caf50;
   color: white;
   padding: 10px 15px;
@@ -65,17 +65,14 @@ html {
   padding: 10px;
 }
 
-.todo-update-form input[type="submit"]:hover {
+.inventory-update input[type="submit"]:hover {
   background-color: #45a049;
 }
-.todo-update-form input[type="checkbox"] {
-  position: relative;
-  align-self: flex-start;
-}
+
 .goback {
   position: relative;
   top: 150px;
-  margin-left: 100px;
+  margin-left: 130px;
   align-items: center;
   font-weight: bolder;
 }

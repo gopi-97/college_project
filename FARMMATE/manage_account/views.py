@@ -40,7 +40,7 @@ class register(FormView):
     def form_valid(self, form: FarmerRegistrationForm) -> HttpResponse:
         password = form.cleaned_data.get('password1')
         confirm_password = form.cleaned_data.get('password2')
-
+        images=form.FILES.get('profile_pic')
         if password != confirm_password:
             messages.error(self.request, "Passwords don't match.")
             return self.form_invalid(form)

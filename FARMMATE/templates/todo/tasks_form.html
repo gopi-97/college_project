@@ -1,9 +1,14 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'todo/css/task_form.css' %}">
-<h1>task form</h1>
-<form action="" method="post">
-    {% csrf_token %}
-     {{ form.as_p }} <!-- as_p organises form as paragraph -->
-     <input type="submit" value="save task">
-</form>
-<a href="{% url 'dashboard' %}">go back</a>
+<link rel="stylesheet" href="{% static 'todo/css/task_form.css' %}" />
+
+<div class="todo-update-form">
+  <h1>task form</h1>
+  <form action="" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <!-- as_p organises form as paragraph -->
+    <input type="submit" value="save task" />
+  </form>
+</div>
+<div class="goback">
+  <a href="{% url 'dashboard' %}">go back to dashboard</a>
+</div>
