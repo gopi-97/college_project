@@ -373,7 +373,10 @@ button {
   top:45%;
 }
 .Farm-Stats{
+  
   background-image: url("/static/dashboard/images/nature.avif");
+
+  
 }
 
 /* Responsive styles using media queries */
@@ -392,4 +395,3 @@ button {
     bottom: 30%; /* Adjust for even smaller screens */
   }
 }
-
