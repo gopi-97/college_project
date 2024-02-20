@@ -98,6 +98,27 @@ body {
   font-size: 3rem;
   margin: 70px 0;
 }
+@keyframes fade {
+  0% {
+    opacity: 1; /* Start with full opacity */
+  }
+  50% {
+    opacity: 0.5;
+    filter:grayscale(0.2);
+    color:black;/* Fade out to completely transparent */
+  }
+  100%{
+    opacity:1;
+  }
+}
+.user img{
+  box-sizing:border-box;
+  background: linear-gradient(#ffffff,#ffffff) padding-box,
+          linear-gradient(145deg, transparent 35%,#3bbe59, #043608) border-box;
+border: 5px solid transparent;
+  border-radius: 10px;
+  animation: fade 5s infinite; 
+}
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -179,6 +200,7 @@ h1 {
   border: 1px solid transparent;
   cursor: pointer;
   border-radius: 10px;
+   transition: all 1.5s;
 }
 
 .items-body-content:hover {
@@ -186,23 +208,8 @@ h1 {
   border: 3px solid black;
   background-color: white;
   color: black;
-}
-
-.items-body-content i {
-  align-self: center;
-  font-size: 15px;
-  font-weight: bold;
-  animation: icon 1.5s infinite forwards;
-}
-
-@keyframes icon {
-  0%,
-  100% {
-    transform: translate(0px);
-  }
-  50% {
-    transform: translate(3px);
-  }
+  scale:1.05;
+  margin-left:10px;
 }
 @keyframes gradient {
 0% {
@@ -228,6 +235,7 @@ background-position: 0% 50%;
   gap:10%;/* Add the new area here */
 }
 .small-box1{
+  
   background: linear-gradient(#ffffff,#ffffff) padding-box,
           linear-gradient(145deg, transparent 35%,#3bbe59, #043608) border-box;
 border: 3px solid transparent;
@@ -289,19 +297,21 @@ border: 3px solid transparent;
   scale:1.05;
 }
 
-.large-box {
+.large-box,
+.large-box2 {
   margin:20px;
-  width:50%;
+  width:42%;
   image-rendering: auto;
   object-fit:contain;
-  height: 600px;
+  height: auto;
 background: linear-gradient(#ffffff,#ffffff) padding-box,
           linear-gradient(145deg, transparent 35%,#3bbe59, #043608) border-box;
 border: 3px solid transparent;
   overflow: hidden;
   transition: all 1s;
 }
-.large-box:hover{
+.large-box:hover,
+.large-box2:hover{
   border:2px solid black;
   scale:1.05;
 }
@@ -378,6 +388,37 @@ button {
 
   
 }
+@keyframes animat{
+  0%{
+    color:white;
+  }
+  50%{
+    color:blue;
+  }
+  100%{
+    color:white;
+  }
+
+}
+
+footer{
+display:flex;
+flex-direction:column;
+align-items:center;
+height:200px;
+justify-content:center;
+background:#333333;
+color: white;
+border-top:1px solid ;
+font-size:1.5rem;
+
+
+a{
+ animation:animat;
+  animation-iteration-count:infinite;
+  animation-duration:2s;
+}
+}
 
 /* Responsive styles using media queries */
 @media screen and (max-width: 768px) {
@@ -386,6 +427,19 @@ button {
     left: 2%; /* Adjust for smaller screens */
     bottom: 5%; /* Adjust for smaller screens */
   }
+  .small-box2,
+  .large-box,
+  .large-box2{
+  width:90%;
+    margin:10px;
+  }
+  .medium-box{
+    width:80%;
+    margin:10px;
+  }
+   .medium-box2{
+     width:80%;
+   }
 }
 
 @media screen and (max-width: 480px) {
@@ -394,4 +448,5 @@ button {
     left: 2%; /* Adjust for even smaller screens */
     bottom: 30%; /* Adjust for even smaller screens */
   }
+  
 }

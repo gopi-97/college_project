@@ -45,4 +45,4 @@ class CurrentCultivation(models.Model):
 
 
     def __str__(self):
-        return f"{self.user} - {self.product} ({self.product_id})"
+        return f"{self.user} - {self.product} ({self.product_id})"  
