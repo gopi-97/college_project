@@ -47,20 +47,7 @@
         xhr.send();
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var xhr = new XMLHttpRequest();
-        var url = "{% url 'inventory-gallery' %}";
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            // On success, update the to-do list content
-            document.querySelector(".large-box2").innerHTML = xhr.responseText;
-          }
-        };
-        xhr.open("GET", url);
-        xhr.send();
-      });
-    </script>
+    
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var xhr = new XMLHttpRequest();
@@ -104,6 +91,8 @@
         xhr.send();
       });
     </script>
+
+
   </head>
 
   <body>
@@ -182,7 +171,7 @@
     </div>
     <hr />
 
-    <h1>Farm Stats</h1>
+
 
 
     <div id="myModal" class="modal">
@@ -191,36 +180,47 @@
         <div id="popup-content"></div>
       </div>
     </div>
+    <style>
+      .Farm-Stats{
+        background-image: url("{% static 'dashboard/images/background2.jpg' %}");
+      }
+      .Farm-Stats-heading{
+        color:white;
+        font-weight: bolder;
+      }
+    </style>
     <div class="Farm-Stats">
      
-    
+      <div>
+        <h1 class="Farm-Stats-heading">Farm Stats</h1>
 
+      </div>
 
-      <div class="currentCultivation">
-        <h3>current cultivation</h3>
-        <div class="small-box">
-          {% include 'cultivation/currentCultivation.html' %}
+      <div class="Farm-Stats-content">
+        <div class="currentCultivation">
+          <h3>current cultivation</h3>
+          <div class="small-box">
+            {% include 'cultivation/currentCultivation.html' %}
+          </div>
+  
+          <button id="new-button" data-url="{% url 'add-product' %}">new</button>
+          
         </div>
-
-        <button id="new-button" data-url="{% url 'add-product' %}">new</button>
-        
+  
+        <div class="small-box2">
+          {% include 'cultivation/cultivationHistory.html' %}
+        </div>
+        <div class="content-box medium-box">
+          {% include 'todo/tasks_list.html' %}
+        </div>
+        <div class="content-box medium-box2">
+          {% include 'inventory/inventory_list.html' %}
+        </div>
+        <div class="content-box large-box">
+          {% include 'inventory/graph.html' %}
+        </div>
       </div>
 
-      <div class="small-box2">
-        {% include 'cultivation/cultivationHistory.html' %}
-      </div>
-      <div class="content-box medium-box">
-        {% include 'todo/tasks_list.html' %}
-      </div>
-      <div class="content-box medium-box2">
-        {% include 'inventory/inventory_list.html' %}
-      </div>
-      <div class="content-box large-box">
-        {% include 'inventory/graph.html' %}
-      </div>
-      <div class="content-box large-box2">
-        {% include 'inventory/inventory_gallery.html' %}
-      </div>
     </div>
 
     <footer>

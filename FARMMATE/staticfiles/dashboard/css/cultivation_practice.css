@@ -5,12 +5,15 @@
   align-items: center;
   
 }
-.responsive img {
-  
-  max-width: 100%;
-  height: auto;
-  max-height: 80%;
-  transition: all 2s;
+img{
+  margin:100px;
+  border-radius:8px;
+  box-shadow:10px 10px 5px grey;
+  transition:1s ease-out;
+}
+img:hover{
+  transition:1s ease-in-out;
+  scale:1.05;
 }
 .main .content2 p{
   font-size: 20px;
@@ -89,6 +92,7 @@ font-family: Arial, sans-serif;
 .body{
 padding-left: 25%;
 padding-top: -300px;
+  background-color:white;
 }
 
 * {
@@ -100,14 +104,7 @@ margin: 0px;
 font-family: 'segoe ui';
 }
 
-.nav {
-width: 200px; /* Set a fixed width for the vertical menu */
-background-color: #4d4d4d;
-position: fixed; /* Fixed position to keep it visible */
-height: 100%; /* Make the menu full height */
-overflow-y: auto; /* Enable scrolling for the menu if needed */
-margin-top: 50px;
-}
+.nav {width: 200px; /* Set a fixed width for the vertical menu */background-color: #007733;position: fixed; /* Fixed position to keep it visible */height: 100%; /* Make the menu full height */overflow-y: auto; /* Enable scrolling for the menu if needed */margin-top: 50px;}
 
 .nav > .nav-header {
 padding: 10px;

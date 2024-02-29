@@ -225,9 +225,12 @@ background-position: 0% 50%;
 }
 }
 
-.Farm-Stats {
+.Farm-Stats-content {
   padding-top:30px;
-  background-color:#fcf8f8;
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
   align-items:center;
   justify-content:center;
   display: flex;
@@ -381,12 +384,6 @@ button {
   -webkit-text-stroke-width: 1px; /* Adjust text stroke width */
   -webkit-text-stroke-color: black;
   top:45%;
-}
-.Farm-Stats{
-  
-  background-image: url("/static/dashboard/images/nature.avif");
-
-  
 }
 @keyframes animat{
   0%{

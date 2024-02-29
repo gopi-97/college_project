@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from manage_account.models import Farmer
 from manage_account.urls import *
-from .models import FarmerInventory,InventoryGallery
+from .models import FarmerInventory
 from cultivation.models import CurrentCultivation
 import plotly.graph_objs as go
 import plotly.offline as opy
@@ -112,20 +112,6 @@ class InventoryDetail(LoginRequiredMixin, DetailView):
 
 
 
-def inventoryGallery(request):
-    user = request.session.get('username')
-    userData = FarmerInventory.objects.filter(user_id=user)
-    gallery_images = []
-    for item in userData:
-        for gallery_item in item.gallery.all():
-            # Read image data from the ImageFieldFile object
-            with gallery_item.GalleryImage.open('rb') as f:
-                image_data = f.read()
-            # Convert image data to Base64 encoding
-            base64_image = base64.b64encode(image_data).decode('utf-8')
-            gallery_images.append(base64_image)
-    context = {'inventoryImages': gallery_images}
-    return render(request, 'inventory/inventory_gallery.html', context)
 
 
 
@@ -155,7 +141,6 @@ class InventoryUpdate(LoginRequiredMixin,UpdateView):
             product_id = request.product_id,
             quantity=request.POST.get('quantity'),
             image=request.FILES.get('image'),
-            gallery=request.FILES.get('gallery'),
 
         )
 

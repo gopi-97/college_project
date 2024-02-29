@@ -1,44 +1,75 @@
+<div class="container">
+  <h1>Inventory Details</h1>
 
-<!-- inventory_detail.html -->
+  <table class="inventory-table">
+      <tr>
+          <td class="table-heading">Product:</td>
+          <td>{{ inventory.product }}</td>
+      </tr>
+      <tr>
+          <td class="table-heading">Quantity:</td>
+          <td>{{ inventory.quantity }}</td>
+      </tr>
+      
+  </table>
+</div>
+<a href="{% url 'inventory-item-update' inventory.id %}" class="update-link">Update</a></div>
+  <br><br>
 
-<h1>Inventory Details</h1>
+  <a href="{% url 'inventory-list-full' %}" class="go-back-link">Go Back</a>
+</div>
 
-<table>
-    <tr>
-        <td>Product: {{ inventory.product }}</td>
-    </tr>
-    <tr>
-        <td>Quantity: {{ inventory.quantity }}</td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'inventory-item-update'  inventory.id %}">update</a></td>
-    </tr>
-</table>
-
-<br><br>
 
 <style>
-    div.scroll-container {
-      background-color: #333;
-      overflow: auto;
-      white-space: nowrap;
-      padding: 10px;
-      object-fit:contain;
-    }
-    
-    div.scroll-container img {
-      padding: 10px;
-    }
-    </style>
-    
-    <h1>Inventory Gallery</h1>
-    <div class="scroll-container">
-    {% for images in inventoryImages %}
-      <img src="{{ images.jpg }}" alt="image" >
-    {% endfor %}
-    </div>
-    
-    
-    
 
-<a href="{% url 'inventory-list-full' %}">go back</a>
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    color: #4caf50;
+}
+
+.inventory-table {
+    width: 100%;
+}
+
+.inventory-table .table-heading {
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.update-link {
+    color: #fff;
+    background-color: #4caf50;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin:20px;
+}
+
+.update-link:hover {
+    background-color: #45a049;
+}
+
+.go-back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #4caf50;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.go-back-link:hover {
+    background-color: #45a049;
+}
+
+</style>

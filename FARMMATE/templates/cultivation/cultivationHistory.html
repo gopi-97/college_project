@@ -4,8 +4,9 @@
 
 
 <div class="cultivationHistory">
+  <h3>cultivation history</h3>
   {% if cultivationData %}
-    <h3>cultivation history</h3>
+    
     <table class="center">
       <thead>
         <tr>
@@ -29,6 +30,8 @@
         </tr>
       </tbody>
     </table>
+    {% else %}
+      <p>no data</p>
   {% endif %}
   <button class="show-more" onclick="fullCultivationHistory()">show more</button>
 </div>

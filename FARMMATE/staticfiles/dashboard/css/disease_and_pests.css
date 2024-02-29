@@ -7,6 +7,7 @@
   z-index: 1000; /* Set a higher z-index to ensure it appears above other elements */
 }
 
+
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -59,12 +60,12 @@ th {
 body {
   margin: 0px;
   font-family: "segoe ui";
-  background-color: #d9d9d9;
+  background-color: #ffffff;
 }
 
 .nav {
   width: 200px; /* Set a fixed width for the vertical menu */
-  background-color: #4d4d4d;
+  background-color: #007733;
   position: fixed; /* Fixed position to keep it visible */
   height: 100%; /* Make the menu full height */
   overflow-y: auto; /* Enable scrolling for the menu if needed */
@@ -98,6 +99,18 @@ body {
 .nav > .nav-links > a:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+img{
+  width:70%;
+  border-radius:8px;
+  box-shadow:10px 10px 5px grey;
+  transition:1s ease-out;
+}
+img:hover{
+  transition:1s ease-in-out;
+  scale:1.05;
+}
+
 
 @media (max-width: 600px) {
   .nav {
@@ -157,13 +170,7 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-.responsive img {
-  border-radius: 10px;
 
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-}
 .b {
   position: fixed;
   left: 95%;

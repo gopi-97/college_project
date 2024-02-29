@@ -9,18 +9,19 @@
 <h3>items</h3>
 <table>
   {% for TASK in tasks %}
+
   <tr>
     <td>
       task: {{TASK.title}}<br />
     </td>
     <td>
-      <div class="task-list-dropdown">
+    <div class="task-list-dropdown">
         <button onclick="todoDropDownFunction()" class="todo-dropbtn">Actions</button>
             <div id="todo-Dropdown" class="todo-dropdown-content">
                 <a href="{% url 'task-update'  TASK.id %}">update</a>
                 <a href="{% url 'task-delete'  TASK.id %}">delete</a> 
             </div>
-      </div>
+    </div>
     </td>
   </tr>
   {% empty %}

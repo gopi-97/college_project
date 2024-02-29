@@ -1,14 +1,12 @@
 html {
   display: flex;
   justify-content: center;
-  height: 150vh;
-  background-color: #e7e3ee;
+
 }
 .inventory-update {
   position: relative;
-  top: 200px;
-
   display: flex;
+  top:20px;
   flex-direction: column;
   max-width: 400px;
   margin: 20px auto;
@@ -71,7 +69,6 @@ html {
 
 .goback {
   position: relative;
-  top: 150px;
   margin-left: 130px;
   align-items: center;
   font-weight: bolder;

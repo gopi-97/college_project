@@ -1,10 +1,6 @@
 {% load static %}
 
-<link
-  rel="stylesheet"
-  href="{% static 'todo/css/full_task_list.css' %}"
-  class="css"
-/>
+<link rel="stylesheet" href="{% static 'todo/css/full_task_list.css' %}" class="css" />
 
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -12,43 +8,36 @@
     <div id="popup-content"></div>
   </div>
 </div>
+
 <div class="full_task_list">
-  <h2>your entire tasks</h2>
-</div>
-<table>
-  {% for TASK in tasks %}
-  <td>
-    task: {{TASK.title}}<br />
+  <div class="full-task-list-heading">
+    <h2>Your Entire Tasks</h2>
+  </div>
 
-    <button
-      class="task-list-btn task-list-item-view"
-      data-url="{% url 'task-detail' TASK.id %}"
-    >
-      view
-    </button>
-    <button
-      class="task-list-btn task-list-item-update"
-      data-url="{% url 'task-update'  TASK.id %}"
-    >
-      update
-    </button>
-    <button
-      class="task-list-btn task-list-item-delete"
-      data-url="{% url 'task-delete'  TASK.id %}"
-    >
-      delete
-    </button>
-  </td>
-  <td>
+  <table class="task-table">
+    {% for task in tasks %}
+    <tr>
+      <td>
+        <strong>Task:</strong> {{ task.title }}<br />
+        <button class="task-list-btn task-list-item-view" data-url="{% url 'task-detail' task.id %}">View</button>
+        <button class="task-list-btn task-list-item-update" data-url="{% url 'task-update' task.id %}">Update</button>
+        <button class="task-list-btn task-list-item-delete" data-url="{% url 'task-delete' task.id %}">Delete</button>
+      </td>
+    </tr>
     {% empty %}
-    <h3>no items in list</h3>
-
-    <a href="{% url 'task-create' %}">add new task</a>
+    <tr>
+      <td colspan="3">
+        <h3>No items in list</h3>
+      </td>
+    </tr>
     {% endfor %}
-    <br /><br />
-    <a href="{% url 'task-create' %}">add new task</a>
-  </td>
-</table>
+  </table>
+  
+  <br />
+  <a href="{% url 'task-create' %}" class="add-task-link">Add New Task</a>
+  <a href="{% url 'dashboard' %}" class="add-task-link">dashboard</a>
+
+</div>
 
 <script>
   // Get the modal
@@ -74,13 +63,12 @@
   // Function to handle button clicks
   function handleButtonClick(event) {
     // Get the URL from the data-url attribute of the clicked button
-    console.log(url);
     var url = event.target.dataset.url;
-    console.log(url);
 
     // Open the popup window with the specified URL
     openModal(url);
   }
+
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = "none";
@@ -93,9 +81,9 @@
     }
   };
 
-  var todoviewButtons = document.querySelectorAll("task-list-item-view");
-  var todoupdateButtons = document.querySelectorAll("task-list-item-update");
-  var tododeleteButtons = document.querySelectorAll("task-list-item-delete");
+  var todoviewButtons = document.querySelectorAll(".task-list-item-view");
+  var todoupdateButtons = document.querySelectorAll(".task-list-item-update");
+  var tododeleteButtons = document.querySelectorAll(".task-list-item-delete");
 
   todoviewButtons.forEach(function (button) {
     button.addEventListener("click", handleButtonClick);

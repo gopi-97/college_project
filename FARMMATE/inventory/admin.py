@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import FarmerInventory,InventoryGallery
+from .models import FarmerInventory
 # Register your models here.
-admin.site.register([FarmerInventory,InventoryGallery])
+admin.site.register(FarmerInventory)

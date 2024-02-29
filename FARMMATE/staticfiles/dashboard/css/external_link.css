@@ -68,7 +68,7 @@ table {
   
   .nav {
     width: 200px; /* Set a fixed width for the vertical menu */
-    background-color: #4d4d4d;
+    background-color: #007733;
     position: fixed; /* Fixed position to keep it visible */
     height: 100%; /* Make the menu full height */
     overflow-y: auto; /* Enable scrolling for the menu if needed */

@@ -1,19 +1,19 @@
 from typing import Any
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import FarmerLoginForm,FarmerRegistrationForm
-from django.contrib.auth import  login, logout
-from django.core.mail import send_mail,BadHeaderError
+from django.contrib.auth import  login
 from django.contrib import messages
 from .models import Farmer
 from .custom_exceptions import USERNAMEEXISTS
 from django.urls import reverse_lazy
 from django.views.generic import FormView
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.contrib.auth import authenticate
-from django.contrib.auth.views import LoginView ,LogoutView
+from django.contrib.auth.views import LogoutView
+from django.urls import reverse
+
 
 class home(LoginRequiredMixin,TemplateView):
     template_name='dashboard/launch.html'
@@ -40,7 +40,7 @@ class register(FormView):
     def form_valid(self, form: FarmerRegistrationForm) -> HttpResponse:
         password = form.cleaned_data.get('password1')
         confirm_password = form.cleaned_data.get('password2')
-        images=form.FILES.get('profile_pic')
+        images=form.fields.get('profile_pic')
         if password != confirm_password:
             messages.error(self.request, "Passwords don't match.")
             return self.form_invalid(form)
@@ -73,11 +73,21 @@ def userLogin(request):
                 # Specify the backend explicitly when calling login() as we are using custom authentication backend 
                 login(request, user)
                 request.session['username'] =username
-
-                messages.success(request, 'Login successful.')
-                return redirect('home') 
+                script = """
+            <script>
+                alert(" Login Successfull");
+                window.location.href = "{0}";
+            </script>
+            """.format(reverse('home'))
+                return HttpResponse(script)
             else:
-                generate_message(request,"INVALID CREDENTIALS!!")
+                script = """
+            <script>
+                alert(" Invalid Credentials!!");
+                window.location.href = "{0}";
+            </script>
+            """.format(reverse('userlogin'))
+                return HttpResponse(script)
         else:
             pass
     except Exception as e:
