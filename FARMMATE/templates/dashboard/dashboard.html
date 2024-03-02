@@ -98,15 +98,15 @@
   <body>
     <header>
       <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
+        <a class="active" href="{% url 'comming-soon' %}">Home</a>
+        <a href="{% url 'comming-soon' %}">News</a>
+        <a href="{% url 'comming-soon' %}">Contact</a>
         <div class="topnav-right">
           <a href="{% url 'logout' %}">logout</a>
         </div>
         <div class="prof-img">
           {% if profile_pic %}
-          <img src="{{ profile_pic }}" class="profile_pic" />
+         <img src="{{ profile_pic }}" class="profile_pic" />
           {% endif %}
         </div>
       </div>
@@ -224,8 +224,8 @@
     </div>
 
     <footer>
-          <h3>FarmMate</h3>
-          <p><a href="mailto:farmers.assistance.system@gmail.com">mail us</a></p>
+          <a href="{% url 'comming-soon' %}"><h3>FarmMate</h3></a>
+          <p><a href="{% url 'comming-soon' %}">mail us</a></p>
     </footer>
 
     <script>

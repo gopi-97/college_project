@@ -18,7 +18,10 @@ class FarmerRegistrationForm(UserCreationForm):
         username = self.cleaned_data['username']
         if Farmer.objects.filter(username=username).exists():
             raise USERNAMEEXISTS("Username already exists.")
-
+        
+        user = super(FarmerRegistrationForm, self).save(commit=False)
+        user.profile_pic = self.cleaned_data['profile_pic']
+        user.save()
         return super().save(commit=commit,*args, **kwargs)
     
 
@@ -29,7 +32,7 @@ class FarmerRegistrationForm(UserCreationForm):
         widgets={
             'username':forms.TextInput(attrs={'placeholder': 'Username', 'name' :'user_name', 'id': 'id_user_name', 'class': 'name'}),
             'profile_pic': forms.FileInput(attrs={'accept': 'image/*'}),
-            'full_name':forms.TextInput(attrs={'placeholder': 'First name', 'name' :'full_name', 'id': 'id_full_name', 'class': 'name'}),
+            'full_name':forms.TextInput(attrs={'placeholder': 'full name', 'name' :'full_name', 'id': 'id_full_name', 'class': 'name'}),
             'password1' : forms.PasswordInput( attrs={'placeholder': 'Password', 'name': 'password', 'id': 'password'}),
             'password2' : forms.PasswordInput( attrs={'placeholder': 'Confirm Password', 'name': 'password', 'id': 'confirm_password'}),
             'phone_number':forms.TextInput(attrs={'placeholder': 'Password', 'name': 'phone_number', 'value':'+91', 'id' : 'id_phone_number'}),

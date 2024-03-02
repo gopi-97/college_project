@@ -14,6 +14,7 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.detail import DetailView
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
+import random
 # Create your views here.
 
 
@@ -92,7 +93,7 @@ class addToInventory(LoginRequiredMixin,UpdateView):
         cultivation = Cultivation.objects.create(
             user=request.user,
             product=current_cultivation.product,
-            product_id=current_cultivation.product_id,
+            product_id=current_cultivation.product_id+str(random.randint(0,1000)),
             location=current_cultivation.location,
             cultivated_area=current_cultivation.cultivated_area,
             start_date=current_cultivation.start_date,
@@ -107,7 +108,7 @@ class addToInventory(LoginRequiredMixin,UpdateView):
             product=current_cultivation.product,
             product_id = current_cultivation.product_id,
             quantity=request.POST.get('quantity'),
-            images=request.FILES.get('images')
+            image=request.FILES.get('images')
         )
         inventory.save()
 

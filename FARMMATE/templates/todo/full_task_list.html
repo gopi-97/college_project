@@ -34,8 +34,8 @@
   </table>
   
   <br />
-  <a href="{% url 'task-create' %}" class="add-task-link">Add New Task</a>
-  <a href="{% url 'dashboard' %}" class="add-task-link">dashboard</a>
+  <button data-url="{% url 'task-create' %}" class="add-task-link">Add New Task</button>
+  <button id="task-form-dshbrd-btn" class="add-task-link">dashboard</button>
 
 </div>
 
@@ -84,6 +84,8 @@
   var todoviewButtons = document.querySelectorAll(".task-list-item-view");
   var todoupdateButtons = document.querySelectorAll(".task-list-item-update");
   var tododeleteButtons = document.querySelectorAll(".task-list-item-delete");
+  var addNewTaskButton = document.querySelector(".add-task-link");
+  var dashboardButton = document.getElementById("task-form-dshbrd-btn");
 
   todoviewButtons.forEach(function (button) {
     button.addEventListener("click", handleButtonClick);
@@ -93,5 +95,9 @@
   });
   tododeleteButtons.forEach(function (button) {
     button.addEventListener("click", handleButtonClick);
+  });
+  addNewTaskButton.addEventListener("click",handleButtonClick);
+  dashboardButton.addEventListener("click",()=>{
+    window.location.href="{% url 'dashboard' %}";
   });
 </script>

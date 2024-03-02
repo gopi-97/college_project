@@ -37,3 +37,8 @@ def externalLinks(request):
 @login_required
 def diseaseAndPests(request):
     return render(request,'dashboard/disease_and_pests.html')
+
+
+@login_required
+def commingSoon(request):
+    return render(request,'dashboard/comming_soon.html')

@@ -7,4 +7,5 @@ urlpatterns = [
     path('cropconsultants/',cropConsultants,name ='crop-consultants'),
     path('externalLinks/',externalLinks,name ='external-links'),
     path('diseasePests/',diseaseAndPests,name ='disease-pests'),
+    path('comming-soon/',commingSoon,name ='comming-soon'),
 ]

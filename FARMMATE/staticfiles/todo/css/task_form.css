@@ -1,12 +1,10 @@
 html {
   display: flex;
   justify-content: center;
-  height: 150vh;
   background-color: #e7e3ee;
 }
 .todo-update-form {
   position: relative;
-  top: 200px;
 
   display: flex;
   flex-direction: column;
