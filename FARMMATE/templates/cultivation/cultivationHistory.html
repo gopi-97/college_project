@@ -1,0 +1,42 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'dashboard/css/currentCultivation.css' %}" class="css" />
+<link rel="icon" href="/static/dashboard/images/logo.png" type="image/png">
+
+
+<div class="cultivationHistory">
+  <h3>cultivation history</h3>
+  {% if cultivationData %}
+    
+    <table class="center">
+      <thead>
+        <tr>
+          <th>items</th>
+          <th>cultivation day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for items in cultivationData %}
+        <tr>
+          <td align="center">
+            <br /><b>
+              <ul>
+                {{ items.product }}
+              </ul>
+            </b>
+          </td>
+          <td align="center">{{ items.start_date }}</td>
+
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+    {% else %}
+      <p>no data</p>
+  {% endif %}
+  <button class="show-more" onclick="fullCultivationHistory()">show more</button>
+</div>
+<script>
+  function fullCultivationHistory(){
+    window.location.href = "{% url 'cultivation-list' %}";
+  }
+</script>

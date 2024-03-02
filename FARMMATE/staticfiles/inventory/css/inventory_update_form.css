@@ -1,0 +1,84 @@
+html {
+  display: flex;
+  justify-content: center;
+
+}
+.inventory-update {
+  position: relative;
+  display: flex;
+  top:20px;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid lightblue;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+/* Style form headings */
+.inventory-update h1 {
+  font-size: 1.5em;
+  color: green;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Style form labels and input fields */
+.inventory-update label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.inventory-update input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.inventory-update p a {
+  padding: 10px;
+  margin: 5px;
+  display: block;
+  border: 1px solid;
+  border-radius: 8px;
+  color: grey;
+}
+/* Style the file input */
+.inventory-update input[type="file"] {
+  margin-top: 10px;
+}
+
+/* Style the submit button */
+.inventory-update input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.inventory-update input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.goback {
+  position: relative;
+  margin-left: 130px;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.goback a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.goback a:hover {
+  text-decoration: underline;
+}

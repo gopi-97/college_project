@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard/css/crop_consultant.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/static/dashboard/images/logo.png" type="image/png">
+  </head>
+
+  <body>
+    <header>
+      <div class="topnav">
+        <div class="topnav-right">
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+        </div>
+      </div>
+    </header>
+
+    <table id="consultantTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="consultant-row" data-image-path="{% static '\dashboard\images\johndoe.jpg' %}">
+          <td>John Doe</td>
+          <td>john.doe@example.com</td>
+          <td>123-456-7890</td>
+          <td><img src="{% static '\dashboard\images\johndoe.jpg' %}"alt="johndoe"></td>
+        </tr>
+        <tr class="consultant-row"  data-image-path="{% static '\dashboard\images\nikson.jpg' %}">
+          <td>Nikson K A</td>
+          <td>niksonka06@gmail.com</td>
+          <td>+9144734543</td>
+          <td><img src="{% static '\dashboard\images\nikson.jpg' %}" alt="nikson"></td>
+        </tr>
+        <tr class="consultant-row"  data-image-path="{% static '\dashboard\images\gopi.jpg' %}">
+          <td>Gopikrishnan P V</td>
+          <td>gopikrishananpv9@gmail.com</td>
+          <td>+917248633</td>
+          <td><img src="{% static '\dashboard\images\gopi.jpg' %}" alt="gopi"></td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+
+    <div id="overlay"></div>
+
+    <div id="popup">
+      <span id="closeBtn" onclick="closePopup()">X</span>
+      <h2>Consultant Details</h2>
+      <div id="popupContent"></div>
+    </div>
+
+    <script>
+        const rows = document.querySelectorAll(".consultant-row");
+      
+        rows.forEach((row) => {
+          row.addEventListener("click", () => {
+            const name = row.cells[0].textContent;
+            const email = row.cells[1].textContent;
+            const phone = row.cells[2].textContent;
+      
+            // Assume the consultant's image path is stored in the data attribute of the row
+            const imagePath = row.dataset.imagePath ;
+      
+            const cardHTML = `
+              <div class="card">
+                <img src="${imagePath}" alt="${name}" style="width:100%">
+                <h1>${name}</h1>
+                <p class="title">Consultant</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+               
+                <p><button>Contact</button></p>
+              </div>
+            `;
+      
+            document.getElementById("popupContent").innerHTML = cardHTML;
+      
+            openPopup();
+          });
+        });
+      
+        function openPopup() {
+          document.getElementById("popup").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+        }
+      
+        function closePopup() {
+          document.getElementById("popup").style.display = "none";
+          document.getElementById("overlay").style.display = "none";
+        }
+      </script>
+      
+  </body>
+
+</html>

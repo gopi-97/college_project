@@ -16,10 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("manage_account.urls")),
-    path("",include("dashboard.urls")),
-    path("",include("todo.urls")),
+    path("dashboard/",include("dashboard.urls")),
+    path("task/",include("todo.urls")),
+    path("inventory/",include("inventory.urls")),
+    path("cultivation/",include("cultivation.urls")),
 
-]
+] + static(settings.MEDIA_URL,document_root =settings.MEDIA_ROOT) # automatically creates url for the files uploaded and stores it in the directory specified

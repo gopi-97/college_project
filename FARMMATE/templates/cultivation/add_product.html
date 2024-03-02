@@ -1,0 +1,48 @@
+{% load static %}
+<link rel="icon" href="/static/dashboard/images/logo.png" type="image/png">
+
+  <div class="cultivation-form">
+    <form method="POST" action="{% url 'add-product' %}">
+      {% csrf_token %}
+      <label for="product">Product:</label>
+
+      <select name="product" id="product">
+        <option value="Basmati Rice">Basmati Rice</option>
+        <option value="Red Rice">Red Rice</option>
+        <option value="Brown Rice">Brown Rice</option>
+        <option value="Jasmin Rice">Jasmin Rice</option>
+        <option value="Parboiled Rice">Parboiled Rice</option>
+      </select><br /><br />
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required /><br /><br />
+
+      <label for="cultivated_area">Cultivated Area:</label>
+      <input
+        type="text"
+        id="cultivated_area"
+        name="cultivated_area"
+        required
+      /><br /><br />
+
+      <label for="start_date">Start Date:</label>
+      <input
+        type="datetime-local"
+        id="start_date"
+        name="start_date"
+        required
+      /><br /><br />
+
+      <label for="description">Description:</label><br />
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+      <input class="submit-btn" type="submit" value="Submit" />
+    </form>
+  </div>
+</div>

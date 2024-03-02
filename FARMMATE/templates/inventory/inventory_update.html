@@ -1,0 +1,17 @@
+{% load static %}
+<link
+  rel="stylesheet"
+  href="{% static 'inventory/css/inventory_update_form.css' %}"
+  class="css"
+/>
+<div class="inventory-update">
+  <h1>Inventory Update form</h1>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+    <!-- as_p organises form as paragraph -->
+    <input type="submit" value="save" />
+  </form>
+</div>
+<div class="goback">
+  <a href="{% url 'dashboard' %}">go back to dashboard</a>
+</div>

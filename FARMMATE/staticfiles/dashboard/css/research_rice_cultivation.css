@@ -1,0 +1,274 @@
+
+.topnav{
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Add this line to make the navbar fixed */
+  width: 100%; /* Set the width to 100% to span the entire width of the viewport */
+  top: 0px;
+left:0px;/* Stick the navbar to the top */
+  z-index: 1000; /* Set a higher z-index to ensure it appears above other elements */
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+body {
+	font-size: 12px;
+	font-family: sans-serif;
+
+}
+
+
+p {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #ecf0f1;
+    font-family: 'Cherry Swash',cursive;
+    font-size: 16px;
+}
+
+
+
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html h1 {
+	font-size :2rem;
+	margin:50px;
+	padding:20px;
+  
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+	border-radius:20px;
+  display:grid;
+	grid-template-columns:auto auto;
+	gap:50px;
+
+}
+
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+	display:flex;
+	object-fit:contain;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+width:30vw;
+	max-width:500px;
+
+}
+.card img{
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+
+.card_content {
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+width:70%;
+  background:rgb(58, 101, 58);
+}
+
+.card_title {
+  color: #ffffff;
+
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 20px;
+	box-sizing:border-box;
+  
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;   
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+p {
+  font-size: 17px;
+  align-items: center;
+}
+
+.box a {
+  display: inline-block;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 2px;
+  margin: auto;
+  text-decoration: none;
+  height: 5;
+  font-size: medium;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.box pre button {
+  background-color:white; /* Change to green on hover */
+  border: 2px solid rgb(49, 36, 36);
+  border-radius: 5px;
+  
+}
+
+
+.modal {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+  transition: all 0.4s;
+  visibility: hidden;
+  opacity: 0;
+  
+
+}
+
+.content {
+  position: absolute;
+  background:white;
+  width:70%;
+  padding: 1em 2em;
+  border-radius: 4px;
+  margin-top: 100px;
+  font-size: 15px;
+	letter-spacing:1px;
+   background: linear-gradient(#ffffff,#ecfff1) padding-box,
+          linear-gradient(145deg, #06f830 35%,#197e30, #043608) border-box;
+border: 3px solid transparent;
+  border-radius: 10px;
+}
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.box-close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  color: #fe0606;
+  text-decoration: none;
+  font-size: 25px;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+p{
+  font-size: 10px;
+  color: black;
+}
+
+h1{
+  text-align: center;
+}
+
+.hh{
+  margin-top: 50px;
+}

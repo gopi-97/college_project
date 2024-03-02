@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class FarmerManager(UserManager):
 
-    def _create_user(self, username: str, password: str | None = ..., **extra_fields: Any) -> Any:
+    def _create_user(self, username: str, password, **extra_fields: Any) -> Any:
         if not username:
             raise ValueError('username not provided')
         
@@ -27,9 +27,13 @@ class FarmerManager(UserManager):
         extra_fields.setdefault('is_superuser',True)
         return self._create_user(username,password,**extra_fields)
     
+def user_directory(instance,filename):
+    user_id = instance.username
+    return f'manage_account/{user_id}/ProfilePics/{filename}'
 
 class Farmer(AbstractBaseUser,PermissionsMixin):
     username = models.CharField(primary_key=True,max_length=12,unique=True,blank=False)
+    profile_pic = models.ImageField(upload_to=user_directory,blank=True,null=True)
     full_name = models.CharField(max_length=30, blank=False)
     phone_number = models.CharField(max_length=17, blank=True)
     email = models.EmailField(unique=False, blank=False)
@@ -48,8 +52,10 @@ class Farmer(AbstractBaseUser,PermissionsMixin):
     REQUIRED_FIELDS = ['full_name','email']
 
     class Meta:
+        db_table = 'farmer'
         verbose_name = 'Farmer'
         verbose_name_plural = 'Farmers'
+
 
     def get_full_name(self):
         return self.full_name

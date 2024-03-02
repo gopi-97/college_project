@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    {% load static %}
+    <link href="{% static 'manage_account/css/login.css' %}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/static/dashboard/images/logo.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <img src="{% static 'manage_account/images/logo.png' %}" alt="Image">
+        </div>
+        
+        <div class="right-panel">
+            <span>
+                <h2>Login</h2>
+            </span>
+            <form method="post" action="{% url 'userlogin' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Login"> 
+            </form>
+            <p>are you an admin? <a href="{% url 'admin:login' %}" class="admin-link">ClickHere</a></p>
+            <p>Not registered yet? <a href="{% url 'signup' %}">Register</a></p>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="messages">
+                {{ message }} 
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <button onclick="logout()">logout</button>
+</body>
+</html>
+<script>
+    function logout(){
+        window.location.href="{% url 'logout' %}";
+    }
+</script>

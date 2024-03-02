@@ -1,0 +1,201 @@
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed; /* Add this line to make the navbar fixed */
+  width: 100%; /* Set the width to 100% to span the entire width of the viewport */
+  top: 0; /* Stick the navbar to the top */
+  z-index: 1000; /* Set a higher z-index to ensure it appears above other elements */
+}
+
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+.content1 {
+  padding-top: 50px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 2px;
+  border-color: #04aa6d;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #96d4d4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: "segoe ui";
+  background-color: #ffffff;
+}
+
+.nav {
+  width: 200px; /* Set a fixed width for the vertical menu */
+  background-color: #007733;
+  position: fixed; /* Fixed position to keep it visible */
+  height: 100%; /* Make the menu full height */
+  overflow-y: auto; /* Enable scrolling for the menu if needed */
+  margin-top: 15px;
+}
+
+.nav > .nav-header {
+  padding: 10px;
+}
+
+.nav > .nav-header > .nav-title {
+  font-size: 22px;
+  color: #fff;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+img{
+  width:70%;
+  border-radius:8px;
+  box-shadow:10px 10px 5px grey;
+  transition:1s ease-out;
+}
+img:hover{
+  transition:1s ease-in-out;
+  scale:1.05;
+}
+
+
+@media (max-width: 600px) {
+  .nav {
+    width: 100%; /* Make it full width for small screens */
+    position: fixed;
+    height: auto;
+    margin-top: 28px;
+  }
+
+  .nav > .nav-links {
+    position: static;
+    display: none; /* Hide the links by default */
+    background-color: #333;
+  }
+
+  .nav > .nav-btn {
+    display: block; /* Show the button for small screens */
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 34px;
+  }
+
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 2px; /* Adjust the height to make it a horizontal line */
+    background-color: #eee;
+    margin-bottom: 5px; /* Add some spacing between lines */
+  }
+
+  .nav > #nav-check:checked ~ .nav-links {
+    display: block; /* Show the links when the checkbox is checked */
+  }
+}
+
+.content {
+  padding-left: 250px;
+}
+h1 {
+  text-align: center;
+}
+.responsive {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.b {
+  position: fixed;
+  left: 95%;
+  bottom: 10%;
+  scale: 1.5;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 600px) {
+  .content {
+    padding-left: 11px;
+  }
+  .disease1 h1 {
+    padding-top: 20px;
+  }
+  .content {
+    padding-top: 30px;
+  }
+}
+.label {
+  padding-top: 30px;
+}
+.disease {
+  padding-top: 45px;
+}
+p {
+  font-family: math;
+  font-size: 20px;
+}

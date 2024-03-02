@@ -1,0 +1,7 @@
+<form action="{% url 'inventory-item-delete' cultivation.id %}" method="post">
+    {% csrf_token %}
+    <p>are you sure you want to remove this product from inventory? </p>
+    <input type="submit" value="delete">
+</form>
+
+<a href="{% url 'dashboard' %}">go back</a>

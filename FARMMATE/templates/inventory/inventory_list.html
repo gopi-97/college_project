@@ -1,0 +1,32 @@
+
+    <h1>Products in your Inventory </h1>
+
+    <table class="center">   
+        <tr>
+            <th>Items</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        {% for items in InventoryList %}
+            <tr >
+                <td><b>{{ items.product }}</b></td>  
+                <td >{{ items.quantity }}</td>  
+                <td class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Actions</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="{% url 'inventory-item-update' items.id %}">update</a>
+                            <a href="{% url 'inventory-item-delete' items.id  %}">delete</a>
+                        </div>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3"><h3>No records found!!</h3></td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <a class='show-more'href="{% url 'inventory-list-full' %}"><button>show more</button></a>
+
+
+  

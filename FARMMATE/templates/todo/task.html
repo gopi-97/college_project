@@ -1,0 +1,12 @@
+
+<div class="card">
+  <h1 class="title">task: {{ task }}</h1>
+  <p class="small-desc"><b>description</b> : {{ task.description }}</p>
+  <br /><br />
+
+  <div class="corner">
+    <div class="go-back">
+      <a href="{% url 'dashboard' %}">go back</a>
+    </div>
+  </div>
+</div>

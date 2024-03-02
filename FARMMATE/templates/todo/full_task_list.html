@@ -1,0 +1,103 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'todo/css/full_task_list.css' %}" class="css" />
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close close-btn">&times;</span>
+    <div id="popup-content"></div>
+  </div>
+</div>
+
+<div class="full_task_list">
+  <div class="full-task-list-heading">
+    <h2>Your Entire Tasks</h2>
+  </div>
+
+  <table class="task-table">
+    {% for task in tasks %}
+    <tr>
+      <td>
+        <strong>Task:</strong> {{ task.title }}<br />
+        <button class="task-list-btn task-list-item-view" data-url="{% url 'task-detail' task.id %}">View</button>
+        <button class="task-list-btn task-list-item-update" data-url="{% url 'task-update' task.id %}">Update</button>
+        <button class="task-list-btn task-list-item-delete" data-url="{% url 'task-delete' task.id %}">Delete</button>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">
+        <h3>No items in list</h3>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  
+  <br />
+  <button data-url="{% url 'task-create' %}" class="add-task-link">Add New Task</button>
+  <button id="task-form-dshbrd-btn" class="add-task-link">dashboard</button>
+
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // Function to open the modal
+  function openModal(url) {
+    modal.style.display = "block";
+    fetch(url)
+      .then((response) => response.text())
+      .then((html) => {
+        // Set the HTML content inside the popup
+        document.querySelector("#popup-content").innerHTML = html;
+      })
+      .catch((error) => {
+        console.error("Error fetching content:", error);
+      });
+  }
+
+  // Function to handle button clicks
+  function handleButtonClick(event) {
+    // Get the URL from the data-url attribute of the clicked button
+    var url = event.target.dataset.url;
+
+    // Open the popup window with the specified URL
+    openModal(url);
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  var todoviewButtons = document.querySelectorAll(".task-list-item-view");
+  var todoupdateButtons = document.querySelectorAll(".task-list-item-update");
+  var tododeleteButtons = document.querySelectorAll(".task-list-item-delete");
+  var addNewTaskButton = document.querySelector(".add-task-link");
+  var dashboardButton = document.getElementById("task-form-dshbrd-btn");
+
+  todoviewButtons.forEach(function (button) {
+    button.addEventListener("click", handleButtonClick);
+  });
+  todoupdateButtons.forEach(function (button) {
+    button.addEventListener("click", handleButtonClick);
+  });
+  tododeleteButtons.forEach(function (button) {
+    button.addEventListener("click", handleButtonClick);
+  });
+  addNewTaskButton.addEventListener("click",handleButtonClick);
+  dashboardButton.addEventListener("click",()=>{
+    window.location.href="{% url 'dashboard' %}";
+  });
+</script>
